@@ -6,82 +6,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta name="url" content="https://zhouyu1993.github.io/awesome/alipay/?qrcode=c1x08040rouaeb7ylydzj03">
-    <title>正在打开支付宝</title>
+    <title>你觉得我帅不帅？</title>
+    <script src="https://open.mobile.qq.com/sdk/qqapi.js"></script>
+    <style>
+      body {
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .openUrl {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        color: #121212;
+        text-decoration: none;
+      }
+      h1 {
+        text-align: center;
+      }
+      .button {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+      .button-item-1 {
+        text-align: center;
+        line-height: 50px;
+        background-color: red;
+      }
+      .button-item-2 {
+        margin-top: 20px;
+        text-align: center;
+        line-height: 50px;
+        background-color: green;
+      }
+    </style>
   </head>
   <body>
+    <a href="https://qr.alipay.com/c1x08040rouaeb7ylydzj03" class="openUrl">
+      <h1>用QQ或QQ浏览器打开</h1>
+      <h1>你觉得我帅不帅？</h1>
+      <div class="button">
+        <div class="button-item-1">
+          帅！
+        </div>
+        <div class="button-item-2">
+          不帅！
+        </div>
+      </div>
+    </a>
     <script>
-    var query = {}
-    location.search.slice(1).split('&').forEach(function (v) {
-      var arr = v.split('=')
-      query[arr[0]] = arr[1]
-    })
-    var qrcode = query.qrcode || 'c1x08040rouaeb7ylydzj03'
-    var _0 = 'https://qr.alipay.com/' + qrcode + '?link=_0'
-    var _1 = 'https://qr.alipay.com/' + qrcode + '?link=_1'
-    function is_weixin () {
-      if (/MicroMessenger/i.test(navigator.userAgent)) {
-        return true
-      } else {
-        return false
+      if (/eruda=true/.test(window.location)) {
+        document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
+        document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
       }
-    }
-    function is_android () {
-      var a = navigator.userAgent.toLowerCase()
-      if (a.match(/(Android|SymbianOS)/i)) {
-        return true
-      } else {
-        return false
-      }
-    }
-    function is_ios () {
-      var a = navigator.userAgent.toLowerCase()
-      if (/iphone|ipad|ipod/.test(a)) {
-        return true
-      } else {
-        return false
-      }
-    }
-    function android_auto_jump () {
-      WeixinJSBridge.invoke('jumpToInstallUrl', {}, function (e) {})
-      window.close()
-      WeixinJSBridge.call('closeWindow')
-    }
-    function ios_auto_jump () {
-      if (_0 != '') {
-        location.href = _0
-      } else {
-        window.close()
-        WeixinJSBridge.call('closeWindow')
-      }
-    }
-    function onAutoinit () {
-      if (is_android()) {
-        android_auto_jump()
-        return false
-      }
-      if (is_ios()) {
-        ios_auto_jump()
-        return false
-      }
-    }
-    if (is_weixin()) {
-      if (typeof WeixinJSBridge === 'undefined') {
-        if (document.addEventListener) {
-          document.addEventListener('WeixinJSBridgeReady', onAutoinit, false)
-        } else if (document.attachEvent) {
-          document.attachEvent('WeixinJSBridgeReady', onAutoinit)
-          document.attachEvent('onWeixinJSBridgeReady', onAutoinit)
+    </script>
+    <script>
+      var query = {}
+      location.search.slice(1).split('&').forEach(function (v) {
+        var arr = v.split('=')
+        query[arr[0]] = arr[1]
+      })
+      var qrcode = query.qrcode || 'c1x08040rouaeb7ylydzj03'
+      var url = 'https://qr.alipay.com/' + qrcode
+      document.querySelector('.openUrl').setAttribute('href', url)
+
+      function is_weixin () {
+        if (/MicroMessenger/i.test(navigator.userAgent)) {
+          return true
+        } else {
+          return false
         }
-      } else {
-        onAutoinit()
       }
-    } else {
-      if (_1 != '') {
-        location.href = _1
-      } else {
-        window.close()
+      function is_qq () {
+        var ua = navigator.userAgent.toLowerCase()
+        if (ua.match(/(QQ)/i)) {
+          return true
+        } else {
+          return false
+        }
       }
-    }
+
+      function is_android () {
+        var a = navigator.userAgent.toLowerCase()
+        if (a.match(/(Android|SymbianOS)/i)) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      function is_ios () {
+        var a = navigator.userAgent.toLowerCase()
+        if (/iphone|ipad|ipod/.test(a)) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      function android_auto_jump () {
+        WeixinJSBridge.invoke('jumpToInstallUrl', {}, function (e) {
+          console.log(e)
+        })
+
+        console.log('android', url)
+
+        setTimeout(() => {
+          mqq.invoke('ui', 'openUrl', {
+            url: url,
+            target: 2,
+            style: 0
+          })
+        }, 500)
+        setTimeout(() => {
+          location.href = url
+        }, 1000)
+
+        // window.close()
+        // WeixinJSBridge.call('closeWindow')
+      }
+
+      function ios_auto_jump () {
+        if (url !== '') {
+          console.log('ios', url)
+
+          setTimeout(() => {
+            mqq.invoke('ui', 'openUrl', {
+              url: url,
+              target: 2,
+              style: 0
+            })
+          }, 500)
+
+          setTimeout(() => {
+            location.href = url
+          }, 1000)
+          
+          // window.close()
+          // WeixinJSBridge.call('closeWindow')
+        } else {
+          window.close()
+          WeixinJSBridge.call('closeWindow')
+        }
+      }
+
+      function onAutoinit () {
+        if (is_android()) {
+          android_auto_jump()
+          return false
+        }
+        if (is_ios()) {
+          ios_auto_jump()
+          return false
+        }
+      }
+
+      if (is_weixin()) {
+        if (typeof WeixinJSBridge === 'undefined') {
+          if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onAutoinit, false)
+          } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onAutoinit)
+            document.attachEvent('onWeixinJSBridgeReady', onAutoinit)
+          }
+        } else {
+          onAutoinit()
+        }
+      } else if (is_qq()) {
+        console.log('qq', url)
+        mqq.invoke('ui', 'openUrl', {
+          url: url,
+          target: 2,
+          style: 0
+        })
+      } else {
+        if (url !== '') {
+          location.href = url
+        } else {
+          window.close()
+        }
+      }
     </script>
   </body>
 </html>
