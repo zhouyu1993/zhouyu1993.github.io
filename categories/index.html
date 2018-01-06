@@ -294,7 +294,7 @@
         
           <div class="category-all-page">
             <div class="category-all-title">
-                目前共计 4 个分类
+                目前共计 2 个分类
             </div>
             <div class="category-all">
               <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li></ul>
@@ -377,7 +377,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -388,7 +388,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -479,7 +479,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -551,6 +551,36 @@
 </div>
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script defer>
+  // use sw
+  var opensw = true
+  if (opensw) {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        // sw version
+        var v = '2018010701'
+
+        navigator.serviceWorker.register('/service-worker.js?v=' + v, {
+          scope: '/'
+        }).then(function (registration) {
+          // register success
+          console.log('ServiceWorker registration successful with scope:', registration.scope)
+
+          // update sw
+          if (localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
+           registration.update().then(function () {
+              localStorage.setItem('zhouyu1993.github.io-sw-v', v)
+           })
+         }
+        }).catch((err) => {
+          // register failure
+          console.log('ServiceWorker registration failed:', err)
+        })
+      })
+    }
+  }
+</script>
 
         
 

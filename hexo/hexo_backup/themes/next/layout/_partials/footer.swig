@@ -52,5 +52,51 @@
   </span>
 </h5>
 
+<div class="links-of-author">
+  {% if theme.social %}
+    {% for name, link in theme.social %}
+      <span class="links-of-author-item">
+        <a href="{{ link.split('||')[0] | trim }}" target="_blank" title="{{ name }}" style="margin: 0 auto">
+          {% if theme.social_icons.enable %}
+            <i class="fa fa-fw fa-{{ link.split('||')[1] | trim | default('globe') }}"></i>{#
+        #}{% endif %}{#
+          #}{% if not theme.social_icons.icons_only %}{#
+            #}{{ name }}{#
+          #}{% endif %}{#
+      #}</a>
+      </span>
+    {% endfor %}
+  {% endif %}
+</div>
 
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script defer>
+  // use sw
+  var opensw = true
+  if (opensw) {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        // sw version
+        var v = '2018010701'
+
+        navigator.serviceWorker.register('/service-worker.js?v=' + v, {
+          scope: '/'
+        }).then(function (registration) {
+          // register success
+          console.log('ServiceWorker registration successful with scope:', registration.scope)
+
+          // update sw
+          if (localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
+           registration.update().then(function () {
+              localStorage.setItem('zhouyu1993.github.io-sw-v', v)
+           })
+         }
+        }).catch((err) => {
+          // register failure
+          console.log('ServiceWorker registration failed:', err)
+        })
+      })
+    }
+  }
+</script>
