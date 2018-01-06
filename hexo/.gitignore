@@ -1,7 +1,13 @@
 # https://help.github.com/ignore-files/ for more about ignoring files.
 
 /scaffolds/
-/themes/
+/themes/next/languages
+/themes/next/layout
+/themes/next/layout
+/themes/next/source/css
+/themes/next/source/fonts
+/themes/next/source/js
+/themes/next/source/lib
 
 Thumbs.db
 db.json

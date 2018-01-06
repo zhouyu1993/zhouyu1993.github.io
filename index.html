@@ -334,8 +334,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-24T23:25:50+08:00">
-                2017-12-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-07T00:40:49+08:00">
+                2018-01-07
               </time>
             
           </span>
@@ -850,12 +850,12 @@
 
 <script defer>
   // use sw
-  var opensw = true
+  var opensw = location.hostname === 'zhouyu1993.github.io'
   if (opensw) {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         // sw version
-        var v = '2018010701'
+        var v = '2018010702'
 
         navigator.serviceWorker.register('/service-worker.js?v=' + v, {
           scope: '/'

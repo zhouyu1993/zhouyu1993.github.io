@@ -73,7 +73,7 @@
 
 <script defer>
   // use sw
-  var opensw = true
+  var opensw = location.hostname === 'zhouyu1993.github.io'
   if (opensw) {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {

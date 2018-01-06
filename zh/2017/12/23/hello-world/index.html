@@ -775,12 +775,12 @@
 
 <script defer>
   // use sw
-  var opensw = true
+  var opensw = location.hostname === 'zhouyu1993.github.io'
   if (opensw) {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         // sw version
-        var v = '2018010701'
+        var v = '2018010702'
 
         navigator.serviceWorker.register('/service-worker.js?v=' + v, {
           scope: '/'

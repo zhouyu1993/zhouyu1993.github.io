@@ -1,5 +1,5 @@
 // sw version，
-var v = '2018010701'
+var v = '2018010702'
 var t = +new Date()
 var CACHE_NAME = 'zhouyu1993.github.io-sw-v' + v + '-t' + t
 

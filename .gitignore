@@ -1,11 +1,5 @@
 # https://help.github.com/ignore-files/ for more about ignoring files.
 
-# production
-Thumbs.db
-db.json
-/backup/
-#/hexo/
-
 # dependencies
 node_modules
 yarn.lock
