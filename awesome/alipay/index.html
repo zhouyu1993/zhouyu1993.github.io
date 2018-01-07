@@ -82,6 +82,7 @@
           return false
         }
       }
+      
       function is_qq () {
         var ua = navigator.userAgent.toLowerCase()
         if (ua.match(/(QQ)/i)) {
@@ -92,8 +93,8 @@
       }
 
       function is_android () {
-        var a = navigator.userAgent.toLowerCase()
-        if (a.match(/(Android|SymbianOS)/i)) {
+        var ua = navigator.userAgent.toLowerCase()
+        if (ua.match(/(Android|SymbianOS)/i)) {
           return true
         } else {
           return false
@@ -101,8 +102,8 @@
       }
 
       function is_ios () {
-        var a = navigator.userAgent.toLowerCase()
-        if (/iphone|ipad|ipod/.test(a)) {
+        var ua = navigator.userAgent.toLowerCase()
+        if (/iphone|ipad|ipod/.test(ua)) {
           return true
         } else {
           return false
@@ -110,30 +111,12 @@
       }
 
       function android_auto_jump () {
-        WeixinJSBridge.invoke('jumpToInstallUrl', {}, function (e) {
-          console.log(e)
-        })
-
-        console.log('android', url)
-
-        setTimeout(() => {
-          mqq.invoke('ui', 'openUrl', {
-            url: url,
-            target: 2,
-            style: 0
-          })
-        }, 500)
-        setTimeout(() => {
-          location.href = url
-        }, 1000)
-
-        // window.close()
-        // WeixinJSBridge.call('closeWindow')
-      }
-
-      function ios_auto_jump () {
         if (url !== '') {
-          console.log('ios', url)
+          console.log('android', url)
+
+          WeixinJSBridge.invoke('jumpToInstallUrl', {}, function (e) {
+            console.log(e)
+          })
 
           setTimeout(() => {
             mqq.invoke('ui', 'openUrl', {
@@ -146,9 +129,31 @@
           setTimeout(() => {
             location.href = url
           }, 1000)
-          
-          // window.close()
-          // WeixinJSBridge.call('closeWindow')
+        } else {
+          window.close()
+          WeixinJSBridge.call('closeWindow')
+        }
+      }
+
+      function ios_auto_jump () {
+        if (url !== '') {
+          console.log('ios', url)
+
+          WeixinJSBridge.invoke('jumpToInstallUrl', {}, function (e) {
+            console.log(e)
+          })
+
+          setTimeout(() => {
+            mqq.invoke('ui', 'openUrl', {
+              url: url,
+              target: 2,
+              style: 0
+            })
+          }, 500)
+
+          setTimeout(() => {
+            location.href = url
+          }, 1000)
         } else {
           window.close()
           WeixinJSBridge.call('closeWindow')
@@ -167,6 +172,8 @@
       }
 
       if (is_weixin()) {
+        console.log('weixin', url)
+
         if (typeof WeixinJSBridge === 'undefined') {
           if (document.addEventListener) {
             document.addEventListener('WeixinJSBridgeReady', onAutoinit, false)
@@ -179,11 +186,15 @@
         }
       } else if (is_qq()) {
         console.log('qq', url)
-        mqq.invoke('ui', 'openUrl', {
-          url: url,
-          target: 2,
-          style: 0
-        })
+
+        setTimeout(() => {
+          mqq.invoke('ui', 'openUrl', {
+            url: url,
+            target: 2,
+            style: 0
+          })
+        }, 500)
+
       } else {
         if (url !== '') {
           location.href = url
