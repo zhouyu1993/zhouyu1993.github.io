@@ -236,7 +236,7 @@ wechat_subscriber:
   description: 扫一扫上面的二维码，奇妙的世界等着你！
 
 # Reward
-reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+reward_comment: 坚持技术分享，您的支持将鼓励我！
 wechatpay: /images/wechatpay.jpg
 alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png

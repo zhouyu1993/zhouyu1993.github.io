@@ -291,6 +291,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/zh/2018/01/08/每一个人都有灵魂，每一段文字都有思想/" itemprop="url">
+              
+                <span itemprop="name">每一个人都有灵魂，每一段文字都有思想</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-08T14:03:23+08:00"
+              content="2018-01-08" >
+          01-08
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/zh/2017/12/24/好人有好报？/" itemprop="url">
               
                 <span itemprop="name">好人有好报？</span>
@@ -367,7 +395,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -560,7 +588,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         // sw version
-        var v = '2018010801'
+        var v = '2018'
 
         navigator.serviceWorker.register('/service-worker.js?v=' + v, {
           scope: '/'
@@ -569,7 +597,7 @@
           console.log('ServiceWorker registration successful with scope:', registration.scope)
 
           // update sw
-          if (localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
+          if (localStorage && localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
            registration.update().then(function () {
               localStorage.setItem('zhouyu1993.github.io-sw-v', v)
            })

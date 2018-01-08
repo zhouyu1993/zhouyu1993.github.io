@@ -449,7 +449,7 @@
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <div>坚持技术分享，您的支持将鼓励我！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
@@ -505,6 +505,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh/2018/01/08/每一个人都有灵魂，每一段文字都有思想/" rel="prev" title="每一个人都有灵魂，每一段文字都有思想">
+                每一个人都有灵魂，每一段文字都有思想 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -590,7 +594,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -799,7 +803,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         // sw version
-        var v = '2018010801'
+        var v = '2018'
 
         navigator.serviceWorker.register('/service-worker.js?v=' + v, {
           scope: '/'
@@ -808,7 +812,7 @@
           console.log('ServiceWorker registration successful with scope:', registration.scope)
 
           // update sw
-          if (localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
+          if (localStorage && localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
            registration.update().then(function () {
               localStorage.setItem('zhouyu1993.github.io-sw-v', v)
            })
