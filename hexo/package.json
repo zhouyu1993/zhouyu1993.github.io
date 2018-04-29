@@ -19,7 +19,7 @@
     "dev": "hexo server",
     "clean": "hexo clean",
     "new": "hexo new page",
-    "build": "rm -rf public/* && hexo generate",
+    "build": "yarn clean && rm -rf public/* && hexo generate",
     "deploy": "cp -rf public/* ../ && cp themes/next/source/service-worker.js ../",
     "deploy:ecs": "cp -rf public/* ../../zhouyu1993.ecs.io"
   },

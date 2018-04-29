@@ -297,7 +297,7 @@
                 目前共计 3 个分类
             </div>
             <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li></ul>
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">3</span></li></ul>
             </div>
           </div>
         
@@ -366,7 +366,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -388,7 +388,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -558,21 +558,11 @@
   if (opensw) {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        // sw version
-        var v = '2018'
-
-        navigator.serviceWorker.register('/service-worker.js?v=' + v, {
+        navigator.serviceWorker.register('/service-worker.js', {
           scope: '/'
         }).then(function (registration) {
           // register success
           console.log('ServiceWorker registration successful with scope:', registration.scope)
-
-          // update sw
-          if (localStorage && localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
-           registration.update().then(function () {
-              localStorage.setItem('zhouyu1993.github.io-sw-v', v)
-           })
-         }
         }).catch((err) => {
           // register failure
           console.log('ServiceWorker registration failed:', err)

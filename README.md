@@ -1,5 +1,21 @@
 # mkdir hexo && cd hexo && hexo init
 
+源文件在 hexo 中
+
+## 文章
+
+`/hexo/source/_posts`
+
+## 写法
+
+文章中 使用 `<!-- more -->` 进行截断，显示 `阅读全文`
+
+# https://zhouyu1993.github.io/ 域名问题
+
+# 修改 sw 的版本号
+
+/hexo/themes/next/source/service-worker.js
+
 # 修改 themes
 
 默认是 hexo-theme-landscape
@@ -57,13 +73,3 @@ git commit -m 'init'
 
 git remote add origin git@github.com:zhouyu1993/zhouyu1993.github.io.git
 ```
-
-## 写法
-
-文章中 使用 `<!-- more -->` 进行截断，显示 `阅读全文`
-
-# https://zhouyu1993.github.io/ 域名问题
-
-# 修改 sw 的版本号
-
-/hexo/themes/next/source/service-worker.js

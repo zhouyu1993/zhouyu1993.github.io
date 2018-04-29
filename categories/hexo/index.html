@@ -368,7 +368,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -390,7 +390,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -560,21 +560,11 @@
   if (opensw) {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        // sw version
-        var v = '2018'
-
-        navigator.serviceWorker.register('/service-worker.js?v=' + v, {
+        navigator.serviceWorker.register('/service-worker.js', {
           scope: '/'
         }).then(function (registration) {
           // register success
           console.log('ServiceWorker registration successful with scope:', registration.scope)
-
-          // update sw
-          if (localStorage && localStorage.getItem('zhouyu1993.github.io-sw-v') !== v) {
-           registration.update().then(function () {
-              localStorage.setItem('zhouyu1993.github.io-sw-v', v)
-           })
-         }
         }).catch((err) => {
           // register failure
           console.log('ServiceWorker registration failed:', err)

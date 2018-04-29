@@ -16,10 +16,10 @@
   "homepage": "https://zhouyu1993.github.io/",
   "license": "MIT",
   "scripts": {
-    "dev": "cd hexo && hexo server",
-    "clean": "cd hexo && hexo clean",
     "new": "cd hexo && hexo new page",
-    "build": "cd hexo && rm -rf public && hexo generate",
+    "clean": "cd hexo && hexo clean",
+    "dev": "yarn clean && cd hexo && hexo server",
+    "build": "yarn clean && cd hexo && rm -rf public && hexo generate",
     "deploy": "cd hexo && cp -rf public/* ../ && cp themes/next/source/service-worker.js ../",
     "deploy:ecs": "cd hexo && cp -rf public/* ../../zhouyu1993.ecs.io"
   },
