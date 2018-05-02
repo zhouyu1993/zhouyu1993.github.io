@@ -20,8 +20,7 @@
     "clean": "cd hexo && hexo clean",
     "dev": "yarn clean && cd hexo && hexo server",
     "build": "yarn clean && cd hexo && rm -rf public && hexo generate",
-    "deploy": "cd hexo && cp -rf public/* ../ && cp themes/next/source/service-worker.js ../",
-    "deploy:ecs": "cd hexo && cp -rf public/* ../../zhouyu1993.ecs.io"
+    "deploy": "cd hexo && cp -rf public/* ../ && cp themes/next/source/service-worker.js ../"
   },
   "hexo": {
     "version": "3.4.4"

@@ -120,17 +120,17 @@ scheme: Gemini
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/zhouyu1993/ || github
+  StackOverflow: https://stackoverflow.com/users/9129348/joy-rain/ || stack-overflow
   E-Mail: mailto:1490079545@qq.com/ || envelope
   Google: https://plus.google.com/100806722192060947141/ || google
+  微博: https://weibo.com/yu917and130bing/ || weibo
+  知乎: https://www.zhihu.com/people/rainjoy/
   # Twitter: https://twitter.com/yourname || twitter
   # FB Page: https://www.facebook.com/yourname || facebook
   # VK Group: https://vk.com/yourname || vk
-  StackOverflow: https://stackoverflow.com/users/9129348/joy-rain/ || stack-overflow
   # YouTube: https://youtube.com/yourname || youtube
   # Instagram: https://instagram.com/yourname || instagram
   # Skype: skype:yourname?call|chat || skype
-  微博: https://weibo.com/yu917and130bing/ || weibo
-  知乎: https://www.zhihu.com/people/rainjoy/
 
 social_icons:
   enable: true
@@ -599,7 +599,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/flashlab/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
