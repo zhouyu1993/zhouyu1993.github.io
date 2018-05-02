@@ -19,7 +19,9 @@
           var _scope = dev ? '/' : '/awesome/vue-music/'
 
           window.addEventListener('load', function () {
-            navigator.serviceWorker.register(sw, {
+            var version = '2018050202'
+
+            navigator.serviceWorker.register(sw + version, {
               scope: _scope
             }).then(function (registration) {
               // Register success
@@ -37,4 +39,4 @@
         document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
       }
-    })()</script><script type=text/javascript src=./static/js/manifest.630db0aa1ed088d0f2a7.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.53fc7033fbcbfa878704.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.cc14ead8d9c653f3dc5c.js defer=defer crossorigin=anonymous></script></body></html>
+    })()</script><script type=text/javascript src=./static/js/manifest.177cd8686ac656e859c6.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.778bf8797bb0d3f03858.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.9cc97bbe09babc5532cb.js defer=defer crossorigin=anonymous></script></body></html>

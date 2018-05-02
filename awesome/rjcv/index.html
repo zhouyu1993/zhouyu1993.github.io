@@ -19,7 +19,9 @@
           var _scope = dev ? '/' : '/awesome/rjcv/'
 
           window.addEventListener('load', function () {
-            navigator.serviceWorker.register(sw, {
+            var version = '2018050202'
+
+            navigator.serviceWorker.register(sw + version, {
               scope: _scope
             }).then(function (registration) {
               // Register success
@@ -37,4 +39,4 @@
         document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
       }
-    })()</script><script type=text/javascript src=./static/js/manifest.ba0c638082fc7f143b8d.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.e5c2f415f72077e9683b.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.61a8610f117b2d1e9b21.js defer=defer crossorigin=anonymous></script></body></html>
+    })()</script><script type=text/javascript src=./static/js/manifest.ed51f52a669d6c7da81b.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.e5c2f415f72077e9683b.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.988cc622d9acc26efc8f.js defer=defer crossorigin=anonymous></script></body></html>
