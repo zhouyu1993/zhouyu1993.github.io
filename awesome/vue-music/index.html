@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=vue-music><meta name=description content="A Vue.js project [client-side rendering]"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=vue-music><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/vue-music/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/vue-music/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/vue-music/static/manifest.json><title>vue-music</title><link href=./static/css/app.2744698052171c70eb90abf8c53c9d67.css rel=stylesheet></head><body><div id=app></div><script>(function () {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=vue-music><meta name=description content="A Vue.js project [client-side rendering]"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=vue-music><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/vue-music/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/vue-music/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/vue-music/static/manifest.json><title>vue-music</title><link href=./static/css/app.68e6a310af1c2a4fa896dd222a90fd27.css rel=stylesheet></head><body><div id=app></div><script>(function () {
       // Set fontSize for rem
       function rem () {
         var html = document.documentElement
@@ -13,19 +13,27 @@
       var openServiceWorker = true
       if (openServiceWorker) {
         if ('serviceWorker' in navigator) {
-          // The scope of ServiceWorker
+          /// The scope of ServiceWorker
           var dev = false
-          var sw = dev ? '/service-worker.js?v=' : './service-worker.js?v='
+          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-music/service-worker.js?v='
           var _scope = dev ? '/' : '/awesome/vue-music/'
 
-          window.addEventListener('load', function () {
-            var version = '2018050202'
+          // ServiceWorker version
+          var version = '2018050203'
 
+          window.addEventListener('load', function () {
             navigator.serviceWorker.register(sw + version, {
               scope: _scope
             }).then(function (registration) {
               // Register success
               console.log('ServiceWorker registration successful with scope:', registration.scope)
+
+              // Update ServiceWorker
+              if (localStorage && localStorage.getItem('rjcv-sw-v') !== version) {
+                registration.update().then(function () {
+                  localStorage.setItem('vue-music-sw-v', version)
+                })
+              }
             }).catch(function (err) {
               // Register failure
               console.log('ServiceWorker registration failed:', err)
@@ -39,4 +47,4 @@
         document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
       }
-    })()</script><script type=text/javascript src=./static/js/manifest.177cd8686ac656e859c6.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.778bf8797bb0d3f03858.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.9cc97bbe09babc5532cb.js defer=defer crossorigin=anonymous></script></body></html>
+    })()</script><script type=text/javascript src=./static/js/manifest.763ed791d4467e46b0e4.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.778bf8797bb0d3f03858.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.9cc97bbe09babc5532cb.js defer=defer crossorigin=anonymous></script></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=rainjoy,component,vue><meta name=description content="rainjoy font-end component library based on vue.js"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=rj-component-vue><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/rjcv/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/rjcv/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/rjcv/static/manifest.json><title>rj-component-vue</title><link href=./static/css/app.e3b75627df6e78becfc4c11005a9733c.css rel=stylesheet></head><body><div id=app></div><script>(function () {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=rainjoy,component,vue><meta name=description content="rainjoy font-end component library based on vue.js"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=rj-component-vue><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/rjcv/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/rjcv/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/rjcv/static/manifest.json><title>rj-component-vue</title><link href=./static/css/app.207ef3691f9b8aedfb298531fb9ee12e.css rel=stylesheet></head><body><div id=app></div><script>(function () {
       // Set fontSize for rem
       function rem () {
         var html = document.documentElement
@@ -13,19 +13,27 @@
       var openServiceWorker = true
       if (openServiceWorker) {
         if ('serviceWorker' in navigator) {
-          // The scope of ServiceWorker
+          /// The scope of ServiceWorker
           var dev = false
-          var sw = dev ? '/service-worker.js?v=' : './service-worker.js?v='
+          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/rjcv/service-worker.js?v='
           var _scope = dev ? '/' : '/awesome/rjcv/'
 
-          window.addEventListener('load', function () {
-            var version = '2018050202'
+          // ServiceWorker version
+          var version = '2018050203'
 
+          window.addEventListener('load', function () {
             navigator.serviceWorker.register(sw + version, {
               scope: _scope
             }).then(function (registration) {
               // Register success
               console.log('ServiceWorker registration successful with scope:', registration.scope)
+
+              // Update ServiceWorker
+              if (localStorage && localStorage.getItem('rjcv-sw-v') !== version) {
+                registration.update().then(function () {
+                  localStorage.setItem('rjcv-sw-v', version)
+                })
+              }
             }).catch(function (err) {
               // Register failure
               console.log('ServiceWorker registration failed:', err)
