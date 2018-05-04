@@ -19,7 +19,7 @@
           var _scope = dev ? '/' : '/awesome/vue-music/'
 
           // ServiceWorker version
-          var version = '2018050203'
+          var version = '2018050401'
 
           window.addEventListener('load', function () {
             navigator.serviceWorker.register(sw + version, {
@@ -29,7 +29,7 @@
               console.log('ServiceWorker registration successful with scope:', registration.scope)
 
               // Update ServiceWorker
-              if (localStorage && localStorage.getItem('rjcv-sw-v') !== version) {
+              if (localStorage && localStorage.getItem('vue-music-sw-v') !== version) {
                 registration.update().then(function () {
                   localStorage.setItem('vue-music-sw-v', version)
                 })
@@ -47,4 +47,4 @@
         document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
       }
-    })()</script><script type=text/javascript src=./static/js/manifest.763ed791d4467e46b0e4.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.778bf8797bb0d3f03858.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.9cc97bbe09babc5532cb.js defer=defer crossorigin=anonymous></script></body></html>
+    })()</script><script type=text/javascript src=./static/js/manifest.763ed791d4467e46b0e4.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/vendor.778bf8797bb0d3f03858.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=./static/js/app.ae6e4d27bd2cf9bb751a.js defer=defer crossorigin=anonymous></script></body></html>

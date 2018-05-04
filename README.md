@@ -14,7 +14,7 @@
 
 # 修改 sw 的版本号
 
-/hexo/themes/next/source/service-worker.js
+**/hexo/themes/next/source/service-worker.js**
 
 # 修改 themes
 
