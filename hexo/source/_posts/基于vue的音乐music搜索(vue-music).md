@@ -1,12 +1,14 @@
 ---
 title: 基于vue的音乐music搜索(vue-music)
+
 categories:
   - web
+
 tags:
   - vue
 ---
 
-一个基于vue的音乐搜索网页。预览[vue-music](https://zhouyu1993.github.io/awesome/vue-music/)。
+一个基于 vue 的音乐搜索网页。预览[vue-music](https://zhouyu1993.github.io/awesome/vue-music/)。
 
 <!-- more -->
 

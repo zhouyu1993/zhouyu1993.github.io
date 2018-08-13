@@ -1,9 +1,11 @@
 ---
-title: JavaScript 模块的演变
+title: JavaScript模块的演变
+
 categories:
   - web
+
 tags:
-  - JavaScript
+  - js
 ---
 
 ES6 带来的原生 JavaScript 模块体系，相信你已经用起来了，如果还没有，那你还有时间看文章？看什么看，你还不赶紧去用用。
