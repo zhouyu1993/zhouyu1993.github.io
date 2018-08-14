@@ -8,6 +8,10 @@ tags:
   - js
 ---
 
+webpack 中 alias 别名配置
+
+<!-- more -->
+
 ``` js
 resolve: {
  alias: {

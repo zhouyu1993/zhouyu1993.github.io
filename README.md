@@ -57,7 +57,9 @@ categories: /categories/ || th
 ```
 
 ``` bash
-hexo new page about
+hexo new post [post-name]
+
+hexo new page [page-name]
 ```
 
 ## git init

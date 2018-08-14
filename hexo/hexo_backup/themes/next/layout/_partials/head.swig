@@ -8,7 +8,7 @@
 <meta http-equiv="pragma" content="no-cache">
 <meta name="apple-touch-fullscreen" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="zhouyu1993's blogs">
 
 {% if theme.pace %}

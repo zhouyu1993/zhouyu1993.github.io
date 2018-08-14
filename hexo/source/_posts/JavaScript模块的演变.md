@@ -18,7 +18,7 @@ JavaScript 一开始并没有内建模块化支持，也几乎没有模块化这
 
 ## CommonJS
 
-2009 年，基于将 JavaScript 应用于服务端的尝试，ServerJS 诞生了。之后 ServerJS 更名为 CommonJS，并逐步发展为一个完整的模块规范。简称 CMD（Common Module Definition）
+2009 年，基于将 JavaScript 应用于服务端的尝试，ServerJS 诞生了。之后 ServerJS 更名为 CommonJS，并逐步发展为一个完整的模块规范。简称 CMD(Common Module Definition)
 
 [CommonJS官网](http://www.commonjs.org/)
 [CommonJS阮一峰](http://javascript.ruanyifeng.com/nodejs/module.html)
@@ -47,7 +47,7 @@ module.exports = {
 
 ## AMD
 
-之后，在 CommonJS 组织的讨论中，AMD（Asynchronous Module Definition）应运而生。和 CommonJS 不同的是，它使用`异步方式`加载模块，因此更适合被浏览器端采用。AMD 用全局函数 define 来定义模块，它需要三个参数：模块名称、模块的依赖数组、所有依赖都可用之后执行的回调函数（该函数按照依赖声明的顺序，接收依赖作为参数）。
+之后，在 CommonJS 组织的讨论中，AMD(Asynchronous Module Definition)应运而生。和 CommonJS 不同的是，它使用`异步方式`加载模块，因此更适合被浏览器端采用。AMD 用全局函数 define 来定义模块，它需要三个参数：模块名称、模块的依赖数组、所有依赖都可用之后执行的回调函数(该函数按照依赖声明的顺序，接收依赖作为参数)。
 
 [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)
 [AMD中文](https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)
@@ -70,7 +70,7 @@ define(['jquery'], function ($) {
 
 ## UMD
 
-如果需要同时支持 CommonJS 和 AMD 两种格式，那么可以使用 UMD（Universal Module Definition）。事实上，UMD 通过一系列 if/else 判断来确定当前环境支持的模块体系，因此多数情况下 UMD 格式的模块会占用更大的体积。
+如果需要同时支持 CommonJS 和 AMD 两种格式，那么可以使用 UMD(Universal Module Definition)。事实上，UMD 通过一系列 if/else 判断来确定当前环境支持的模块体系，因此多数情况下 UMD 格式的模块会占用更大的体积。
 
 ``` js
 (function (root, factory) {
@@ -101,7 +101,7 @@ define(['jquery'], function ($) {
 
 ## ES6 Modules
 
-无论是 CommonJS，AMD 还是 UMD，它们都不是标准的 JavaScript 模块解决方案。换句话说，它们都没有被写进 ECMA 的规范中。直到 2015 年 6 月，TC39 委员会终于将 Modules 写进 ECMAScript 2015 中，标志着原生模块新时代的到来。至此，JavaScript 文件有了两种形式：脚本（自 JavaScript 诞生起我们就在使用的）和模块（即 ECMAScript 2015 Modules）。下面就让我们来一起探索 ECMAScript 2015 Modules（以下简称 ES6 Modules）
+无论是 CommonJS，AMD 还是 UMD，它们都不是标准的 JavaScript 模块解决方案。换句话说，它们都没有被写进 ECMA 的规范中。直到 2015 年 6 月，TC39 委员会终于将 Modules 写进 ECMAScript 2015 中，标志着原生模块新时代的到来。至此，JavaScript 文件有了两种形式：脚本(自 JavaScript 诞生起我们就在使用的)和模块(即 ECMAScript 2015 Modules)。下面就让我们来一起探索 ECMAScript 2015 Modules(以下简称 ES6 Modules)
 
 [ES6 Modules](http://www.ecma-international.org/ecma-262/6.0/#sec-modules)
 [ES6阮一峰](http://es6.ruanyifeng.com/#docs/module)
@@ -132,7 +132,7 @@ export default sayHello
 
 ## 直接使用 ES6 Modules
 
-有些游览器已经支持 ES6 Modules，我们利用 `<script type="module">`（默认是 defer）来使用。
+有些游览器已经支持 ES6 Modules，我们利用 `<script type="module">`(默认是 defer)来使用。
 
 ## 其他探索
 
