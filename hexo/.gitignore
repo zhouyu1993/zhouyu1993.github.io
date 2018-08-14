@@ -1,5 +1,6 @@
 # https://help.github.com/ignore-files/ for more about ignoring files.
 
+/scaffolds/
 /themes/next/languages
 /themes/next/layout
 /themes/next/layout
