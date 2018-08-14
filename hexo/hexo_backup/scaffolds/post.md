@@ -1,9 +1,0 @@
----
-title: {{ title }}
-
-categories:
-  -
-
-tags:
-  -
----
