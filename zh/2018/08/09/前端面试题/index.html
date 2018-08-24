@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="前端面试题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T06:36:19.412Z">
+<meta property="og:updated_time" content="2018-08-22T08:17:55.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题">
 <meta name="twitter:description" content="前端面试题">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-14T14:36:19+08:00">
-                2018-08-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-22T16:17:55+08:00">
+                2018-08-22
               </time>
             
           </span>
@@ -562,7 +562,7 @@
 <li>父级 div 定义 height，并也设置浮动</li>
 <li>最后一个浮动元素结尾处加 <br> 或 <div> ，设置 clear: both</div></li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfloat</span> &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfloat</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear-float</span> &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clear-float</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但自从用了 display: flex，再也没写过 float</p>
 <h1 id="页面导入样式的几种方式"><a href="#页面导入样式的几种方式" class="headerlink" title="页面导入样式的几种方式"></a>页面导入样式的几种方式</h1><p>行内样式 </p><p style=""></p><p></p>
 <p>内嵌式 <style>p{}</style></p>
@@ -922,6 +922,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">每次切换后，同时请求三条接口(并发)，会导致手机卡顿，所有改成请求一条接口后，再请求其他接口。</span><br><span class="line"></span><br><span class="line">当前tab下请求发出，打一个loading=<span class="literal">true</span>，只要当前tab下请求不结束，不再触发同一请求。</span><br><span class="line"></span><br><span class="line">tab有5个item。点击每个item，需要请求对应的数据。当用户点击第1个item，请求第1类数据时，因为接口异步，无法及时返回；而用户迅速点击第2个item，会去请求第2类数据；类似操作，用户在5个item之间来回切换，网速慢，会导致有很多接口在同时请求(请求发出但迟迟不返回视为请求中)，超出了小程序的限制，导致页面操作卡顿！</span><br><span class="line"></span><br><span class="line">所以需要对请求加以限制(节流)。当用户点击第1个item请求第1类接口，然后来回切换，切换回第1个item时，如果第1类接口不结束那就不应该再次发起。</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> apiLoading1 = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> requestApi1 = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (apiLoading1) <span class="keyword">return</span></span><br><span class="line">  apiLoading1 = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">await</span> request(api1)</span><br><span class="line"></span><br><span class="line">  apiLoading1 = <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">clickItem1 () &#123;</span><br><span class="line">  <span class="comment">// 点击事件</span></span><br><span class="line">  requestApi()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>cover-view 覆盖在原生组件之上的文本视图，可覆盖的原生组件包括 map、video、canvas、camera、live-player、live-pusher</p>
+</li>
+<li>cover-view 内只能嵌套 cover-view、cover-image、button。</li>
 </ul>
 
       
@@ -1088,7 +1091,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
