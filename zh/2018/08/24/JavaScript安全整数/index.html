@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="最近在做收银台业务，成功下单后，后端需要返回给前端订单号，前端根据订单号去跳转收银台，然后付款。但是碰到个奇怪的问题，一致订单异常。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T09:25:46.447Z">
+<meta property="og:updated_time" content="2018-08-27T09:09:21.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript安全整数">
 <meta name="twitter:description" content="最近在做收银台业务，成功下单后，后端需要返回给前端订单号，前端根据订单号去跳转收银台，然后付款。但是碰到个奇怪的问题，一致订单异常。">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-24T17:25:46+08:00">
-                2018-08-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-27T17:09:21+08:00">
+                2018-08-27
               </time>
             
           </span>
@@ -441,12 +441,14 @@
 <p>后端调试了半天，找不到原因，“我这都查过了，我写的代码都是对的啊！不过为什么你的订单号是 201808221019001800，我后台查不到这个订单啊！而且你的 uid 是 10007777，订单尾号应该是 1777 才对，我订单号取的逻辑是 ‘年月日时分秒’ 再加 uid 的第一位和后三位！是不是你那边请求问题啊”。</p>
 <p>我心里呵呵一笑，我就请求个接口，还能请求出问题？我前端就负责调接口，你接口返回给我什么，我就展示什么，我还能改你返回的数据？我又没拦截！</p>
 <p>我去后台查了一下订单，我特么发现后台记录的那条订单，真是 <code>201808221019001777</code>。但到底为啥给我的就是 <code>201808221019001800</code> 呢？虽然不知道什么原因，但我不管，一定是后端处理错了！</p>
-<p>后端说，那好，我再返回之前打个日志，我看看我给你的到底是什么，你调调看。</p>
+<p>后端说，那好，我在返回之前打个日志，我看看我给你的到底是什么，你调调看。</p>
 <p>试了一下，他打出的是 <code>201808221019001777</code>，我拿到的是 <code>201808221019001800</code>。呐呢？</p>
 <p>后端说那肯定是你调用的问题吧，我用 <code>postman</code> 试了试，我调出来的也是 <code>201808221019001777</code>。这越发让我疑惑。</p>
 <p>于是我也用 <code>postman</code> 调用，特么真的是 <code>201808221019001777</code>，我又在 <code>chrome</code> 控制台调用，特么竟然又是 <code>201808221019001800</code>，什么鬼哦？还有这种操作？</p>
 <p>突然鬼使神差地，我在 <code>chrome</code> 控制台输入了 <code>201808221019001777</code>，按下 <code>return</code> 键，特么返回了 <code>201808221019001800</code>。</p>
-<p>尼玛！</p>
+<p>尼玛！原来是浏览器处理了！</p>
+<p>接口给的 <code>201808221019001777</code> 是个 <code>Number</code> 类型，超过了浏览器(js)能处理的最大安全整数！</p>
+<p>解决方案就是接口转化为 <code>String</code> 类型返回。</p>
 <h3 id="最大安全整数、最小安全整数"><a href="#最大安全整数、最小安全整数" class="headerlink" title="最大安全整数、最小安全整数"></a>最大安全整数、最小安全整数</h3><p>js 最大安全整数是 <code>Number.MAX_SAFE_INTEGER</code>，最小安全整数是 <code>Number.MIN_SAFE_INTEGER</code>，</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER <span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER === <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) - <span class="number">1</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER <span class="comment">// -9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER === <span class="number">1</span> - <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-的-53-次方"><a href="#2-的-53-次方" class="headerlink" title="2 的 53 次方"></a>2 的 53 次方</h3><p>js 安全整数的范围是 (Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER) 即 -2^53~2^53 (不包含边界) 。</p>
