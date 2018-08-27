@@ -118,7 +118,7 @@ Number.MIN_SAFE_INTEGER === 1 - Math.pow(2, 53) // true
 
 js 安全整数的范围是 (Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER) 即 -2^53~2^53 (不包含边界) 。
 
-安全整数，意思是说能够 one-by-one 表示的整数，也就是说在(-2^53, 2^53)范围内，双精度数表示和整数是一对一的，反过来说，在这个范围以内，所有的整数都有唯一的浮点数表示，这叫做安全整数。超过这个范围，会有两个或更多整数的双精度表示是相同的；反过来说，超过这个范围，有的整数是无法精确表示的，只能round到与它相近的浮点数（说到底就是科学计数法）表示，这种情况下叫做不安全整数。
+安全整数，意思是说能够 one-by-one 表示的整数，也就是说在(-2^53, 2^53)范围内，双精度数表示和整数是一对一的，反过来说，在这个范围以内，所有的整数都有唯一的浮点数表示，这叫做安全整数。超过这个范围，会有两个或更多整数的双精度表示是相同的；反过来说，超过这个范围，有的整数是无法精确表示的，只能round到与它相近的浮点数(说到底就是科学计数法)表示，这种情况下叫做不安全整数。
 
 ``` js
 Math.pow(2, 53) // 9007199254740992
@@ -133,7 +133,7 @@ Math.pow(2, 53) + 3 // 9007199254740996
 
 Math.pow(2, 53) + 4 // 9007199254740996
 
-Math.pow（2,53）+ 5 // 9007199254740996
+Math.pow(2,53)+ 5 // 9007199254740996
 ```
 
 当运算数与运算结果都处于安全整数的范围内时，才能保证 js 运算结果正确。
@@ -867,8 +867,7 @@ function Car(sColor, iDoors, iMpg) {
 }
 ```
 
-直到检查 `typeof Car._initialized` 是否等于 `"undefined"` 之前，这个构造函数都未发生变化。这行代码是动态原型方法中最重要的部分。如果这个值未定义，构造函数将用原型方式继续定义对象的方法，然后把 `Car._initialized` 设置为 `true`。如果这个值定义了（它的值为 `true` 时，`typeof` 的值为 `Boolean`），那么就不再创建该方法。简而言之，该方法使用标志（`_initialized`）来判断是否已给原型赋予了任何方法。该方法只创建并赋值一次，传统的 `OOP` 开发者会高兴地发现，这段代码看起来更像其他语言中的类定义了。
-
+直到检查 `typeof Car._initialized` 是否等于 `"undefined"` 之前，这个构造函数都未发生变化。这行代码是动态原型方法中最重要的部分。如果这个值未定义，构造函数将用原型方式继续定义对象的方法，然后把 `Car._initialized` 设置为 `true`。如果这个值定义了(它的值为 `true` 时，`typeof` 的值为 `Boolean`)，那么就不再创建该方法。简而言之，该方法使用标志(`_initialized`)来判断是否已给原型赋予了任何方法。该方法只创建并赋值一次，传统的 `OOP` 开发者会高兴地发现，这段代码看起来更像其他语言中的类定义了。
 
 ### 混合工厂方式
 
@@ -888,11 +887,213 @@ function Car () {
 
 与经典方式不同，这种方式使用 `new` 运算符，使它看起来像真正的构造函数。
 
-由于在 `Car()` 构造函数内部调用了 `new` 运算符，所以将忽略第二个 `new` 运算符（位于构造函数之外），在构造函数内部创建的对象被传递回变量 `car`。
+由于在 `Car()` 构造函数内部调用了 `new` 运算符，所以将忽略第二个 `new` 运算符(位于构造函数之外)，在构造函数内部创建的对象被传递回变量 `car`。
 
 这种方式在对象方法的内部管理方面与经典方式有着相同的问题。强烈建议：除非万不得已，还是避免使用这种方式。
 
-### ES6 之 class
-
-
 ## 修改对象
+
+通过使用 ECMAScript，不仅可以创建对象，还可以修改已有对象的行为。
+
+prototype 属性不仅可以定义构造函数的属性和方法，还可以为本地对象添加属性和方法。
+
+### 创建新方法
+
+把数字对象直接转换为十六进制字符串：
+
+``` js
+Number.prototype.toHexString = function () {
+  return this.toString(16)
+}
+
+var iNum = 15
+console.log(iNum.toHexString()) // f
+```
+
+### 重命名已有方法
+
+可以给 Array 类添加两个方法 enqueue() 和 dequeue()，只让它们反复调用已有的 push() 和 shift() 方法即可：
+
+``` js
+Array.prototype.enqueue = function (vItem) {
+  this.push(vItem)
+}
+
+Array.prototype.dequeue = function () {
+  return this.shift()
+}
+```
+
+Function 的 toString() 方法通常输出的是函数的源代码。覆盖该方法，可以返回另一个字符串(在这个例子中，可以返回 "Function code hidden")。不过，toString() 指向的原始函数怎么了呢？它将被无用存储单元回收程序回收，因为它被完全废弃了。没有能够恢复原始函数的方法，所以在覆盖原始方法前，比较安全的做法是存储它的指针，以便以后的使用。
+
+``` js
+Function.prototype.originalToString = Function.prototype.toString
+
+Function.prototype.toString = function () {
+  if (this.originalToString().length > 100) {
+    return 'Function too long to display.'
+  } else {
+    return this.originalToString()
+  }
+}
+```
+
+### 极晚绑定(Very Late Binding)
+
+从技术上讲，根本不存在极晚绑定。本书采用该术语描述 ECMAScript 中的一种现象，即能够在对象实例化后再定义它的方法。例如：
+
+``` js
+var o = new Object()
+
+Object.prototype.sayHi = function () {
+  console.log('hi')
+}
+
+o.sayHi()
+```
+
+在大多数程序设计语言中，必须在实例化对象之前定义对象的方法。这里，方法 sayHi() 是在创建 Object 类的一个实例之后来添加进来的。在传统语言中不仅没听说过这种操作，也没听说过该方法还会自动赋予 Object 对象的实例并能立即使用（接下来的一行）。
+
+注意：不建议使用极晚绑定方法，因为很难对其跟踪和记录。不过，还是应该了解这种可能。
+
+## ES6 之 class
+
+ES6 提供了更接近传统语言的写法，引入了 `Class（类）`这个概念，作为对象的模板。通过 `class` 关键字，可以定义类。
+
+基本上，ES6 的 `class` 可以看作只是一个语法糖，它的绝大部分功能，ES5 都可以做到，新的 `class` 写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
+
+``` js
+function Point(x, y) {
+  this.x = x
+  this.y = y
+}
+
+Point.prototype.toString = function () {
+  return '(' + this.x + ', ' + this.y + ')'
+}
+
+//定义类
+class Point {
+  constructor (x, y) {
+    this.x = x
+    this.y = y
+  }
+
+  toString () {
+    return '(' + this.x + ', ' + this.y + ')'
+  }
+}
+```
+
+上面代码定义了一个“类”，可以看到里面有一个 `constructor` 方法，这就是构造方法，而 `this` 关键字则代表实例对象。也就是说，ES5 的构造函数 `Point`，对应 ES6 的 `Point` 类的构造方法。
+
+`Point` 类除了构造方法，还定义了一个 `toString` 方法。注意，定义“类”的方法的时候，前面不需要加上 `function` 这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。
+
+ES6 的类，完全可以看作构造函数的另一种写法。
+
+``` js
+class Point {
+  // ...
+}
+
+typeof Point // "function"
+Point === Point.prototype.constructor // true
+```
+
+上面代码表明，类的数据类型就是函数，类本身就指向构造函数。
+
+使用的时候，也是直接对类使用new命令，跟构造函数的用法完全一致。
+
+构造函数的 `prototype` 属性，在 ES6 的“类”上面继续存在。事实上，类的所有方法都定义在类的 `prototype` 属性上面。
+
+``` js
+class Point {
+  constructor () {
+    // ...
+  }
+
+  toString () {
+    // ...
+  }
+
+  toValue () {
+    // ...
+  }
+}
+
+// 等同于
+
+Point.prototype = {
+  constructor () {},
+  toString () {},
+  toValue () {},
+}
+```
+
+在类的实例上面调用方法，其实就是调用原型上的方法。
+
+``` js
+class B {}
+let b = new B();
+
+b.constructor === B.prototype.constructor // true
+```
+
+上面代码中，b 是 B 类的实例，它的 constructor 方法就是 B 类原型的 constructor 方法。
+
+由于类的方法都定义在 prototype 对象上面，所以类的新方法可以添加在 prototype 对象上面。`Object.assign` 方法可以很方便地一次向类添加多个方法。
+
+``` js
+class Point {
+  constructor(){
+    // ...
+  }
+}
+
+Object.assign(Point.prototype, {
+  toString () {},
+  toValue () {},
+})
+```
+
+`prototype` 对象的 `constructor` 属性，直接指向“类”的本身，这与 ES5 的行为是一致的。
+
+``` js
+Point.prototype.constructor === Point // true
+```
+
+另外，类的内部所有定义的方法，都是不可枚举的（non-enumerable）。
+
+``` js
+class Point {
+  constructor (x, y) {
+    // ...
+  }
+
+  toString () {
+    // ...
+  }
+}
+
+Object.keys(Point.prototype) // []
+Object.getOwnPropertyNames(Point.prototype) // ["constructor", "toString"]
+```
+
+上面代码中，`toString` 方法是 `Point` 类内部定义的方法，它是不可枚举的。`这一点与 ES5 的行为不一致。`
+
+``` js
+var Point = function (x, y) {
+  // ...
+}
+
+Point.prototype.toString = function () {
+  // ...
+}
+
+Object.keys(Point.prototype) // ["toString"]
+Object.getOwnPropertyNames(Point.prototype) // ["constructor", "toString"]
+```
+
+class 的简介大致就这些，想学习更多 class 的知识，敬请期待后面对 class 的深入探究。
+
+迫不及待想学习，可以阅读 [ES6 之 Class 的基本语法](http://es6.ruanyifeng.com/#docs/class)
