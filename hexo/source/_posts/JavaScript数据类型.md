@@ -1016,7 +1016,7 @@ class Point {
     // ...
   }
 
-  toValue () {
+  valueOf () {
     // ...
   }
 }
@@ -1026,7 +1026,7 @@ class Point {
 Point.prototype = {
   constructor () {},
   toString () {},
-  toValue () {},
+  valueOf () {},
 }
 ```
 
@@ -1052,7 +1052,7 @@ class Point {
 
 Object.assign(Point.prototype, {
   toString () {},
-  toValue () {},
+  valueOf () {},
 })
 ```
 
@@ -1097,3 +1097,213 @@ Object.getOwnPropertyNames(Point.prototype) // ["constructor", "toString"]
 class 的简介大致就这些，想学习更多 class 的知识，敬请期待后面对 class 的深入探究。
 
 迫不及待想学习，可以阅读 [ES6 之 Class 的基本语法](http://es6.ruanyifeng.com/#docs/class)
+
+# 类型转换
+
+## 转 Boolean
+
+在条件判断时，除了 `undefined`， `null`， `false`， `NaN`， `''`， `0`，` -0`，其他所有值都转为 `true`，包括所有对象。
+
+``` js
+!!undefined // false
+!!null // false
+!!false // false
+!!NaN // false
+!!'' // false
+!!0 // false
+!!-0 // false
+```
+
+条件判断有：`if`，`三目运算`，`for`，`while`，`do...while`、`switch` 等。
+
+## 对象转基本类型
+
+对象在转换基本类型时，有 `toString`，`valueOf`，`Symbol.toPrimitive`。默认调用 `toString`。三个方法都可以重写，而且越后面优先级越大。
+
+``` js
+var obj = {}
+
+obj.toString() // '[object Object]'
+obj.valueOf() // {}
+
+1 + obj // '1[object Object]'
+
+'a' + obj // 'a[object Object]'
+
+var obj = {
+  toString () {
+    return 'a'
+  },
+}
+
+1 + obj // ‘1a’
+'a' + obj // 'aa'
+
+var obj = {
+  valueOf () {
+  	return 1
+  },
+}
+
+1 + obj // 2
+'a' + obj // 'a1'
+
+var obj = {
+  toString () {
+    return 'a'
+  },
+  valueOf () {
+  	return 1
+  },
+}
+
+1 + obj // 2
+'a' + obj // 'a1'
+
+var obj = {
+  toString () {
+    return 'a'
+  },
+  valueOf () {
+    return 1
+  },
+  [Symbol.toPrimitive] () {
+    return 2
+  },
+}
+
+1 + obj // 3
+'a' + obj // 'a2'
+```
+
+## 四则运算符
+
+只有当加法运算时，其中一方是字符串类型，就会把另一个也转为字符串类型。并且加法运算会触发三种类型转换：将值转换为原始值，转换为数字，转换为字符串。
+
+其他运算只要其中一方是数字，那么另一方就转为数字。
+
+加法运算的结果不一定是数字。其他运算的结果一定是数字。
+
+``` js
+1 + '1' // '11'
+
+2 * '2' // 4
+
+[1, 2] + [2, 1] // '1,22,1'
+
+// [1, 2].toString() -> '1,2'
+// [2, 1].toString() -> '2,1'
+// '1,2' + '2,1' = '1,22,1'
+
+1 + '' // '1'，可以实现数字转字符串！
+
+'1' - 0 // 1，可以实现字符串转数字！
+
++ '1' // 1，可以实现字符串转数字！
+```
+
+对于加号需要注意这个表达式 `'a' + + 'b'`。在加法运算中，一般在变量前加 '+'，可以保证变量转化为数字。
+
+``` js
+'a' + + 'b' // -> "aNaN"
+// 因为 + 'b' -> NaN
+// 你也许在一些代码中看到过 + '1' -> 1
+```
+
+## == 操作符
+
+![== 操作符](https://cmspic-10003009.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908)
+
+上图中的 `toPrimitive` 就是对象转基本类型。
+
+``` js
+if ([]) {
+  console.log(true)
+} else {
+  console.log(false)
+}
+// true
+
+![] // false
+!![] // true
+
+// 意味着 [] 在条件判断中代表真
+```
+
+``` js
+undefined == false // false
+null == false // false
+NaN == false // false
+
+'' == false // true
+0 == false // true
+-0 == false // true
+
+[] == false // true
+
+// 意味着 '', 0, -0, [] 在 == 运算中是 false
+```
+
+为何 `[] == ![] // -> true` ？
+
+``` js
+[] == ![]
+// [] 是真值，![] -> false，即
+[] == false
+// 根据第 9 条得出
+[] == ToNumber(false)
+//ToNumber(false) -> 0，即
+[] == 0
+// 根据第 11 条得出
+ToPrimitive([]) == 0
+// [].toString() -> ''，即
+'' == 0
+// 根据第 7 条得出
+0 == 0 // -> true
+```
+
+`null` 只能和 `null` 或 `undefined` 相等，其他都不相登！
+
+``` js
+null == null // false
+
+null == undefined // false
+
+null == 0 // false
+```
+
+由于 0 的类型是数值，null 的类型是 Null。因此上面的前 11 步都得不到结果，要到第 12 步才能得到 false。
+
+[相等运算符](http://es6.ruanyifeng.com/#docs/spec#%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6)
+
+## === 操作符
+
+类型相等而且符合 == 操作符
+
+注意对象永远不全等！
+
+``` js
+[] === [] // false
+
+{} === {} // false
+```
+
+## 问 [] 的 == 和 ===
+
+``` js
+if ([]) {
+  console.log(true)
+} else {
+  console.log(false)
+}
+
+// true
+
+console.log(![]) // false
+
+console.log([] == ![]) // true
+
+console.log([] == false) // true
+
+console.log([] === []) // false
+```
