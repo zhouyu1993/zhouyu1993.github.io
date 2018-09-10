@@ -229,6 +229,18 @@ Number.isNaN = Number.isNaN || function (value) {
 
 `NaN` 为啥不等于自身？`NaN` 即 Not a Number , 不是一个数字。我们可以看到 'abc' - 1 的结果是 NaN，'abc' + 1 的结果也是 NaN，显然 'abc' - 1 不等于 'abc' + 1。NaN 可以代表一切 Not a Number 的数。
 
+### 比较
+
+NaN 不等于任何一个变量，包括它自己！
+
+``` js
+0 == false // true
+
+1 == true // true
+```
+
+在数字计算中，true 就是 1，false 就是 0。
+
 ## Boolean
 
 ``` js
@@ -245,6 +257,38 @@ parseInt 和 parseFloat 接受参数是 string 类型，非 string 类型的需�
 
 ``` bash
 parseInt(true) -> parseInt(String(true)) -> parseInt('true') -> NaN
+```
+
+## null
+
+null 可以等于 null 或者 undefined。
+
+``` js
+null == null // true
+null == undefined // true
+```
+
+null 是变量值为 null，undefined 是变量本身 undefined。
+
+null 和 undefined 都表示“值的空缺”，你可以认为 undefined 是表示系统级的、出乎意料的或类似错误的值的空缺，而 null 是表示程序级的、正常的或在意料之中的值的空缺。
+
+undefined 是访问一个未初始化的变量时返回的值，而 null是访问一个尚未存在的对象时所返回的值。因此，可以把 undefined 看作是空的变量，而 null 看作是空的对象。
+
+``` js
+// foo现在已经是知存在的，但是它没有类型或者是值：
+var foo = null;
+foo;
+// null
+
+// foo不存在，它从来没有被定义过或者是初始化过：
+foo;
+// "ReferenceError: foo is not defined"
+```
+
+``` js
+typeof null // 'object'
+
+null instanceof Object // false
 ```
 
 # Typeof
@@ -288,6 +332,8 @@ PS：为什么会出现这种情况呢？因为在 js 的最初版本中，使�
 
 ``` js
 null === null // true
+
+null == undefined // true
 ```
 
 # instanceof
@@ -304,6 +350,8 @@ var c = function () {}
 a instanceof Object // true
 b instanceof Array // true
 c instanceof Function // true
+
+null instanceof Object // false
 ```
 
 试着实现一下 `instanceof`
@@ -1102,17 +1150,23 @@ class 的简介大致就这些，想学习更多 class 的知识，敬请期待�
 
 ## 转 Boolean
 
-在条件判断时，除了 `undefined`， `null`， `false`， `NaN`， `''`， `0`，` -0`，其他所有值都转为 `true`，包括所有对象。
+在条件判断时，除了 `undefined`， `null`， `false`， `NaN`， `''`， `0`，` -0`，其他所有值都转为 `true`，包括所有对象，甚至是 `[]`、`{}`。
 
 ``` js
-!!undefined // false
-!!null // false
-!!false // false
-!!NaN // false
-!!'' // false
-!!0 // false
-!!-0 // false
+const arr = [undefined, null, false, NaN, '', 0, -0, [], {}]
+
+arr.forEach(item => {
+  if (item) {
+    console.log(true)
+  } else {
+    console.log(false)
+  }
+
+  console.log(`${item}转Boolean为${!!item}`)
+})
 ```
+
+转 Boolean，有 `!! + 变量` 或 `Boolean(变量)`
 
 条件判断有：`if`，`三目运算`，`for`，`while`，`do...while`、`switch` 等。
 
@@ -1176,6 +1230,10 @@ var obj = {
 'a' + obj // 'a2'
 ```
 
+转字符串，有 `'' + 变量` 或 `String(变量)`
+
+转数字，有 `+ 变量` 或 `Number(变量)`
+
 ## 四则运算符
 
 只有当加法运算时，其中一方是字符串类型，就会把另一个也转为字符串类型。并且加法运算会触发三种类型转换：将值转换为原始值，转换为数字，转换为字符串。
@@ -1216,32 +1274,35 @@ var obj = {
 
 上图中的 `toPrimitive` 就是对象转基本类型。
 
-``` js
-if ([]) {
-  console.log(true)
-} else {
-  console.log(false)
-}
-// true
-
-![] // false
-!![] // true
-
-// 意味着 [] 在条件判断中代表真
-```
+在 == 比较中，需要将【布尔值/字符串/】转化为【数值】，需要将【对象】转化为【基本类型】。
 
 ``` js
+null == NaN // false
 undefined == false // false
 null == false // false
 NaN == false // false
+
+null == undefined // true
 
 '' == false // true
 0 == false // true
 -0 == false // true
 
-[] == false // true
+console.log(NaN == NaN) // false
 
-// 意味着 '', 0, -0, [] 在 == 运算中是 false
+console.log(null == null) // true
+
+console.log([] == false) // true
+
+console.log([] == []) // false
+
+console.log([] == ![]) // true
+
+console.log({} == false) // false
+
+console.log({} == {}) // false
+
+console.log({} == !{}) // false
 ```
 
 为何 `[] == ![] // -> true` ？
@@ -1262,48 +1323,26 @@ ToPrimitive([]) == 0
 0 == 0 // -> true
 ```
 
-`null` 只能和 `null` 或 `undefined` 相等，其他都不相登！
+`null` 只能和 `null` 或 `undefined` 相等，其他都不相等！
+
+同样，`undefined` 只能和 `undefined` 或 `null` 相等，其他都不相等！
 
 ``` js
-null == null // false
+null == null // true
 
-null == undefined // false
+null == undefined // true
 
 null == 0 // false
+
+null == '' // false
+
+null == false // false
 ```
 
-由于 0 的类型是数值，null 的类型是 Null。因此上面的前 11 步都得不到结果，要到第 12 步才能得到 false。
+由于 0 的类型是数值，null 的类型是 null。因此上面的前 11 步都得不到结果，要到第 12 步才能得到 false。
 
 [相等运算符](http://es6.ruanyifeng.com/#docs/spec#%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6)
 
 ## === 操作符
 
-类型相等而且符合 == 操作符
-
-注意对象永远不全等！
-
-``` js
-[] === [] // false
-
-{} === {} // false
-```
-
-## 问 [] 的 == 和 ===
-
-``` js
-if ([]) {
-  console.log(true)
-} else {
-  console.log(false)
-}
-
-// true
-
-console.log(![]) // false
-
-console.log([] == ![]) // true
-
-console.log([] == false) // true
-
-console.log([] === []) // false
-```
+首先类型相等，其次判断 == 操作符

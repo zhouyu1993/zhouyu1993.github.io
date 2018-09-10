@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="前端面试题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T08:17:55.905Z">
+<meta property="og:updated_time" content="2018-09-07T07:02:23.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题">
 <meta name="twitter:description" content="前端面试题">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-22T16:17:55+08:00">
-                2018-08-22
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T15:02:23+08:00">
+                2018-09-07
               </time>
             
           </span>
@@ -565,9 +565,9 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clear-float</span> &#123;</span><br><span class="line">  <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clear-float</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但自从用了 display: flex，再也没写过 float</p>
 <h1 id="页面导入样式的几种方式"><a href="#页面导入样式的几种方式" class="headerlink" title="页面导入样式的几种方式"></a>页面导入样式的几种方式</h1><p>行内样式 </p><p style=""></p><p></p>
-<p>内嵌式 <style>p{}</style></p>
-<p>导入式 <style>@import ‘style.css’;</style></p>
-<p>链接式 <link href="style.css"></p>
+<p>内嵌样式 <style>p{}</style></p>
+<p>导入样式 <style>@import ‘style.css’;</style></p>
+<p>链接样式 <link href="style.css"></p>
 <h1 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h1><ul>
 <li>iframe 会阻塞主页面的 onload 事件</li>
 <li>iframe 和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载</li>
@@ -619,7 +619,16 @@
 <li>::after // 在<code>元素</code>之后添加内容</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 可以设置 p 中文本的第一字母的样式 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-letter</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 可以设置 p 中文本的第一行的样式 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-line</span> &#123;</span><br><span class="line">	<span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 可以在 p 之前添加内容 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">'before'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 可以在 p 之后添加内容 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">'after'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="css-权重"><a href="#css-权重" class="headerlink" title="css 权重"></a>css 权重</h1><p>从 0 开始，一个行内样式 +1000，一个 id +100，一个属性选择器/class 或者伪类 +10，一个元素名或者标签名或者伪元素 +1</p>
+<h1 id="css-权重"><a href="#css-权重" class="headerlink" title="css 权重"></a>css 权重</h1><p>从 0 开始，一个行内样式 +1000，一个 id +100，一个属性选择器/class 或者伪类 +10，一个元素名或者标签名或者伪元素 +1，* 是 0</p>
+<p>important &gt; 内嵌样式 &gt; ID &gt; 类 &gt; 标签 | 伪类 | 属性选择 &gt; 伪对象 &gt; 继承 &gt; 通配符</p>
+<p>important的权重为 1,0,0,0</p>
+<p>ID的权重为 0,1,0,0</p>
+<p>类的权重为 0,0,1,0</p>
+<p>标签的权重为 0,0,0,1</p>
+<p>伪类的权重为 0,0,1,0</p>
+<p>属性的权重为 0,0,1,0</p>
+<p>伪对象的权重为 0,0,0,1</p>
+<p>通配符的权重为0,0,0,0</p>
 <h1 id="css-优先级"><a href="#css-优先级" class="headerlink" title="css 优先级"></a>css 优先级</h1><p>!important &gt; id &gt; 属性选择器/class/伪类 &gt; tag/伪元素 &gt; *</p>
 <p>出现重复样式，后面写的样式大于前面写的样式</p>
 <p>以权重决定样式规则：</p>
@@ -1091,7 +1100,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1113,7 +1122,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

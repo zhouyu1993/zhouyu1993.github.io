@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -88,18 +88,23 @@
 
 
 
-<meta name="description" content="拷贝，copy，复制，抄本、副本、别本。 拷贝就是拷贝指向对象的指针，意思就是说，拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间！ 拷贝分浅拷贝和深拷贝。">
-<meta name="keywords" content="js">
+<meta name="description" content="WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript深浅复制(拷贝)">
-<meta property="og:url" content="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript深浅复制(拷贝)/index.html">
+<meta property="og:title" content="WebKit渲染">
+<meta property="og:url" content="https://zhouyu1993.github.io/zh/2018/09/07/WebKit渲染基础之Render树的建立/index.html">
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
-<meta property="og:description" content="拷贝，copy，复制，抄本、副本、别本。 拷贝就是拷贝指向对象的指针，意思就是说，拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间！ 拷贝分浅拷贝和深拷贝。">
+<meta property="og:description" content="WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T03:12:54.612Z">
+<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
+<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif">
+<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif">
+<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif">
+<meta property="og:updated_time" content="2018-09-10T07:26:05.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript深浅复制(拷贝)">
-<meta name="twitter:description" content="拷贝，copy，复制，抄本、副本、别本。 拷贝就是拷贝指向对象的指针，意思就是说，拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间！ 拷贝分浅拷贝和深拷贝。">
+<meta name="twitter:title" content="WebKit渲染">
+<meta name="twitter:description" content="WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。">
+<meta name="twitter:image" content="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
 
 
 
@@ -136,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript深浅复制(拷贝)/"/>
+  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2018/09/07/WebKit渲染基础之Render树的建立/"/>
 
 
 
 
 
-  <title>JavaScript深浅复制(拷贝) | zhouyu1993's blogs</title>
+  <title>WebKit渲染 | zhouyu1993's blogs</title>
   
 
 
@@ -322,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript深浅复制(拷贝)/">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/07/WebKit渲染基础之Render树的建立/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouyu1993">
@@ -339,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript深浅复制(拷贝)</h1>
+          <h1 class="post-title" itemprop="name headline">WebKit渲染</h1>
         
 
         <div class="post-meta">
@@ -351,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T13:58:27+08:00">
-                2018-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:46+08:00">
+                2018-09-07
               </time>
             
 
@@ -367,8 +372,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T11:12:54+08:00">
-                2018-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-10T15:26:05+08:00">
+                2018-09-10
               </time>
             
           </span>
@@ -403,7 +408,7 @@
 
           
           
-             <span id="/zh/2018/08/14/JavaScript深浅复制(拷贝)/" class="leancloud_visitors" data-flag-title="JavaScript深浅复制(拷贝)">
+             <span id="/zh/2018/09/07/WebKit渲染基础之Render树的建立/" class="leancloud_visitors" data-flag-title="WebKit渲染">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -434,51 +439,137 @@
       
 
       
-        <p>拷贝，copy，复制，抄本、副本、别本。</p>
-<p>拷贝就是拷贝指向对象的指针，意思就是说，拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间！</p>
-<p>拷贝分浅拷贝和深拷贝。</p>
+        <p>WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。</p>
 <a id="more"></a>
-<h1 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h1><p>要了解深浅拷贝，需要先去回顾 JavaScript 数据类型。</p>
-<p>JavaScript 的数据类型分为基本数据类型和引用数据类型。</p>
-<p>基本数据类型是按值传递，其拷贝没有深浅拷贝的区别。b 是 a 的拷贝，在修改 b 时并不会改到 a。</p>
-<p>引用数据类型是按引用传递，其拷贝才有深浅拷贝的区别。</p>
-<p>深浅拷贝是针对对象而言的。</p>
-<h1 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h1><p>shallow copy</p>
-<p>按位拷贝对象，它会创建一个新对象，这个对象有着源对象属性值的一份精确拷贝。</p>
-<p>如果属性是基本类型，拷贝的就是基本类型的值；如果属性是内存地址(引用类型)，拷贝的就是内存地址。</p>
-<p>因此如果其中一个对象改变了这个地址，就会影响到另一个对象。即默认拷贝构造函数只是对对象进行浅拷贝复制(逐个成员依次拷贝)，即只复制对象空间而不复制资源，只复制引用而不复制真正的值。</p>
-<p>浅拷贝的意思就是只复制引用，而未复制真正的值。</p>
-<h2 id="赋值操作符-就是浅拷贝"><a href="#赋值操作符-就是浅拷贝" class="headerlink" title="赋值操作符 = 就是浅拷贝"></a>赋值操作符 = 就是浅拷贝</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">'hello'</span>,</span><br><span class="line">  b: &#123;</span><br><span class="line">    a: <span class="string">'world'</span>,</span><br><span class="line">    b: <span class="number">21</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  c: [<span class="string">'Bob'</span>, <span class="string">'Tom'</span>, <span class="string">'Jenny'</span>],</span><br><span class="line">  d: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   alert(<span class="string">'hello world'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneObj = obj</span><br><span class="line"></span><br><span class="line">cloneObj.a = <span class="string">'world'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.a, obj.a) <span class="comment">// world, world</span></span><br></pre></td></tr></table></figure>
-<h2 id="简单的复制函数"><a href="#简单的复制函数" class="headerlink" title="简单的复制函数"></a>简单的复制函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">'hello'</span>,</span><br><span class="line">  b: &#123;</span><br><span class="line">    a: <span class="string">'world'</span>,</span><br><span class="line">    b: <span class="number">21</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  c: [<span class="string">'Bob'</span>, <span class="string">'Tom'</span>, <span class="string">'Jenny'</span>],</span><br><span class="line">  d: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   alert(<span class="string">'hello world'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleClone</span> (<span class="params">initalObj</span>) </span>&#123;    </span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">    obj[i] = initalObj[i]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneObj = simpleClone(obj)</span><br><span class="line"></span><br><span class="line">cloneObj.a = <span class="string">'world'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.a, obj.a) <span class="comment">// world, hello</span></span><br><span class="line"></span><br><span class="line">cloneObj.b.a = <span class="string">'hello'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.b.a, obj.b.a) <span class="comment">// hello, hello</span></span><br><span class="line"></span><br><span class="line">cloneObj.b = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.b.a, obj.b.a) <span class="comment">// undefined, hello</span></span><br><span class="line"></span><br><span class="line">cloneObj.c[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.c[<span class="number">0</span>], obj.c[<span class="number">0</span>]) <span class="comment">// 0, 0</span></span><br><span class="line"></span><br><span class="line">cloneObj.c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneObj.c[<span class="number">0</span>], obj.c[<span class="number">0</span>]) <span class="comment">// 1. 0</span></span><br></pre></td></tr></table></figure>
-<p><code>obj[i] = initalObj[i]</code> 这里对对象的第一层进行了深拷贝，而第二层开始的目标我们是直接利用 = 赋值操作符进行拷贝的，只是复制了一个引用，也就是浅拷贝。</p>
-<p>直接修改克隆对象第一层属性的值，不会对原对象产生影响。但如果修改第二层属性，即第一层属性的值是个对象，并改变其值(该对象上某个属性)，就会对原对象产生影响。</p>
-<p>对目标对象的第一层进行深拷贝，然后后面的是浅拷贝，可以称作“首层浅拷贝”。</p>
-<p>赋值运算符 = 实现的是浅拷贝，只拷贝对象的引用值。</p>
-<p>js 中数组和对象自带的拷贝方法都是“首层浅拷贝”。</p>
-<h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = array.concat() <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray, array) <span class="comment">// [0, 2, 3], [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p>看上去好像不是浅拷贝，其实 <code>concat</code> 也是对数组的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = array.concat() <span class="comment">// [&#123; x: 1&#125;, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h2><p><code>slice</code> 也是对数组的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = array.slice() <span class="comment">// [&#123; x: 1&#125;, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p><code>forEach</code> 也是对数组的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = []</span><br><span class="line"></span><br><span class="line">array.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  cloneArray[index] = item</span><br><span class="line">&#125;) <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p><code>map</code> 也是对数组的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = array.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item</span><br><span class="line">&#125;) <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p><code>扩展运算符 ...</code> 也是对数组/对象的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = [...array] <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h2><p><code>Object.assign()</code> 也是对数组/对象的第一层进行了深拷贝。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = <span class="built_in">Object</span>.assign([], array) <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 0</span></span><br></pre></td></tr></table></figure>
-<h1 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h1><p>deep copy</p>
-<p>一个引用对象一般来说由两个部分组成：一个具名的 Handle，也就是我们所说的声明（如变量）和一个内部（不具名）的对象，也就是具名 Handle 的内部对象。它在 Manged Heap（托管堆）中分配，一般由新增引用对象的 new 方法是进行创建。深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响。</p>
-<p>源对象与拷贝对象互相独立。</p>
-<p>深拷贝就是对目标的完全拷贝，不像浅拷贝那样只是复制了一层引用，就连值也都复制了。</p>
-<p>只要进行了深拷贝，它们老死不相往来，谁也不会影响谁。</p>
-<p>一般情况下，只需使用系统提供的浅拷贝构造函数即可，但是，如果对象的数据成员包括指向堆空间的指针，就不能使用这种拷贝方式，因为两个对象都拥有同一个资源，对象析构时，该资源将经历两次资源返还，此时必须自定义深拷贝构造函数，为创建的对象分配堆空间，否则会出现动态分配的指针变量悬空的情况。</p>
-<p>深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。</p>
-<p>实现深拷贝的方法：</p>
-<h2 id="利用-JSON-parse-和-JSON-stringify"><a href="#利用-JSON-parse-和-JSON-stringify" class="headerlink" title="利用 JSON.parse 和 JSON.stringify"></a>利用 JSON.parse 和 JSON.stringify</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">regExp</span>: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'1'</span>), <span class="attr">func</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(array))</span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].regExp, cloneArray[<span class="number">0</span>].func) <span class="comment">// undefined, undefined</span></span><br></pre></td></tr></table></figure>
-<p>缺点：只能适用于一些简单的情况，能正确处理的对象只有 Number, String, Boolean, Array, 扁平对象，即那些能够被 json 直接表示的数据结构。RegExp 对象、Function 对象等没办法转成 JSON，所以不能被处理，会被忽略，导致丢失。</p>
-<h2 id="利用递归来实现每一层都重新创建对象并赋值"><a href="#利用递归来实现每一层都重新创建对象并赋值" class="headerlink" title="利用递归来实现每一层都重新创建对象并赋值"></a>利用递归来实现每一层都重新创建对象并赋值</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">regExp</span>: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'1'</span>), <span class="attr">func</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, &#125;, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/(Array|Object)]/gi</span>.test(<span class="built_in">Object</span>.prototype.toString.call(obj))) &#123;</span><br><span class="line">    <span class="keyword">var</span> cloneObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = obj[key]</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/(Array|Object)]/gi</span>.test(<span class="built_in">Object</span>.prototype.toString.call(prop))) &#123;</span><br><span class="line">          cloneObj[key] = prop <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;  </span><br><span class="line">          cloneObj[key] = deepClone(prop)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          cloneObj[key] = prop</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cloneArray = deepClone(array)</span><br><span class="line"></span><br><span class="line">cloneArray[<span class="number">0</span>].x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].x, array[<span class="number">0</span>].x) <span class="comment">// 0, 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cloneArray[<span class="number">0</span>].regExp, cloneArray[<span class="number">0</span>].func) <span class="comment">// /1/, ƒ () &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><p>DOM 是对 HTML 或者 XML 等文档的一种结构化表示方法，通过这种方式，用户可以通过提供标准的接口来访问 HTML 页面中的任何元素的相关属性，并可对 DOM 进行相应的添加、删除和更新操作等。更多相关信息可查阅 W3C 的文档。</p>
+<p>W3C DOM 标准被分为 3 个不同的部分：</p>
+<ul>
+<li>核心 DOM - 针对任何结构化文档的标准模型</li>
+<li>XML DOM - 针对 XML 文档的标准模型</li>
+<li>HTML DOM - 针对 HTML 文档的标准模型</li>
+</ul>
+<p>HTML DOM 将 HTML 文档表达为树结构，即 DOM 树。</p>
+<p><img src="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif" alt="DOM 树"></p>
+<p>基于 DOM 树的一些可视(visual)的节点，WebKit 来根据需要来创建相应的 RenderObject 节点，这些节点也构成了一颗树，称之为 Render 树。基于 Render 树，WebKit 也会根据需要来为它们中的某些节点创建新的 RenderLayer 节点，从而形成一棵 RenderLayer 树。</p>
+<p>Render 树和 RenderLayer 树是 WebKit 支持渲染所提供的基础但是却非常重要的设施。这是因为 WebKit 的布局计算依赖它们，浏览器的渲染和 GPU 硬件加速也都依赖于它们。幸运地是，得益于它们接口定义的灵活性，不同的浏览器可以很方便地来实现自己的渲染和加速机制。</p>
+<p>为了直观了解这三种树，下图给出了这三种树及其它们之间的对应关系。</p>
+<p><img src="https://cmspic-10003009.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif" alt="三种树"></p>
+<h2 id="Render-树的建立"><a href="#Render-树的建立" class="headerlink" title="Render 树的建立"></a>Render 树的建立</h2><p>Render 树是基于 DOM 树建立起来的一颗新的树， 是布局和渲染等机制的基础设施。Render 树节点和 DOM 树节点不是一一对应关系，那么哪些情况下需要建立新的 Render 节点呢？</p>
+<ul>
+<li>DOM 树的 document 节点</li>
+<li>DOM 树中的可视化节点，例如 HTML，BODY，DIV 等，非可视化节点不会建立 Render 树节点，例如 HEAD，META，SCRIPT 等</li>
+<li>某些情况下需要建立匿名的 Render 节点，该节点不对应于 DOM 树中的任何节点</li>
+</ul>
+<p>RenderObject 对象在 DOM 树创建的同时也会被创建，当然，如果 DOM 中有动态加入元素时，也可能会相应地创建 RenderObject 对象。下图示例的是 RenderObject 对象被创建的函数调用过程。</p>
+<p><img src="https://cmspic-10003009.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif" alt="RenderObject 对象被创建的函数调用过程"></p>
+<p>Render 树建立之后，布局运算会计算出相关的属性，这其中有位置，大小，是否浮动等。有了这些信息之后，渲染引擎才只知道在何处以及如何画这些元素。</p>
+<h2 id="RenderObject-类及其子类"><a href="#RenderObject-类及其子类" class="headerlink" title="RenderObject 类及其子类"></a>RenderObject 类及其子类</h2><p>RenderObject 是 Render 树的节点基础类，提供了一组公共的接口。它有很多的子类，这些子类可能对应一些 DOM 树中的节点，例如 RenderText，有些则是容器类，例如 RenderBlock。下图给出了一些常用的类的继承关系图，这其中 RenderBlock 是一个非常重要的类。</p>
+<p><img src="https://cmspic-10003009.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif" alt="常用的类的继承关系图"></p>
+<h2 id="匿名-RenderBlock-对象"><a href="#匿名-RenderBlock-对象" class="headerlink" title="匿名 RenderBlock 对象"></a>匿名 RenderBlock 对象</h2><p>CSS 中有块级元素和内嵌(inline)元素之分。内嵌元素表现的是行布局形式，就是说这些元素以行进行显示。以 div 元素为例，如果设置属性 style 为 display:inline 时，则那是内嵌元素，那么它可能与前面的元素在同一行；如果该元素没有设置这个属性时，则是块级元素，那么在新的行里显示。</p>
+<p>RenderBlock 是用来表示块级元素，为了处理上的方便，某些情况下需要建立匿名的 RenderBlock 对象，因为 RenderBlock 的子女必须都是内嵌的元素或者都是非内嵌的元素。所以，当它包含两种元素的时候，那么它会为相邻的内嵌元素创建一个块级 RenderBlock 节点，然后设置该节点为自己的子女并且设置这些内嵌元素为它的子女。</p>
+<h1 id="浏览器如何构建-Render-树"><a href="#浏览器如何构建-Render-树" class="headerlink" title="浏览器如何构建 Render 树"></a>浏览器如何构建 Render 树</h1><p><a href="https://cmspic-10003009.image.myqcloud.com/bc350930-b26a-11e8-ad16-6fbf6c430894_size_630x292" target="_blank" rel="noopener">Render 树的构建</a></p>
+<p>浏览器取回代码后，首先会构造 DOM 树，就是根据 HTML 标签构建 HTML DOM 树。</p>
+<p>之后会解析 CSS 样式，解析的顺序是浏览器的样式(UA defaults) -&gt; 页面的 link 标签引入的链接样式 -&gt; <code>@import</code> 引入的导入样式 -&gt; 写在 style 标签里面的内嵌样式 -&gt; 写在 html 标签是 style 属性的行内样式</p>
+<p>根据 DOM 树以及解析的 CSS 样式，构造 Render 树，在 Render 树中，会把 DOM 树中没有的元素给去除，比如 head 标签以及里面的内容，以及 display:none 的元素也会被去除。</p>
+<p>一旦 Render 树构建完成，浏览器会把树里面的内容绘制在屏幕上。</p>
+<p>html 代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Beautiful page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Once upon a time there was</span><br><span class="line">    a looong paragraph...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span></span><br><span class="line">    Secret message</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"..."</span> /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>构造的 DOM 树如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">documentElement (html)</span><br><span class="line">  head</span><br><span class="line">    title</span><br><span class="line">  body</span><br><span class="line">    p</span><br><span class="line">      [text node]</span><br><span class="line"></span><br><span class="line">    div</span><br><span class="line">      [text node]</span><br><span class="line"></span><br><span class="line">    div</span><br><span class="line">      img</span><br><span class="line"></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>Render 树如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root (RenderView)</span><br><span class="line">  body</span><br><span class="line">    p</span><br><span class="line">        line 1</span><br><span class="line">    line 2</span><br><span class="line">    line 3</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">  div</span><br><span class="line">    img</span><br><span class="line"></span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<h1 id="CSS-的图层"><a href="#CSS-的图层" class="headerlink" title="CSS 的图层"></a>CSS 的图层</h1><p>在渲染 DOM 的时候，浏览器所做的工作实际上是：1. 获取 DOM 后分割为多个图层 2. 对每个图层的节点计算样式结果 (Recalculate style – 样式重计算) 3. 为每个节点生成图形和位置 (Layout – 回流和重布局) 4. 将每个节点绘制填充到图层位图中 (Paint Setup和Paint – 重绘)  5. 图层作为纹理上传至 GPU 6. 符合多个图层到页面上生成最终屏幕图像 (Composite Layers – 图层重组)</p>
+<h1 id="重绘-repaint-redraw-和重排-回流-reflow"><a href="#重绘-repaint-redraw-和重排-回流-reflow" class="headerlink" title="重绘 (repaint/redraw) 和重排/回流 (reflow)"></a>重绘 (repaint/redraw) 和重排/回流 (reflow)</h1><h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>重绘 (repaint/redraw)。当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p>
+<p>触发重绘的条件：改变元素外观属性。如：color，background-color 等。</p>
+<p>注意：table 及其内部元素可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用 table 布局页面的原因之一。</p>
+<h2 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h2><p>重排 (重构/回流/reflow)。当元素的尺寸/几何属性(宽或高)发生变化，元素显示隐藏等，会导致浏览器需要重新计算元素的几何属性和位置，同样其他元素的几何属性和位置也会因此受到影响。浏览器会使渲染树中受到影响的部分失效，并重新构造渲染树。这就称为重排。</p>
+<p>完成重排后，浏览器会重新绘制受影响的部分到屏幕，该过程称为重绘。重排必然导致重绘，所以重排更加恶心。其实我们一直研究的应该是怎么避免触发多次重排。</p>
+<p>每个页面至少需要一次重排，就是在页面第一次加载的时候。</p>
+<p>触发重排的条件：任何页面布局和几何属性的改变都会触发重排。如：</p>
+<ul>
+<li>页面渲染初始化(无法避免)</li>
+<li>添加或删除可见的 DOM 元素</li>
+<li>元素位置的改变，或者使用动画</li>
+<li>元素尺寸的改变，包括大小、外边距、边框等</li>
+<li>浏览器窗口尺寸的变化(resize事件发生时)</li>
+<li>填充内容的改变，比如文本的改变或图片大小改变而引起的计算值宽度和高度的改变</li>
+<li>读取元素尺寸或位置属性: offsetLeft/Top/Height/Width, clientTop/Left/Width/Height, scrollTop/Left/Width/Height,　width/height,　getComputedStyle(), currentStyle(IE)</li>
+</ul>
+<h2 id="建设重绘和重排来优化页面"><a href="#建设重绘和重排来优化页面" class="headerlink" title="建设重绘和重排来优化页面"></a>建设重绘和重排来优化页面</h2><p>重绘和重排的代价：耗时，导致浏览器卡慢。</p>
+<p>优化：</p>
+<ul>
+<li><p>浏览器自身的优化：浏览器会维护 1 个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会 flush 队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">'myDiv'</span>);</span><br><span class="line">ele.style.borderLeft = <span class="string">'1px'</span>;</span><br><span class="line">ele.style.borderRight = <span class="string">'2px'</span>;</span><br><span class="line">ele.style.padding = <span class="string">'5px'</span>;</span><br><span class="line"><span class="comment">// 乍一想，元素的样式改变了三次，每次改变都会引起重排和重绘，所以总共有三次重排重绘过程，但是浏览器并不会这么笨，它会把三次修改“保存”起来(大多数浏览器通过队列化修改并批量执行来优化重排过程)，一次完成！但是，有些时候你可能会(经常是不知不觉)强制刷新队列并要求计划任务立即执行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开发者的优化：减少重绘和重排就是要减少对渲染树的操作，可以合并多次的 DOM 和样式的修改，并减少对 style 样式的请求。</p>
+<ul>
+<li>直接改变元素的 className</li>
+<li>先设置元素为 display: none; 然后进行页面布局等操作；设置完成后将元素设置为 display: block; 这样的话就只引发两次重绘和重排</li>
+<li>要经常访问浏览器的 flush 队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流</li>
+<li>使用 cloneNode (true or false) 和 replaceChild 技术，引发一次回流和重绘</li>
+<li>将需要多次重排的元素，position 属性设为 absolute 或 fixed，元素脱离了文档流，它的变化不会影响到其他元素</li>
+<li><p>如果需要创建多个 DOM 节点，可以使用 documentFragment 创建完后一次性的加入 document</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fragment = <span class="built_in">document</span>.createDocumentFragment()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>)</span><br><span class="line">li.innerHTML = <span class="string">'apple'</span></span><br><span class="line">fragment.appendChild(li)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>)</span><br><span class="line">li.innerHTML = <span class="string">'watermelon'</span></span><br><span class="line">fragment.appendChild(li)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'fruit'</span>).appendChild(fragment)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>尽量不要使用 table 布局</p>
+</li>
+<li>量不要在修改样式或者布局信息时查询样式，因为查询的时候会强制重排，导致浏览器无法优化多次重排</li>
+</ul>
+</li>
+</ul>
+<h1 id="transform-是否可以避免重排重绘问题"><a href="#transform-是否可以避免重排重绘问题" class="headerlink" title="transform 是否可以避免重排重绘问题"></a>transform 是否可以避免重排重绘问题</h1><p>CSS 的最终表现分为以下四步：<code>Recalculate Style</code> -&gt; <code>Layout</code> -&gt; <code>Paint Setup and Paint</code> -&gt; <code>Composite Layers</code>，即查找并计算样式 -&gt; 排布 -&gt; 绘制 -&gt; 组合层</p>
+<p>重排必定导致重绘，而查询样式会强制发生重排！</p>
+<p>由于 <code>transform</code> 是位于 <code>Composite Layers</code> 层，而 <code>width</code>、<code>left</code>、<code>margin</code> 等则是位于 <code>Layout</code> 层。在 <code>Layout</code> 层发生的改变必定导致 <code>Paint Setup and Paint</code> -&gt; <code>Composite Layers</code>，所以相对而言使用 <code>transform</code> 实现的动画效果肯定比 <code>left</code> 这些更加流畅。</p>
+<h1 id="动画性能优化"><a href="#动画性能优化" class="headerlink" title="动画性能优化"></a>动画性能优化</h1><p>用绝对定位(absolute)+ 改变位移(left、top等)+ 改变大小(whidth、height) + 改变边距 (margin) 来实现的动画，出现卡顿，其原因是当这些节点改变大小或位置时，浏览器重布局了整个页面！</p>
+<p><a href="https://csstriggers.com/" target="_blank" rel="noopener">CSS Triggers</a></p>
+<h2 id="强迫浏览器创建图层，开启-GPU-硬件加速"><a href="#强迫浏览器创建图层，开启-GPU-硬件加速" class="headerlink" title="强迫浏览器创建图层，开启 GPU 硬件加速"></a>强迫浏览器创建图层，开启 GPU 硬件加速</h2><p>如果能把动画单独创建一个图层，与页面独立开，就会让动画更顺畅。</p>
+<p>满足以下条件就会创建一个图层：</p>
+<ol>
+<li>3D或透视变换 (perspective transform) CSS 属性</li>
+<li>使用硬件加速视频解码的 <video> 节点</video></li>
+<li>拥有3D (WebGL) 上下文或硬件加速的 2D 上下文的 <canvas> 节点</canvas></li>
+<li>混合插件(如 Flash)</li>
+<li>对自己的 opacity 做 CSS 动画或使用一个动画 WebKit 变换的元素</li>
+<li>拥有硬件加速 CSS 过滤器的元素</li>
+<li>元素有一个包含复合层的后代节点(一个元素拥有一个子元素，该子元素在自己的层里)</li>
+<li>元素有一个 z-index 较低且包含一个复合层的兄弟元素(换句话说就是该元素在复合层上面渲染)</li>
+</ol>
+<p>强迫浏览器对元素单独生成一个图层，把重绘的工作交给 GPU 去做，而不占用主线程。也就是利用 GPU 重绘来做动画。</p>
+<p>使用 3d 效果来开启硬件加速：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.speed-up</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate3d</span>(250px,250px,250px,-120deg) <span class="built_in">scale3d</span>(0.5, 0.5, 0.5) <span class="built_in">translate3d</span>(250px, 250px, 250px);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate3d</span>(250px,250px,250px,-120deg) <span class="built_in">scale3d</span>(0.5, 0.5, 0.5) <span class="built_in">translate3d</span>(250px, 250px, 250px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果并不需要用到 transform 变换，仅仅是开启硬件加速，可以用下面的语句:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.speed-up</span>&#123;</span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">translateZ</span>(0);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>硬件加速最好只用在 animation 或者 transform 上。不要滥用硬件加速，因为这样会增加性能的消耗，如果滥用反而会使动画变得更加卡，这样就得不偿失了。</p>
+<h2 id="尽量不触发重绘"><a href="#尽量不触发重绘" class="headerlink" title="尽量不触发重绘"></a>尽量不触发重绘</h2><p>想提高动画性能，需要做的就是减少浏览器在动画运行时所需要做的工作。最好的情况是，改变的属性仅仅影响图层的组合，变换 (transform) 和透明度(opacity)就属于这种情况。</p>
+<h2 id="减小选择器的复杂性"><a href="#减小选择器的复杂性" class="headerlink" title="减小选择器的复杂性"></a>减小选择器的复杂性</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">:nth-last-child(-n+1)</span> <span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="comment">/* styles */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.final-box-title</span> &#123;</span><br><span class="line">  <span class="comment">/* styles */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码都是选择同一个元素，当元素很多时，第二个选择器的性能会明显优于第一个。BEM 规范有做类似事情，按照特性直接由一个选择器选择元素的性能往往会更优。</p>
+<h2 id="减少样式的计算量"><a href="#减少样式的计算量" class="headerlink" title="减少样式的计算量"></a>减少样式的计算量</h2><p>减少无效元素、冗余标签。</p>
+<h2 id="使用-Flexbox-布局"><a href="#使用-Flexbox-布局" class="headerlink" title="使用 Flexbox 布局"></a>使用 Flexbox 布局</h2><h2 id="css-动画与-js-动画"><a href="#css-动画与-js-动画" class="headerlink" title="css 动画与 js 动画"></a>css 动画与 js 动画</h2><p>css 动画优点：</p>
+<p>(1) 浏览器可以对动画进行优化</p>
+<ol>
+<li>浏览器使用与 requestAnimationFrame 类似的机制，requestAnimationFrame 比起 setTimeout、setInterval 设置动画的优势主要是:<ul>
+<li>requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频，一般来说，这个频率为每秒 60 帧。</li>
+<li>在隐藏或不可见的元素中 requestAnimationFrame 不会进行重绘或回流，这当然就意味着更少的 CPU、GPU 和内存使用量。</li>
+</ul>
+</li>
+<li>强制使用硬件加速，通过 GPU 来提高动画性能</li>
+</ol>
+<p>(2) 代码相对简单，性能调优方向固定</p>
+<p>(3) 对于帧速表现不好的低版本浏览器，css 可以做到自然降级，而 js 则需要撰写额外代码</p>
+<p>css 动画缺点：</p>
+<p>(1) 运行过程控制较弱，无法附加事件绑定回调函数。css 动画只能暂停，不能在动画中寻找一个特定的时间点，不能在半路反转动画，不能变换时间尺度，不能在特定的位置添加回调函数或是绑定回放事件，无进度报告</p>
+<p>(2) 代码冗长。想用 CSS 实现稍微复杂一点动画,最后 css 代码都会变得非常笨重。</p>
+<p>js 动画优点：</p>
+<p>(1) js 动画控制能力很强，可以在动画播放过程中对动画进行控制：开始、暂停、回放、终止、取消都是可以做到的。</p>
+<p>(2) 动画效果比 css 动画丰富，有些动画效果，比如曲线运动、冲击闪烁、视差滚动效果，只有 js 动画才能完成</p>
+<p>(3) css 动画有兼容性问题，而 js 动画大多时候没有兼容性问题</p>
+<p>js 动画缺点：</p>
+<p>(1) js 在浏览器的主线程中运行，而主线程中还有其它需要运行的 js 脚本、样式计算、布局、绘制任务等，对其干扰导致线程可能出现阻塞，从而造成丢帧的情况。</p>
+<p>(2) js 动画代码的复杂度高于 css 动画</p>
+<p>总结：如果动画只是简单的状态切换，不需要中间过程控制，在这种情况下，css 动画是优选方案。它可以让你将动画逻辑放在样式文件里面，而不会让你的页面充斥 js 库。然而如果你在设计很复杂的客户端界面或者在开发一个有着复杂 UI 状态的 APP。那么你应该使用 js 动画，这样你的动画可以保持高效，并且你的工作流也更可控。所以，在实现一些小的交互动效的时候，就多考虑考虑 css 动画。对于一些复杂控制的动画，使用 js 动画比较可靠。</p>
+<h2 id="优化-js-动画"><a href="#优化-js-动画" class="headerlink" title="优化 js 动画"></a>优化 js 动画</h2><h3 id="使用-requestAnimationFrame"><a href="#使用-requestAnimationFrame" class="headerlink" title="使用 requestAnimationFrame"></a>使用 requestAnimationFrame</h3><p>将 setTimeout 换成 requestAnimationFrame，因为 setTimeout 时间控制可能造成在一帧的中间，目前各浏览器对 requestAnimationFrame 的支持已经比较好了。</p>
+<h3 id="使用-Web-Workers"><a href="#使用-Web-Workers" class="headerlink" title="使用 Web Workers"></a>使用 Web Workers</h3><p>将复杂计算的 JS 采用 Web Workers 进行处理。</p>
+<h3 id="减少垃圾回收"><a href="#减少垃圾回收" class="headerlink" title="减少垃圾回收"></a>减少垃圾回收</h3><p>垃圾回收是一个容易被忽略的问题，因为垃圾回收的时间是不受控制的，它可能在一个动画的中途，阻塞动画的执行，更理想的情况是在循环中复用对象。</p>
 
       
     </div>
@@ -533,7 +624,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -546,8 +637,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2018/08/14/健康指标/" rel="next" title="健康指标">
-                <i class="fa fa-chevron-left"></i> 健康指标
+              <a href="/zh/2018/09/05/车/" rel="next" title="车">
+                <i class="fa fa-chevron-left"></i> 车
               </a>
             
           </div>
@@ -556,8 +647,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2018/08/14/JavaScript数据类型/" rel="prev" title="JavaScript数据类型">
-                JavaScript数据类型 <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2018/09/10/css权重/" rel="prev" title="css 权重">
+                css 权重 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -753,7 +844,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">1.</span> <span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值操作符-就是浅拷贝"><span class="nav-number">2.1.</span> <span class="nav-text">赋值操作符 = 就是浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的复制函数"><span class="nav-number">2.2.</span> <span class="nav-text">简单的复制函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#concat"><span class="nav-number">2.3.</span> <span class="nav-text">concat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slice"><span class="nav-number">2.4.</span> <span class="nav-text">slice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forEach"><span class="nav-number">2.5.</span> <span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">2.6.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展运算符"><span class="nav-number">2.7.</span> <span class="nav-text">扩展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign"><span class="nav-number">2.8.</span> <span class="nav-text">Object.assign()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深拷贝"><span class="nav-number">3.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用-JSON-parse-和-JSON-stringify"><span class="nav-number">3.1.</span> <span class="nav-text">利用 JSON.parse 和 JSON.stringify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用递归来实现每一层都重新创建对象并赋值"><span class="nav-number">3.2.</span> <span class="nav-text">利用递归来实现每一层都重新创建对象并赋值</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Render-树的建立"><span class="nav-number">1.1.</span> <span class="nav-text">Render 树的建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RenderObject-类及其子类"><span class="nav-number">1.2.</span> <span class="nav-text">RenderObject 类及其子类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名-RenderBlock-对象"><span class="nav-number">1.3.</span> <span class="nav-text">匿名 RenderBlock 对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器如何构建-Render-树"><span class="nav-number">2.</span> <span class="nav-text">浏览器如何构建 Render 树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-的图层"><span class="nav-number">3.</span> <span class="nav-text">CSS 的图层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重绘-repaint-redraw-和重排-回流-reflow"><span class="nav-number">4.</span> <span class="nav-text">重绘 (repaint/redraw) 和重排/回流 (reflow)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘"><span class="nav-number">4.1.</span> <span class="nav-text">重绘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排"><span class="nav-number">4.2.</span> <span class="nav-text">重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建设重绘和重排来优化页面"><span class="nav-number">4.3.</span> <span class="nav-text">建设重绘和重排来优化页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#transform-是否可以避免重排重绘问题"><span class="nav-number">5.</span> <span class="nav-text">transform 是否可以避免重排重绘问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画性能优化"><span class="nav-number">6.</span> <span class="nav-text">动画性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#强迫浏览器创建图层，开启-GPU-硬件加速"><span class="nav-number">6.1.</span> <span class="nav-text">强迫浏览器创建图层，开启 GPU 硬件加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量不触发重绘"><span class="nav-number">6.2.</span> <span class="nav-text">尽量不触发重绘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减小选择器的复杂性"><span class="nav-number">6.3.</span> <span class="nav-text">减小选择器的复杂性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少样式的计算量"><span class="nav-number">6.4.</span> <span class="nav-text">减少样式的计算量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Flexbox-布局"><span class="nav-number">6.5.</span> <span class="nav-text">使用 Flexbox 布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-动画与-js-动画"><span class="nav-number">6.6.</span> <span class="nav-text">css 动画与 js 动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化-js-动画"><span class="nav-number">6.7.</span> <span class="nav-text">优化 js 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-requestAnimationFrame"><span class="nav-number">6.7.1.</span> <span class="nav-text">使用 requestAnimationFrame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Web-Workers"><span class="nav-number">6.7.2.</span> <span class="nav-text">使用 Web Workers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少垃圾回收"><span class="nav-number">6.7.3.</span> <span class="nav-text">减少垃圾回收</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

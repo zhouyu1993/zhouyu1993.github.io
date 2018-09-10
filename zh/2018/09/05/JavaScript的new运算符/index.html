@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="new 运算符，用来创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。也就是说，是根据一个对象，去创建它的实例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T07:19:19.458Z">
+<meta property="og:updated_time" content="2018-09-07T15:49:36.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的new运算符">
 <meta name="twitter:description" content="new 运算符，用来创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。也就是说，是根据一个对象，去创建它的实例。">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T15:19:19+08:00">
-                2018-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T23:49:36+08:00">
+                2018-09-07
               </time>
             
           </span>
@@ -446,9 +446,9 @@
 <li>回新对象</li>
 </ul>
 <p>在调用 <code>new</code> 的过程中会发生以上四件事情，我们也可以试着来自己实现一个 <code>new</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Base</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Base()</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj.__proto__ = Base.prototype</span><br><span class="line">Base.call(obj)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个空的对象</span></span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">    <span class="comment">// 获得构造函数</span></span><br><span class="line">    <span class="keyword">let</span> Con = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">// 链接到原型</span></span><br><span class="line">    obj.__proto__ = Con.prototype</span><br><span class="line">    <span class="comment">// 绑定 this，执行构造函数</span></span><br><span class="line">    <span class="keyword">let</span> result = Con.apply(obj, <span class="built_in">arguments</span>)</span><br><span class="line">    <span class="comment">// 确保 new 出来的是个对象</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> result === <span class="string">'object'</span> ? result : obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span> (<span class="params">make, model, year</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.make = make</span><br><span class="line">   <span class="keyword">this</span>.model = model</span><br><span class="line">   <span class="keyword">this</span>.year = year</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span> (<span class="params">make, model, year</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.make = make</span><br><span class="line">   <span class="keyword">this</span>.model = model</span><br><span class="line">   <span class="keyword">this</span>.year = year</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = &#123;&#125;</span><br><span class="line">car.__proto__ = Car.prototype</span><br><span class="line">Car.call(car)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span> (<span class="params">make, model, year</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.make = make</span><br><span class="line">   <span class="keyword">this</span>.model = model</span><br><span class="line">   <span class="keyword">this</span>.year = year</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建一个空的对象</span></span><br><span class="line">  <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">  <span class="comment">// 获得构造函数</span></span><br><span class="line">  <span class="keyword">let</span> Con = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line">  <span class="comment">// 链接到原型</span></span><br><span class="line">  obj.__proto__ = Con.prototype</span><br><span class="line">  <span class="comment">// 绑定 this，执行构造函数</span></span><br><span class="line">  <span class="keyword">let</span> result = Con.apply(obj, <span class="built_in">arguments</span>)</span><br><span class="line">  <span class="comment">// 确保 new 出来的是个对象</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> result === <span class="string">'object'</span> ? result : obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = create(Car)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -614,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +636,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
