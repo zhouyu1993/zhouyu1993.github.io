@@ -28,10 +28,12 @@ resolve: {
 // 原本这样写
 import formatTime from '../../src/utils/formatTime'
 import banner from '../../src/assets/img/banner.png'
+import swiper from '../../src/components/swiper'
 
 // 现在可以这样写
 import formatTime from '@/utils/formatTime'
 import banner from '@a/img/banner.png'
+import swiper from '@c/swiper'
 ```
 
 在 scss 中使用：
@@ -44,4 +46,14 @@ import banner from '@a/img/banner.png'
 @import '~@a/css/mixin';
 ```
 
-注意区别，scss 中需要多加个 `~`
+在 template 中使用：
+
+``` html
+<!-- 原本这样写 -->
+<img src="../../src/assets/img/logo.png">
+
+<!-- 现在可以这样写 -->
+<img src="~@a/img/logo.png">
+```
+
+注意区别，`@` 前需要多加个 `~`
