@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/10/css权重/">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/10/26/git相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouyu1993">
@@ -340,7 +340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/zh/2018/09/10/css权重/" itemprop="url">css 权重</a></h1>
+                <a class="post-title-link" href="/zh/2018/10/26/git相关/" itemprop="url">git相关</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T15:26:23+08:00">
-                2018-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T11:39:54+08:00">
+                2018-10-26
               </time>
             
 
@@ -368,8 +368,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-10T15:48:20+08:00">
-                2018-09-10
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-01T10:40:02+08:00">
+                2018-11-01
               </time>
             
           </span>
@@ -404,7 +404,928 @@
 
           
           
-             <span id="/zh/2018/09/10/css权重/" class="leancloud_visitors" data-flag-title="css 权重">
+             <span id="/zh/2018/10/26/git相关/" class="leancloud_visitors" data-flag-title="git相关">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a></p>
+<p><a href="https://git-scm.com/book/zh/v2/" target="_blank" rel="noopener">doc</a></p>
+<h1 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h1><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
+<p>如果你是位图形或网页设计师，可能会需要保存某一幅图片或页面布局文件的所有修订版本（这或许是你非常渴望拥有的功能），采用版本控制系统（VCS）是个明智的选择。</p>
+<p>有了它你就可以将某个文件回溯到之前的状态，甚至将整个项目都回退到过去某个时间点的状态，你可以比较文件的变化细节，查出最后是谁修改了哪个地方，从而找出导致怪异问题出现的原因，又是谁在何时报告了某个功能缺陷等等。</p>
+<p>使用版本控制系统通常还意味着，就算你乱来一气把整个项目中的文件改的改删的删，你也照样可以轻松恢复到原先的样子。但额外增加的工作量却微乎其微。</p>
+<h2 id="本地版本控制系统-LVC"><a href="#本地版本控制系统-LVC" class="headerlink" title="本地版本控制系统 LVC"></a>本地版本控制系统 LVC</h2><p>复制整个项目，以改名加时间为备份。流行的有 RCS。</p>
+<h2 id="集中化的版本控制系统-Centralized-Version-Control-Systems-CVCS"><a href="#集中化的版本控制系统-Centralized-Version-Control-Systems-CVCS" class="headerlink" title="集中化的版本控制系统 [Centralized Version Control Systems] CVCS"></a>集中化的版本控制系统 [Centralized Version Control Systems] CVCS</h2><p>CVS、Subversion[svn] 以及 Perforce 等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
+<p>相较于老式的本地 VCS 可以进行协同开发。但缺点是中央服务器的单点故障。如果宕机一小时，那么在这一小时内，谁都无法提交更新，也就无法协同工作。如果中心数据库所在的磁盘发生损坏，又没有做恰当备份，毫无疑问你将丢失所有数据——包括项目的整个变更历史，只剩下人们在各自机器上保留的单独快照。本地版本控制系统也存在类似问题，只要整个项目的历史记录被保存在单一位置，就有丢失所有历史更新记录的风险。</p>
+<h1 id="分布式版本控制系统-Distributed-Version-Control-System-DVCS"><a href="#分布式版本控制系统-Distributed-Version-Control-System-DVCS" class="headerlink" title="分布式版本控制系统 [Distributed Version Control System] DVCS"></a>分布式版本控制系统 [Distributed Version Control System] DVCS</h1><p>Git、Mercurial、Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。因为每一次的克隆操作，实际上都是一次对代码仓库的完整备份。</p>
+<p>Git 近乎所有操作都是本地执行，在无网情况也可以进行提交，只需要等待有网在上传即可。</p>
+<p>Git 有三种状态，你的文件可能处于其中之一：已提交（committed）、已修改（modified）和已暂存（staged）。</p>
+<p>三个工作区域的概念：Git 仓库、工作目录以及暂存区域</p>
+<p>push: 工作目录 -&gt; 暂存区域 -&gt; Git 仓库</p>
+<p>clone/fetch/merge: Git 仓库 -&gt; 工作目录</p>
+<p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。</p>
+<p>工作目录是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<p>暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作’索引’，不过一般说法还是叫暂存区域。</p>
+<p>基本的 Git 工作流程如下：</p>
+<ul>
+<li><p>在工作目录中修改文件。</p>
+</li>
+<li><p>暂存文件，将文件的快照放入暂存区域。</p>
+</li>
+<li><p>提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录。</p>
+</li>
+</ul>
+<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><p>Mac OS 用户，使用 Terminal 或者 iTerm</p>
+<p>Windows 用户，使用 git bash</p>
+<h1 id="Mac-OS-升级-git"><a href="#Mac-OS-升级-git" class="headerlink" title="Mac OS 升级 git"></a>Mac OS 升级 git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> git -&gt; /usr/<span class="built_in">local</span>/bin/git</span><br><span class="line"></span><br><span class="line">brew unlink git</span><br><span class="line"></span><br><span class="line">brew install git</span><br><span class="line"></span><br><span class="line">git --version</span><br><span class="line"></span><br><span class="line">brew link git</span><br><span class="line"></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h1 id="初次运行前的配置"><a href="#初次运行前的配置" class="headerlink" title="初次运行前的配置"></a>初次运行前的配置</h1><h2 id="列出配置项"><a href="#列出配置项" class="headerlink" title="列出配置项"></a>列出配置项</h2><p>git config –list</p>
+<h2 id="修改或增加配置"><a href="#修改或增加配置" class="headerlink" title="修改或增加配置"></a>修改或增加配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name RainJoy</span><br><span class="line">git config --global user.email 1490079545@qq.com</span><br></pre></td></tr></table></figure>
+<h1 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">help</span> x</span><br></pre></td></tr></table></figure>
+<h1 id="获取-git-仓库"><a href="#获取-git-仓库" class="headerlink" title="获取 git 仓库"></a>获取 git 仓库</h1><p>有两种取得 Git 项目仓库的方法。</p>
+<p>第一种是：生成。在现有项目或目录下导入所有文件到 Git 中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">'init'</span></span><br><span class="line"></span><br><span class="line">git remote add origin git@github.com:zhouyu1993/zhouyu1993.github.io.git</span><br><span class="line"></span><br><span class="line">git push --<span class="built_in">set</span>-upstream origin master</span><br></pre></td></tr></table></figure>
+<p>第二种是：克隆。从一个服务器克隆一个现有的 Git 仓库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:zhouyu1993/zhouyu1993.github.io.git</span><br></pre></td></tr></table></figure>
+<h2 id="git-clone-url"><a href="#git-clone-url" class="headerlink" title="git clone [url]"></a>git clone [url]</h2><p>克隆远程 Git 仓库；这里 url 有两种地址：</p>
+<p><img src="/img/git_clone_url.png" alt="git clone 地址"></p>
+<p>ssh: Secure Shell 更安全</p>
+<blockquote>
+<p>git@[host]:[user-name]/[project-name].git</p>
+</blockquote>
+<p>http:</p>
+<blockquote>
+<p><a href="http://[host]/[user-name]/[project-name].git" target="_blank" rel="noopener">http://[host]/[user-name]/[project-name].git</a></p>
+</blockquote>
+<h2 id="如果是使用-SSH-需要先配置-配置以后不再需要密码"><a href="#如果是使用-SSH-需要先配置-配置以后不再需要密码" class="headerlink" title="如果是使用 SSH, 需要先配置, 配置以后不再需要密码"></a>如果是使用 SSH, 需要先配置, 配置以后不再需要密码</h2><ul>
+<li>1.检查本机是否有 SSH key<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果 No such file or directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">mkdir .ssh</span><br><span class="line">// 接 2</span><br></pre></td></tr></table></figure></p>
+<p>如果正常进入, 查看是否有 id_rsa.pub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls 或 ll</span><br></pre></td></tr></table></figure></p>
+<p>如果无, 则清空<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm *</span><br><span class="line">// 接 2</span><br></pre></td></tr></table></figure></p>
+<p>如果有，检查是否可用, 接 3</p>
+<ul>
+<li><p>2.重新设置 SSH sey</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 填写库的登陆邮箱</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">'1490079545@qq.com'</span></span><br><span class="line"><span class="comment"># 有结果如下：</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/Administrator/.ssh/id_rsa): <span class="comment">#不填直接回车#</span></span><br><span class="line">Created directory <span class="string">'/c/Users/Administrator/.ssh'</span>. <span class="comment">#创建id_rsa#</span></span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): <span class="comment">#不填直接回车#</span></span><br><span class="line">Enter same passphrase again: <span class="comment">#不填直接回车#</span></span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa. <span class="comment">#保存id_rsa#</span></span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa.pub. <span class="comment">#创建id_rsa.pub#</span></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">git config --global user.name <span class="string">'RainJoy'</span> <span class="comment">#name#</span></span><br><span class="line">git config --global user.email <span class="string">'1490079545@qq.com'</span> <span class="comment">#email#</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.在库的 Settings &gt; SSH key 对应 key 填写位置填写生成的 SSH key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 复制内容，填写到相应位置</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.测试 SSH key 是否设置成功。以 SSH key 方式下载项目即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:zhouyu1993/zhouyu1993.github.io.git</span><br><span class="line"><span class="comment"># 看是否成功</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="检测当前文件状态"><a href="#检测当前文件状态" class="headerlink" title="检测当前文件状态"></a>检测当前文件状态</h1><p>git status</p>
+<p>git diff</p>
+<p>git diff – filename</p>
+<h1 id="撤销文件的修改"><a href="#撤销文件的修改" class="headerlink" title="撤销文件的修改"></a>撤销文件的修改</h1><p>git checkout – filename</p>
+<p>// 撤销所有</p>
+<p>git checkout .</p>
+<h1 id="查看库的整体提交记录"><a href="#查看库的整体提交记录" class="headerlink" title="查看库的整体提交记录"></a>查看库的整体提交记录</h1><p>git log</p>
+<h1 id="从库中删除对某文件的控制"><a href="#从库中删除对某文件的控制" class="headerlink" title="从库中删除对某文件的控制"></a>从库中删除对某文件的控制</h1><p>git rm filename</p>
+<h1 id="查看库的远程地址"><a href="#查看库的远程地址" class="headerlink" title="查看库的远程地址"></a>查看库的远程地址</h1><p>git remote -v</p>
+<h1 id="将本地项目提交到远程仓库"><a href="#将本地项目提交到远程仓库" class="headerlink" title="将本地项目提交到远程仓库"></a>将本地项目提交到远程仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有修改过的工作文件提交暂存区</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写提交信息(message)</span></span><br><span class="line">git commit -m <span class="string">'message'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改提交信息(message)</span></span><br><span class="line">git commit --amend</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h1 id="将远程仓库更新到本地项目"><a href="#将远程仓库更新到本地项目" class="headerlink" title="将远程仓库更新到本地项目"></a>将远程仓库更新到本地项目</h1><p>git pull</p>
+<h1 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打上标签并写备注信息</span></span><br><span class="line">git tag -l</span><br><span class="line"></span><br><span class="line">git tag -a v0.1.0 -m <span class="string">"修改网页风格，打标签 2017/04/27"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传</span></span><br><span class="line">git push origin --tags</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地标签</span></span><br><span class="line">git tag -d v0.1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程标签</span></span><br><span class="line">git push origin :refs/tags/v0.0.1</span><br></pre></td></tr></table></figure>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><h2 id="分支创建与合并"><a href="#分支创建与合并" class="headerlink" title="分支创建与合并"></a>分支创建与合并</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地创建新分支</span></span><br><span class="line">git branch [branche-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到分支</span></span><br><span class="line">git checkout [branche-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将第一次建立的新分支上传到远程仓库</span></span><br><span class="line">git add.</span><br><span class="line">git commit -m <span class="string">'add branche-name'</span></span><br><span class="line">git push --<span class="built_in">set</span>-upstream origin [branche-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切回主支</span></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将分支合并到主支</span></span><br><span class="line">git merge [branche-name]</span><br></pre></td></tr></table></figure>
+<h2 id="管理分支"><a href="#管理分支" class="headerlink" title="管理分支"></a>管理分支</h2><h3 id="查看当前分支信息"><a href="#查看当前分支信息" class="headerlink" title="查看当前分支信息"></a>查看当前分支信息</h3><p>git branch -v</p>
+<h3 id="列出所有分支【本地和远程】"><a href="#列出所有分支【本地和远程】" class="headerlink" title="列出所有分支【本地和远程】"></a>列出所有分支【本地和远程】</h3><p>git branch -a</p>
+<h3 id="拉取远程分支"><a href="#拉取远程分支" class="headerlink" title="拉取远程分支"></a>拉取远程分支</h3><p>$ git checkout -b [branche-name] origin/[branche-name]</p>
+<h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><p>git branch -d [branche-name]</p>
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><p>git push origin -d [branche-name]</p>
+<h1 id="提交空目录的方法"><a href="#提交空目录的方法" class="headerlink" title="提交空目录的方法"></a>提交空目录的方法</h1><p>只需要在目录下创建 .gitkeep 文件，然后在项目的 .gitignore 中设置不忽略 .gitkeep</p>
+<h1 id="让-git-对文件大小写敏感"><a href="#让-git-对文件大小写敏感" class="headerlink" title="让 git 对文件大小写敏感"></a>让 git 对文件大小写敏感</h1><p>git config core.ignorecase false</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/10/08/JavaScript算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh/2018/10/08/JavaScript算法/" itemprop="url">JavaScript算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T14:06:53+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-26T11:39:47+08:00">
+                2018-10-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/10/08/JavaScript算法/" class="leancloud_visitors" data-flag-title="JavaScript算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>算法 (Algorithm) 是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制。也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出。</p>
+<p>前端算法，就是函数。算法复杂度就是函数复杂度/时间复杂度。</p>
+<h1 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h1><h2 id="第一大类，简单规则"><a href="#第一大类，简单规则" class="headerlink" title="第一大类，简单规则"></a>第一大类，简单规则</h2><h3 id="规则一：“有限次操作”的时间复杂度往往是-O-1-。"><a href="#规则一：“有限次操作”的时间复杂度往往是-O-1-。" class="headerlink" title="规则一：“有限次操作”的时间复杂度往往是 O(1)。"></a>规则一：“有限次操作”的时间复杂度往往是 O(1)。</h3><p>例子：交换两个数a和b的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span> (<span class="params">a, b</span>) </span>&#123;  </span><br><span class="line">  <span class="keyword">const</span> temp = a</span><br><span class="line">  a = b</span><br><span class="line">  b = temp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：通过了一个中间变量 temp，进行了 3 次操作，交换了 a 和 b 的值，swap 的时间复杂度是 O(1)。</p>
+<p>画外音：这里的有限次操作，是指不随数据量的增加，操作次数增加。</p>
+<h3 id="规则二：“for循环”的时间复杂度往往是-O-n-。"><a href="#规则二：“for循环”的时间复杂度往往是-O-n-。" class="headerlink" title="规则二：“for循环”的时间复杂度往往是 O(n)。"></a>规则二：“for循环”的时间复杂度往往是 O(n)。</h3><p>例子：n 个数中找到最大/小值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMax</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="keyword">let</span> maxIndex = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &lt; arr[maxIndex]) &#123;</span><br><span class="line">      maxIndex = i</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr[maxIndex]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMin</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="keyword">let</span> minIndex = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &lt; arr[minIndex]) &#123;</span><br><span class="line">      minIndex = i</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr[minIndex]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：通过一个for循环，将数据集遍历，每次遍历，都只执行“有限次操作”，计算的总次数，和输入数据量 n 呈线性关系。</p>
+<h3 id="规则三：“树的高度”的时间复杂度往往是O-lg-n-。"><a href="#规则三：“树的高度”的时间复杂度往往是O-lg-n-。" class="headerlink" title="规则三：“树的高度”的时间复杂度往往是O(lg(n))。"></a>规则三：“树的高度”的时间复杂度往往是O(lg(n))。</h3><p>分析：树的总节点个数是 n，则树的高度是 lg(n)。</p>
+<p>在一棵包含 n 个元素二分查找树上进行二分查找，其时间复杂度是 O(lg(n))。</p>
+<p>对一个包含 n 个元素的堆顶元素弹出后，调整成一个新的堆，其时间复杂度也是 O(lg(n)。</p>
+<h2 id="第二大类：组合规则"><a href="#第二大类：组合规则" class="headerlink" title="第二大类：组合规则"></a>第二大类：组合规则</h2><p>通过简单规则的时间复杂度，来求解组合规则的时间复杂度。</p>
+<p>例如：n 个数冒泡排序。后面分析。</p>
+<p>例如：TopK 问题，通过建立 k 元素的堆，来从 n 个数中求解最大的 k 个数。</p>
+<h2 id="第三大类，递归求解"><a href="#第三大类，递归求解" class="headerlink" title="第三大类，递归求解"></a>第三大类，递归求解</h2><p>简单规则和组合规则可以用来求解非递归的算法的时间复杂度。对于递归的算法，该怎么分析呢？</p>
+<p>接下来，通过几个案例，来说明如何通分析递归式，来分析递归算法的时间复杂度。</p>
+<p>案例一：计算 1 到 n 的和，时间复杂度分析。</p>
+<p>案例二：二分查找 binary_search，时间复杂度分析。</p>
+<p>案例三：快速排序 quick_sort，时间复杂度分析。</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p><code>sort</code> 方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>].sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'啦'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> a - b</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>冒泡排序、快速排序等</p>
+<p><a href="https://github.com/Wscats/CV/issues/13" target="_blank" rel="noopener">十大经典排序算法</a></p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序(Bubble Sort)，也是一种简单直观的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<p>作为最简单的排序算法之一，冒泡排序给我的感觉就像 <code>Abandon</code> 在单词书里出现的感觉一样，每次都在第一页第一位，所以最熟悉。冒泡排序还有一种优化算法，就是立一个 <code>flag</code>，当在一趟序列遍历中元素没有发生交换，则证明该序列已经有序。但这种改进对于提升性能来说并没有什么太大作用。</p>
+<h3 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+<li>这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端(升序或降序排列)，就如同碳酸饮料中二氧化碳的气泡最终会上浮到顶端一样，故名“冒泡排序”。</li>
+</ol>
+<p>冒泡排序就是把小的元素往前调或者把大的元素往后调。比较是相邻的两个元素比较，交换也发生在这两个元素之间。所以，如果两个元素相等，是不会再交换的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种稳定排序算法。</p>
+<h3 id="动画演示"><a href="#动画演示" class="headerlink" title="动画演示"></a>动画演示</h3><p><img src="https://cmspic-10004025.image.myqcloud.com/4bf3c220-cace-11e8-941c-d77c1f413864_size_826x257#gif" alt="动画演示"></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i ++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j ++) &#123;</span><br><span class="line">      <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="comment">// 元素交换，左小右大</span></span><br><span class="line">        <span class="keyword">const</span> temp = arr[j]</span><br><span class="line">        arr[j] = arr[j + <span class="number">1</span>]</span><br><span class="line">        arr[j + <span class="number">1</span>] = temp</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bubbleSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="keyword">let</span> i = len</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; i - <span class="number">1</span>; j ++) &#123;</span><br><span class="line">      <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="comment">// 元素交换，左小右大</span></span><br><span class="line">        <span class="keyword">const</span> temp = arr[j]</span><br><span class="line">        arr[j] = arr[j + <span class="number">1</span>]</span><br><span class="line">        arr[j + <span class="number">1</span>] = temp</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    i --</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bubbleSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<p>分析：冒泡排序，可以看成三个规则的组合：</p>
+<ol>
+<li>外层 for 循环</li>
+<li>内层 for 循环</li>
+<li>最内层的 swap</li>
+</ol>
+<p>冒泡排序的时间复杂度为：O(n) <em> O(n) </em> O(1) = O(n^2)</p>
+<p>最快：当输入的数据已经是正序时(都已经是正序了，我还要你冒泡排序有何用啊)。</p>
+<p>最慢：当输入的数据是反序时(写一个 for 循环反序输出数据不就行了，干嘛要用你冒泡排序呢，我是闲的吗)。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序(Selection sort)，是一种简单直观的排序算法。数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
+<h3 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>首先在未排序序列中找到最小(大)元素，存放到排序序列的起始位置。</li>
+<li>再从剩余未排序元素中继续寻找最小(大)元素，然后放到已排序序列的末尾。</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ol>
+<p>把小的元素往前调，每一次都保证最前面是最小的！</p>
+<p>它的工作原理是每一次从待排序的数据元素中选出最小(或最大)的一个元素，存放在序列的起始位置，直到全部待排序的数据元素排完。选择排序是【非稳定排序算法】。</p>
+<h3 id="动画演示-1"><a href="#动画演示-1" class="headerlink" title="动画演示"></a>动画演示</h3><p><img src="https://cmspic-10004025.image.myqcloud.com/12054df0-cae1-11e8-941c-d77c1f413864_size_811x248#gif" alt="动画演示"></p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i ++) &#123;</span><br><span class="line">    <span class="keyword">let</span> minIndex = i</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j ++) &#123;</span><br><span class="line">      <span class="comment">// 寻找最小数</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">        <span class="comment">// 将最小数的索引保存</span></span><br><span class="line">        minIndex = j</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素交换，将最小数调到最前面</span></span><br><span class="line">    <span class="keyword">const</span> temp = arr[i]</span><br><span class="line">    arr[i] = arr[minIndex]</span><br><span class="line">    arr[minIndex] = temp</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">selectionSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<p>选择排序的时间复杂度为：O(n) <em> O(n) </em> O(1) = O(n^2)</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了，因为只要打过扑克牌的人都应该能够秒懂。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+<p>插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。</p>
+<h3 id="算法步骤-2"><a href="#算法步骤-2" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。</li>
+<li>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。(如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。)</li>
+</ol>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertionSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="keyword">let</span> prevIndex, current</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    prevIndex = i - <span class="number">1</span></span><br><span class="line">    current = arr[i]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (prevIndex &gt;= <span class="number">0</span> &amp;&amp; arr[prevIndex] &gt; current) &#123;</span><br><span class="line">      arr[prevIndex + <span class="number">1</span>] = arr[prevIndex]</span><br><span class="line">      prevIndex --</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    arr[prevIndex + <span class="number">1</span>] = current</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">insertionSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/410d0a90-cc6f-11e8-941c-d77c1f413864_size_811x505#gif" alt="动画演示"></p>
+<p>选择排序的时间复杂度为：O(n) <em> O(n) </em> O(1) = O(n^2)</p>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><p>希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。但希尔排序是【非稳定排序算法】。</p>
+<p>希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
+<ol>
+<li>插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率；</li>
+<li>但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位；</li>
+</ol>
+<p>希尔排序的基本思想是：先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录“基本有序”时，再对全体记录进行依次直接插入排序。</p>
+<h3 id="算法步骤-3"><a href="#算法步骤-3" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>选择一个增量序列 t1，t2，……，tk，其中 ti &gt; tj, tk = 1；</li>
+<li>按增量序列个数 k，对序列进行 k 趟排序；</li>
+<li>每趟排序，根据对应的增量 ti，将待排序列分割成若干长度为 m 的子序列，分别对各子表进行直接插入排序。仅增量因子为 1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。</li>
+</ol>
+<h3 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shellSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line">  <span class="keyword">let</span> gap = <span class="number">1</span>, temp</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (gap &lt; len / <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="comment">// 动态定义间隔序列</span></span><br><span class="line">    gap = gap * <span class="number">3</span> + <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (gap; gap &gt; <span class="number">0</span>; gap = <span class="built_in">Math</span>.floor(gap / <span class="number">3</span>)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = gap; i &lt; len; i++) &#123;</span><br><span class="line">      temp = arr[i]</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> j = i - gap</span><br><span class="line">      <span class="keyword">for</span>(j; j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; temp; j -= gap) &#123;</span><br><span class="line">        arr[j+gap] = arr[j]</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      arr[j + gap] = temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">shellSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>归并排序(Merge sort)是建立在归并操作上的一种有效的排序算法。该算法是采用分治法(Divide and Conquer)的一个非常典型的应用。</p>
+<p>作为一种典型的分而治之思想的算法应用，归并排序的实现由两种方法：</p>
+<ol>
+<li>自上而下的递归(所有递归的方法都可以用迭代重写，所以就有了第 2 种方法)；</li>
+<li>自下而上的迭代；</li>
+</ol>
+<p>和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是 O(nlogn) 的时间复杂度。代价是需要额外的内存空间。</p>
+<h3 id="算法步骤-4"><a href="#算法步骤-4" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的起始位置；</li>
+<li>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；</li>
+<li>重复步骤 3 直到某一指针达到序列尾；</li>
+<li>将另一序列剩下的所有元素直接复制到合并序列尾。</li>
+</ol>
+<h3 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (left.length &amp;&amp; right.length) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>]) &#123;</span><br><span class="line">      result.push(left.shift())</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      result.push(right.shift())</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (left.length)</span><br><span class="line">    result.push(left.shift())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (right.length)</span><br><span class="line">    result.push(right.shift())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 采用自上而下的递归方法</span></span><br><span class="line">  <span class="keyword">const</span> len = arr.length</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">2</span>) <span class="keyword">return</span> arr</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> middle = <span class="built_in">Math</span>.floor(len / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> left = arr.slice(<span class="number">0</span>, middle)</span><br><span class="line">  <span class="keyword">const</span> right = arr.slice(middle)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> merge(mergeSort(left), mergeSort(right))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mergeSort([<span class="number">3</span>, <span class="number">44</span>, <span class="number">38</span>, <span class="number">5</span>, <span class="number">47</span>, <span class="number">15</span>, <span class="number">36</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">2</span>, <span class="number">46</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">50</span>, <span class="number">48</span>])</span><br></pre></td></tr></table></figure>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/d478da00-cd39-11e8-941c-d77c1f413864_size_811x505#gif" alt="动画演示"></p>
+<p>选择排序的时间复杂度为：O(nlogn)</p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 Ο(nlogn) 次比较。在最坏状况下则需要 Ο(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他 Ο(nlogn) 算法更快，因为它的内部循环(inner loop)可以在大部分的架构上很有效率地被实现出来。</p>
+<p>快速排序使用分治法(Divide and conquer)策略来把一个串行(list)分为两个子串行(sub-lists)。</p>
+<p>快速排序又是一种分而治之思想在排序算法上的典型应用。本质上来看，快速排序应该算是在冒泡排序基础上的递归分治法。</p>
+<p>快速排序的名字起的是简单粗暴，因为一听到这个名字你就知道它存在的意义，就是快，而且效率高！它是处理大数据最快的排序算法之一了。虽然 Worst Case 的时间复杂度达到了 O(n²)，但是人家就是优秀，在大多数情况下都比平均时间复杂度为 O(n logn) 的排序算法表现要更好。</p>
+<h3 id="算法步骤-5"><a href="#算法步骤-5" class="headerlink" title="算法步骤"></a>算法步骤</h3><ol>
+<li>从数列中挑出一个元素，称为 “基准”(pivot);</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面(相同的数可以到任一边)。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区(partition)操作；</li>
+<li>递归地(recursive)把小于基准值元素的子数列和大于基准值元素的子数列排序；</li>
+</ol>
+<p>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会退出，因为在每次的迭代(iteration)中，它至少会把一个元素摆到它最后的位置去。</p>
+<h3 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span> (<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temp = arr[i];</span><br><span class="line">    arr[i] = arr[j];</span><br><span class="line">    arr[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">partition</span> (<span class="params">arr, left ,right</span>) </span>&#123;     <span class="comment">// 分区操作</span></span><br><span class="line">    <span class="keyword">var</span> pivot = left,                      <span class="comment">// 设定基准值(pivot)</span></span><br><span class="line">        index = pivot + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = index; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[pivot]) &#123;</span><br><span class="line">            swap(arr, i, index);</span><br><span class="line">            index++;</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr, pivot, index - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> index<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr, left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length,</span><br><span class="line">        partitionIndex,</span><br><span class="line">        left = <span class="keyword">typeof</span> left != <span class="string">'number'</span> ? <span class="number">0</span> : left,</span><br><span class="line">        right = <span class="keyword">typeof</span> right != <span class="string">'number'</span> ? len - <span class="number">1</span> : right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">        partitionIndex = partition(arr, left, right);</span><br><span class="line">        quickSort(arr, left, partitionIndex<span class="number">-1</span>);</span><br><span class="line">        quickSort(arr, partitionIndex+<span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">paritition2</span> (<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> pivot = arr[low];</span><br><span class="line">  <span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[high] &gt; pivot) &#123;</span><br><span class="line">      --high;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[low] = arr[high];</span><br><span class="line">    <span class="keyword">while</span> (low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</span><br><span class="line">      ++low;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[high] = arr[low];</span><br><span class="line">  &#125;</span><br><span class="line">  arr[low] = pivot;</span><br><span class="line">  <span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort2</span> (<span class="params">arr, low, high</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">let</span> pivot = paritition2(arr, low, high);</span><br><span class="line">    quickSort2(arr, low, pivot - <span class="number">1</span>);</span><br><span class="line">    quickSort2(arr, pivot + <span class="number">1</span>, high);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="判断一个单词是否是回文？"><a href="#判断一个单词是否是回文？" class="headerlink" title="判断一个单词是否是回文？"></a>判断一个单词是否是回文？</h1><p>回文是指把相同的词汇或句子，在下文中调换位置或颠倒过来，产生首尾回环的情趣，叫回文，也叫回环。比如 <code>mamam</code> <code>redivider</code>。</p>
+<p>其实考的是，如何将字符串逆向排序，反转/颠倒？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPalindrome</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str === reverse(str)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用数组-reverse-方法"><a href="#利用数组-reverse-方法" class="headerlink" title="利用数组 reverse 方法"></a>利用数组 <code>reverse</code> 方法</h2><p>字符串转数组 -&gt; 数组 <code>reverse</code> -&gt; 数组转字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> reverseStr = [...str].reverse().join(<span class="string">''</span>) <span class="comment">// str.split('').reverse().join('')</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> reverseStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用数组-reduceRight-方法"><a href="#利用数组-reduceRight-方法" class="headerlink" title="利用数组 reduceRight 方法"></a>利用数组 <code>reduceRight</code> 方法</h2><p>字符串转数组 -&gt; 数组 <code>reduceRight</code></p>
+<p>数组 <code>reduce(function(accumulator, currentValue, currentIndex, array), initValue)</code> 、<code>reduceRight(function(accumulator, currentValue, currentIndex, array), initValue)</code> 接收 2 个参数。对于空数组是不会执行回调函数的。</p>
+<p><code>function(accumulator, currentValue, currentIndex, array)</code> 是必须。数组遍历执行的回调函数。</p>
+<p><code>initValue</code> 是可选。传递给函数的初始值。如果有这个参数，那么第一个 <code>accumulator</code> 等于 <code>initialValue</code>，并且 <code>currentValue</code> 等于数组中的第一个值；如果没有这个参数，那么第一个 <code>accumulator</code> 等于数组中的第一个值，并且 <code>currentValue</code> 等于数组中的第二个值。如果是是数组累加器，不要写 <code>initValue</code> 为 <code>0</code>，这样可以减少一次遍历，<code>0</code> 的累加也没有意义。</p>
+<p><code>reduce</code> 是顺序，<code>reduceRight</code> 是逆序。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> reverseStr = [...str].reduceRight(<span class="function">(<span class="params">prev, curr</span>) =&gt;</span> prev + curr)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> reverseStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用-for-循环"><a href="#利用-for-循环" class="headerlink" title="利用 for 循环"></a>利用 <code>for</code> 循环</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> reverseStr = <span class="string">''</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = str.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i --) &#123;</span><br><span class="line">    reverseStr += str[i]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> reverseStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用字符串-slice-加递归"><a href="#利用字符串-slice-加递归" class="headerlink" title="利用字符串 slice 加递归"></a>利用字符串 <code>slice</code> 加递归</h2><p>复杂且耗时</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> reverseStr = str &amp;&amp; (reverse(str.slice(<span class="number">1</span>)) + str[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> reverseStr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h1><h2 id="利用-Set"><a href="#利用-Set" class="headerlink" title="利用 Set"></a>利用 <code>Set</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> uniqueArr = [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> uniqueArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用-Object-的-key-唯一性"><a href="#利用-Object-的-key-唯一性" class="headerlink" title="利用 Object 的 key 唯一性"></a>利用 <code>Object</code> 的 <code>key</code> 唯一性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">const</span> uniqueArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!obj[key]) &#123;</span><br><span class="line">      obj[key] = <span class="literal">true</span></span><br><span class="line">      uniqueArr.push(key)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> uniqueArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!obj[key]) obj[key] = <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> uniqueArr = <span class="built_in">Object</span>.keys(obj)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> uniqueArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用数组的-indexOf"><a href="#利用数组的-indexOf" class="headerlink" title="利用数组的 indexOf"></a>利用数组的 <code>indexOf</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> uniqueArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (uniqueArr.indexOf(key) === <span class="number">-1</span>) uniqueArr.push(key)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> uniqueArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="统计一个字符串出现最多的字母"><a href="#统计一个字符串出现最多的字母" class="headerlink" title="统计一个字符串出现最多的字母"></a>统计一个字符串出现最多的字母</h1><p>这里需要统计重复次数，并求最大值。类似的求最小值。</p>
+<h2 id="利用-Object-的-key-唯一性-1"><a href="#利用-Object-的-key-唯一性-1" class="headerlink" title="利用 Object 的 key 唯一性"></a>利用 <code>Object</code> 的 <code>key</code> 唯一性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMaxDuplicateChar</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'开始'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!obj[key]) &#123;</span><br><span class="line">      obj[key] = <span class="number">1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      obj[key] ++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> maxChar = <span class="string">''</span>, maxValue = <span class="number">1</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">const</span> value = obj[key]</span><br><span class="line">    <span class="keyword">if</span> (value &gt; maxValue) &#123;</span><br><span class="line">      maxChar = key</span><br><span class="line">      maxValue = value</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'结束'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> maxChar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="不借助临时变量，进行两个整数的交换"><a href="#不借助临时变量，进行两个整数的交换" class="headerlink" title="不借助临时变量，进行两个整数的交换"></a>不借助临时变量，进行两个整数的交换</h1><p>这种问题非常巧妙，需要大家跳出惯有的思维，利用 a , b进行置换。</p>
+<p>主要是利用 + - 去进行运算，类似 a = a + (b - a) 实际上等同于最后的 a = b</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span> (<span class="params">a, b</span>) </span>&#123;  </span><br><span class="line">  b = b - a</span><br><span class="line">  a = a + b</span><br><span class="line">  b = a - b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li><p>2016.07</p>
+<p><a href="https://baike.baidu.com/item/孩子王" target="_blank" rel="noopener">孩子王</a></p>
+<p>5500 -&gt; 8000(2017.07) -&gt; 10500(2018.03) -&gt; 1400(2018.04)</p>
+<p>新三板：839843</p>
+<p>准备上市</p>
+</li>
+<li><p>2017.03</p>
+<p><a href="https://baike.baidu.com/item/焦点科技股份有限公司" target="_blank" rel="noopener">焦点科技</a> 7500</p>
+<p>深证：002315</p>
+</li>
+<li><p>2017.09</p>
+<p><a href="https://baike.baidu.com/item/烽火通信科技股份有限公司" target="_blank" rel="noopener">烽火通信</a> 9000</p>
+<p>上证：600498</p>
+</li>
+<li><p>2017.10</p>
+<p><a href="https://baike.baidu.com/item/苏宁云商集团股份有限公司" target="_blank" rel="noopener">苏宁</a> 10500</p>
+<p>深证：002024</p>
+</li>
+<li><p>2018.03</p>
+<p><a href="https://baike.baidu.com/item/南京领添信息技术有限公司" target="_blank" rel="noopener">领添</a> 13000</p>
+<p>未上市</p>
+</li>
+<li><p>2018.04</p>
+<p><a href="https://baike.baidu.com/item/苏宁云商集团股份有限公司" target="_blank" rel="noopener">亿嘉和</a> 14000</p>
+<p>上证：603666</p>
+</li>
+<li><p>2018.09</p>
+<p><a href="https://baike.baidu.com/item/三只松鼠" target="_blank" rel="noopener">三只松鼠</a> 15000</p>
+<p>准备上市</p>
+</li>
+<li><p>2018.10</p>
+<p><a href="https://baike.baidu.com/item/北京小米科技有限责任公司" target="_blank" rel="noopener">小米科技</a> 17000</p>
+<p>HK：01810</p>
+</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/11/子元素margin-top为何会影响父元素/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh/2018/09/11/子元素margin-top为何会影响父元素/" itemprop="url">第一个子元素的margin-top为何会影响父元素</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T17:52:01+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T19:15:15+08:00">
+                2018-09-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/09/11/子元素margin-top为何会影响父元素/" class="leancloud_visitors" data-flag-title="第一个子元素的margin-top为何会影响父元素">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一个子元素的 margin-top 为何会影响父元素</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/zh/2018/09/11/子元素margin-top为何会影响父元素/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/11/css单位/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh/2018/09/11/css单位/" itemprop="url">css单位</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T14:09:22+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T17:52:27+08:00">
+                2018-09-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/09/11/css单位/" class="leancloud_visitors" data-flag-title="css单位">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>css 单位有尺寸(长度)与颜色。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/zh/2018/09/11/css单位/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/10/css权重/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh/2018/09/10/css权重/" itemprop="url">css权重</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T15:26:23+08:00">
+                2018-09-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T14:09:33+08:00">
+                2018-09-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/09/10/css权重/" class="leancloud_visitors" data-flag-title="css权重">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -997,6 +1918,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/24/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/zh/2018/08/24/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T18:19:32+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-24T18:19:32+08:00">
+                2018-08-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/08/24/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/zh/2018/08/24/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/24/JavaScript安全整数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1153,856 +2243,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript继承机制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouyu1993">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouyu1993's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zh/2018/08/14/JavaScript继承机制/" itemprop="url">JavaScript继承机制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T14:05:41+08:00">
-                2018-08-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-14T21:01:32+08:00">
-                2018-08-14
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/zh/2018/08/14/JavaScript继承机制/" class="leancloud_visitors" data-flag-title="JavaScript继承机制">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>待补充</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouyu1993">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouyu1993's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zh/2018/08/14/JavaScript数据类型/" itemprop="url">JavaScript数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T14:05:05+08:00">
-                2018-08-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-07T10:06:08+08:00">
-                2018-09-07
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/zh/2018/08/14/JavaScript数据类型/" class="leancloud_visitors" data-flag-title="JavaScript数据类型">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>JavaScript 中七种数据类型(内置类型)，分为两大类型：基本类型和对象(object)可分为两大类，即原始类型和引用类型。</p>
-<p>六种原始类型：null，undefined，boolean，number，string，symbol</p>
-<p>一种引用类型：对象(object)。这里的 object 是广泛上的一切对像，即一切引用类型。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/zh/2018/08/14/JavaScript数据类型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/14/JavaScript深浅复制(拷贝)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouyu1993">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouyu1993's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zh/2018/08/14/JavaScript深浅复制(拷贝)/" itemprop="url">JavaScript深浅复制(拷贝)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T13:58:27+08:00">
-                2018-08-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T11:12:54+08:00">
-                2018-09-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/zh/2018/08/14/JavaScript深浅复制(拷贝)/" class="leancloud_visitors" data-flag-title="JavaScript深浅复制(拷贝)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>拷贝，copy，复制，抄本、副本、别本。</p>
-<p>拷贝就是拷贝指向对象的指针，意思就是说，拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间！</p>
-<p>拷贝分浅拷贝和深拷贝。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/zh/2018/08/14/JavaScript深浅复制(拷贝)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/14/健康指标/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouyu1993">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouyu1993's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zh/2018/08/14/健康指标/" itemprop="url">健康指标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T09:23:31+08:00">
-                2018-08-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-14T21:04:58+08:00">
-                2018-08-14
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/zh/2018/08/14/健康指标/" class="leancloud_visitors" data-flag-title="健康指标">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>罗列一些生活中需要知道健康指标。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/zh/2018/08/14/健康指标/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/08/13/webpack中alias别名配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouyu1993">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouyu1993's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/zh/2018/08/13/webpack中alias别名配置/" itemprop="url">webpack中alias别名配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-13T16:32:46+08:00">
-                2018-08-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-14T09:23:51+08:00">
-                2018-08-14
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webpack/" itemprop="url" rel="index">
-                    <span itemprop="name">webpack</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/zh/2018/08/13/webpack中alias别名配置/" class="leancloud_visitors" data-flag-title="webpack中alias别名配置">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>webpack 中 alias 别名配置</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/zh/2018/08/13/webpack中alias别名配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2052,7 +2297,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2074,7 +2319,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

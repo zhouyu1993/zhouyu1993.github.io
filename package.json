@@ -18,11 +18,9 @@
   "scripts": {
     "new": "cd hexo && hexo new",
     "clean": "cd hexo && hexo clean",
-    "dev": "yarn clean && cd hexo && hexo server",
-    "prebuild": "echo \"update serviceWorker\"",
-    "build": "yarn clean && cd hexo && rm -rf public && hexo generate",
-    "postbuild": "echo \"update serviceWorker\"",
-    "deploy": "cd hexo && cp -rf public/* ../ && cp themes/next/source/service-worker.js ../"
+    "dev": "cd hexo && npm run dev",
+    "build": "cd hexo && npm run build",
+    "deploy": "cd hexo && npm run deploy"
   },
   "hexo": {
     "version": "3.4.4"

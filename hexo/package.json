@@ -16,12 +16,13 @@
   "homepage": "https://zhouyu1993.github.io/",
   "license": "MIT",
   "scripts": {
-    "dev": "hexo server",
-    "clean": "hexo clean",
     "new": "hexo new page",
-    "build": "yarn clean && rm -rf public/* && hexo generate",
-    "deploy": "cp -rf public/* ../ && cp themes/next/source/service-worker.js ../",
-    "deploy:ecs": "cp -rf public/* ../../zhouyu1993.ecs.io"
+    "clean": "hexo clean",
+    "dev": "npm run clean && hexo server",
+    "prebuild": "echo \"update serviceWorker\"",
+    "build": "npm run clean && rm -rf public/* && hexo generate",
+    "postbuild": "echo \"update serviceWorker\"",
+    "deploy": "cp -rf public/* ../ && cp themes/next/source/service-worker.js ../"
   },
   "hexo": {
     "version": "3.4.4"
