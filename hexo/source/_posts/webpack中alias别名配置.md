@@ -32,6 +32,9 @@ import swiper from '../../src/components/swiper'
 
 // 现在可以这样写
 import formatTime from '@/utils/formatTime'
+import banner from '@/src/assets/img/banner.png'
+import swiper from '@/src/components/swiper'
+
 import banner from '@a/img/banner.png'
 import swiper from '@c/swiper'
 ```
@@ -43,6 +46,8 @@ import swiper from '@c/swiper'
 @import '../../src/assets/css/mixin';
 
 /* 现在可以这样写 */
+@import '~@src/assets/css/mixin';
+
 @import '~@a/css/mixin';
 ```
 
@@ -53,6 +58,8 @@ import swiper from '@c/swiper'
 <img src="../../src/assets/img/logo.png">
 
 <!-- 现在可以这样写 -->
+<img src="~@/src/assets/img/logo.png">
+
 <img src="~@a/img/logo.png">
 ```
 

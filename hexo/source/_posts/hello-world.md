@@ -6,6 +6,8 @@ categories:
 
 tags:
   - 博客
+
+date: 2016/01/01
 ---
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
@@ -13,6 +15,8 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 <!-- more -->
 
 ## Quick Start
+
+Start your blog.
 
 ### Create a new post
 
