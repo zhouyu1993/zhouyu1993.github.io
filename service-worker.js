@@ -1,5 +1,5 @@
 // sw version，
-var version = '2018112202'
+var version = '2018112301'
 var CACHE_NAME = 'zhouyu1993.github.io-sw-v' + version
 
 var urlsToCache = [
