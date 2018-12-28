@@ -6,6 +6,8 @@ categories:
 
 tags:
   - js
+
+date: 2018/08/14
 ---
 
 JavaScript 中七种数据类型(内置类型)，分为两大类型：基本类型和对象(object)可分为两大类，即原始类型和引用类型。

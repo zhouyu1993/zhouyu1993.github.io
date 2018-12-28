@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#222">
+<meta name="description" content="zhouyu1993's blog">
+<meta name="keywords" content="zhouyu1993's blog">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="zhouyu1993's blogs">
+
+
+
+
+
+
+
+
+<meta http-equiv="cache-control" content="no-transform" />
+<meta http-equiv="cache-control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/favicon-32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/images/favicon-16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.3" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="取值与单位">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="取值与单位">
+<meta property="og:url" content="https://zhouyu1993.github.io/zh/2018/09/11/css[取值与单位]/index.html">
+<meta property="og:site_name" content="zhouyu1993&#39;s blogs">
+<meta property="og:description" content="取值与单位">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-28T04:01:21.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="取值与单位">
+<meta name="twitter:description" content="取值与单位">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script type="text/javascript">
+  if (/eruda=true/.test(window.location)) {
+    document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
+    document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
+  }
+</script>
+
+
+
+  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2018/09/11/css[取值与单位]/"/>
+
+
+
+
+
+  <title>取值与单位 | zhouyu1993's blogs</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-111529988-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhouyu1993's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">web front-end developer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2018/09/11/css[取值与单位]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">取值与单位</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T00:00:00+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T12:01:21+08:00">
+                2018-12-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2018/09/11/css[取值与单位]/" class="leancloud_visitors" data-flag-title="取值与单位">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>取值与单位</p>
+<a id="more"></a>
+<h1 id="长度值与单位"><a href="#长度值与单位" class="headerlink" title="长度值与单位"></a>长度值与单位</h1><h2 id="长度取值"><a href="#长度取值" class="headerlink" title="长度取值"></a>长度取值</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">长度取值</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;length&gt;</code></td>
+<td style="text-align:left">CSS2</td>
+<td style="text-align:left"><code>&lt;number&gt;</code>接长度单位</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;number&gt;接长度单位。</span><br><span class="line">特殊值0可以省略单位。例如：margin:0px可以写成margin:0</span><br><span class="line">一些属性可能允许有负长度值，或者有一定的范围限制。如果不支持负长度值，那应该变换到能够被支持的最近的一个长度值。</span><br><span class="line">长度单位包括包括：相对单位和绝对单位。</span><br><span class="line">相对长度单位包括有： em, ex, ch, rem, vw, vh, vmax, vmin</span><br><span class="line">绝对长度单位包括有： cm, mm, q, <span class="keyword">in</span>, pt, pc, px</span><br></pre></td></tr></table></figure>
+<h2 id="长度单位"><a href="#长度单位" class="headerlink" title="长度单位"></a>长度单位</h2><p>文本相对长度单位</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">长度单位</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">em</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">相对于当前对象内文本的字体尺寸</td>
+</tr>
+<tr>
+<td style="text-align:left">ex</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">相对于字符“x”的高度。通常为字体高度的一半</td>
+</tr>
+<tr>
+<td style="text-align:left">ch</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">数字“0”的宽度</td>
+</tr>
+<tr>
+<td style="text-align:left">rem</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">相对于根元素(即html元素)font-size计算值的倍数</td>
+</tr>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">百分比</td>
+</tr>
+</tbody>
+</table>
+<p>视口相对长度单位</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">长度单位</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">vw</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">相对于视口的宽度。视口被均分为100单位的vw</td>
+</tr>
+<tr>
+<td style="text-align:left">vh</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">相对于视口的高度。视口被均分为100单位的vh</td>
+</tr>
+<tr>
+<td style="text-align:left">vmax</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">相对于视口的宽度或高度，总是相对于大的那个。视口的宽度或高度被均分为100单位的vmax</td>
+</tr>
+<tr>
+<td style="text-align:left">vmin</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">相对于视口的宽度或高度，总是相对于小的那个。视口的宽度或高度被均分为100单位的vmin</td>
+</tr>
+</tbody>
+</table>
+<p>绝对长度单位</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">长度单位</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cm</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">厘米</td>
+</tr>
+<tr>
+<td style="text-align:left">mm</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">毫米</td>
+</tr>
+<tr>
+<td style="text-align:left">q</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">1/4毫米（quarter-millimeters）; 1q = 0.25mm</td>
+</tr>
+<tr>
+<td style="text-align:left">in</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">英寸（inches）; 1in = 2.54cm</td>
+</tr>
+<tr>
+<td style="text-align:left">pt</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">点（points）; 1pt = 1/72in</td>
+</tr>
+<tr>
+<td style="text-align:left">pc</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">派卡（picas）; 1pc = 12pt</td>
+</tr>
+<tr>
+<td style="text-align:left">px</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">像素（pixels）; 1px = 1/96in</td>
+</tr>
+</tbody>
+</table>
+<p>px 说是绝对长度单位，这是对于单个设备而言的。px 与设备显示屏的分辨率有关。对于屏幕显示，通常是一个设备像素（点）的显示。</p>
+<h3 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h3><table>
+<thead>
+<tr>
+<th>长度单位</th>
+<th>Chrome</th>
+<th>IE</th>
+<th>Firefox</th>
+<th>Safari</th>
+<th>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>em, ex, %, cm, mm, q, in, pt, pc, px</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>27.0</td>
+<td>9.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>rem</td>
+<td>4.0</td>
+<td>9.0</td>
+<td>3.6</td>
+<td>4.1</td>
+<td>11.6</td>
+</tr>
+<tr>
+<td>vh, vw</td>
+<td>20.0</td>
+<td>9.0</td>
+<td>19.0</td>
+<td>6.0</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>vmin</td>
+<td>20.0</td>
+<td>9.0*</td>
+<td>19.0</td>
+<td>6.0</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>vmax</td>
+<td>26.0</td>
+<td>不支持</td>
+<td>19.0</td>
+<td>不支持</td>
+<td>20.0</td>
+</tr>
+</tbody>
+</table>
+<p>注意: IE 9.0 是通过不标准的名称 vm 来支持 vmin 的。</p>
+<h3 id="常用相对长度"><a href="#常用相对长度" class="headerlink" title="常用相对长度"></a>常用相对长度</h3><p>相对长度单位指定了一个长度相对于另一个长度的属性。对于不同的设备，相对长度更适用。</p>
+<table>
+<thead>
+<tr>
+<th>单位</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>em</td>
+<td>相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。比如如果当前行内文本的字体尺寸为 16px，2em === 32px</td>
+</tr>
+<tr>
+<td>rem</td>
+<td>相对于根元素(即html元素)font-size</td>
+</tr>
+<tr>
+<td>vw</td>
+<td>viewpoint width，视窗宽度，1vw = 视窗宽度的 1%</td>
+</tr>
+<tr>
+<td>vh</td>
+<td>viewpoint height，视窗高度，1vh = 视窗高度的1%</td>
+</tr>
+<tr>
+<td>vmin</td>
+<td>相对于 vw 和 vh 中较小的那个</td>
+</tr>
+<tr>
+<td>vmax</td>
+<td>相对于 vw 和 vh 中较大的那个</td>
+</tr>
+<tr>
+<td>%</td>
+<td>百分比。关键考虑到底相对什么的百分比</td>
+</tr>
+</tbody>
+</table>
+<h4 id="em-与-rem-的区别"><a href="#em-与-rem-的区别" class="headerlink" title="em 与 rem 的区别"></a>em 与 rem 的区别</h4><p>都是相对大小。em 相对的是从当前向上查询已定义的 px，；而 rem 相对的永远是相对于根元素(即html元素)font-size。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根元素 (html root) 的 font-size 为 50px --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">style</span>=<span class="string">"font-size: 50px;"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 0;"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 高度 16px --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size: 16px;line-height: 1;"</span>&gt;</span>px文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 高度 2em === 100px，向上查询找到根元素 (html root) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size: 2em;line-height: 1;"</span>&gt;</span>em文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size: 16px;"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 高度 2em === 32px，向上查询找到 div 元素 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 2em;line-height: 1;"</span>&gt;</span>em文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 高度 2rem === 100px，相对根元素 (html root) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size: 2rem;line-height: 1;"</span>&gt;</span>rem文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size: 16px;"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 高度 2rem === 100px，相对根元素 (html root) --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 2rem;line-height: 1;"</span>&gt;</span>rem文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="vw、vh、vmin、vmax"><a href="#vw、vh、vmin、vmax" class="headerlink" title="vw、vh、vmin、vmax"></a>vw、vh、vmin、vmax</h4><p>这里的 viewpoint 指浏览器内部的可视区域</p>
+<p>viewpoint width，视窗宽度，是指 <code>window.innerWidth</code></p>
+<p>viewpoint height，视窗高度，是指 <code>window.innerHeight</code></p>
+<p>10vw = window.innerWidth * 10 / 100</p>
+<p>10vh = window.innerHeight * 10 / 100</p>
+<p>浏览器内部宽度 window.innerWidth，不包括 scrollbars, toolbars 等</p>
+<p>浏览器整体宽度 window.outerWidth，包括 scrollbars, toolbars 等</p>
+<p>显示器宽度 window.screen.width，固定不变</p>
+<p>window.screen.width &gt;= window.outerWidth &gt; window.innerWidth</p>
+<p><strong>有个奇怪的地方，在 chrome 的 device toolbar 调试时，window.innerWidth 最小是 980</strong></p>
+<h4 id="百分比"><a href="#百分比" class="headerlink" title="% 百分比"></a>% 百分比</h4><p>关键考虑到底相对什么的百分比</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 0;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 400px;height: 500px;background: red;"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 宽高是父元素的 30%，即 120px 150px，padding 是父元素的 10%，即 40px，真实宽高为 200px 230px。margin 是父元素的 10%，即 40px，第一个子元素 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 30%;height: 30%;background: #fff;margin: 10%;padding: 10%;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 100%;height: 100%;background: #ff0;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 30%;height: 30%;background: #fff;margin: 10%;padding: 10%;box-sizing: border-box;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 100%;height: 100%;background: #ff0;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="width-height-的百分比"><a href="#width-height-的百分比" class="headerlink" title="width/height 的百分比"></a>width/height 的百分比</h5><p>子元素的 width/height 的百分比是相对于父元素的 width/height 的百分比。</p>
+<h5 id="margin-的百分比"><a href="#margin-的百分比" class="headerlink" title="margin 的百分比"></a>margin 的百分比</h5><p>子元素的 margin 的百分比是相对于父元素的 width (只是 content 部分)的百分比</p>
+<p><a href="/zh/2018/09/11/css[margin]/">margin</a></p>
+<h5 id="padding-的百分比"><a href="#padding-的百分比" class="headerlink" title="padding 的百分比"></a>padding 的百分比</h5><p>子元素的 padding 的百分比是相对于父元素的 width (只是 content 部分)的百分比</p>
+<p><a href="/zh/2018/12/28/css[box-sizing]/">box-sizing</a></p>
+<h1 id="角度值与单位"><a href="#角度值与单位" class="headerlink" title="角度值与单位"></a>角度值与单位</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">角度取值</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;angel&gt;</code></td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left"><code>&lt;number&gt;</code>接角度单位</td>
+</tr>
+</tbody>
+</table>
+<h2 id="角度单位"><a href="#角度单位" class="headerlink" title="角度单位"></a>角度单位</h2><p>文本相对长度单位</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">角度单位</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">deg</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">度（Degrees）</td>
+</tr>
+<tr>
+<td style="text-align:left">grad</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">梯度（Gradians）</td>
+</tr>
+<tr>
+<td style="text-align:left">rad</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">弧度（Radians）</td>
+</tr>
+<tr>
+<td style="text-align:left">turn</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">转、圈（Turns）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deg"><a href="#deg" class="headerlink" title="deg"></a>deg</h3><p>deg 度（Degress）。一个圆共360度</p>
+<p>90deg = <code>(90/360)*400</code> grad ≈ <code>(90/360)*2π</code> rad = (90/360) turn</p>
+<h3 id="grad"><a href="#grad" class="headerlink" title="grad"></a>grad</h3><p>梯度（Gradians）。一个圆共400梯度</p>
+<h3 id="rad"><a href="#rad" class="headerlink" title="rad"></a>rad</h3><p>弧度（Radians）。一个圆共2π弧度</p>
+<p>π 为 <code>Math.PI</code></p>
+<h3 id="turn"><a href="#turn" class="headerlink" title="turn"></a>turn</h3><p>转、圈（Turns）。一个圆共1圈</p>
+<h1 id="时间取值与单位"><a href="#时间取值与单位" class="headerlink" title="时间取值与单位"></a>时间取值与单位</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">时间取值</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;time&gt;</code></td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left"><code>&lt;number&gt;</code>接时间单位</td>
+</tr>
+</tbody>
+</table>
+<p>时间值不允许有负值。</p>
+<h2 id="时间单位"><a href="#时间单位" class="headerlink" title="时间单位"></a>时间单位</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">时间单位</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">s</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">秒</td>
+</tr>
+<tr>
+<td style="text-align:left">ms</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">毫秒</td>
+</tr>
+</tbody>
+</table>
+<p>1s = 1000ms</p>
+<h1 id="颜色取值"><a href="#颜色取值" class="headerlink" title="颜色取值"></a>颜色取值</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">颜色取值</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ColorName</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">用颜色名称来指定颜色。包括基本颜色关键字、系统颜色、SVG颜色关键字等</td>
+</tr>
+<tr>
+<td style="text-align:left">HEX</td>
+<td style="text-align:left">CSS1</td>
+<td style="text-align:left">十六进制记法。语法如：#rrggbb或#rgb</td>
+</tr>
+<tr>
+<td style="text-align:left">RGB</td>
+<td style="text-align:left">CSS2</td>
+<td style="text-align:left">rgb记法</td>
+</tr>
+<tr>
+<td style="text-align:left">RGBA</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">rgba记法</td>
+</tr>
+<tr>
+<td style="text-align:left">HSL</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">hsl记法</td>
+</tr>
+<tr>
+<td style="text-align:left">HSLA</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">hsla记法</td>
+</tr>
+<tr>
+<td style="text-align:left">transparent</td>
+<td style="text-align:left">CSS1/CSS3</td>
+<td style="text-align:left">全透明</td>
+</tr>
+<tr>
+<td style="text-align:left">currentColor</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">当前颜色</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>color 的部分关键字可能不被某些浏览器支持；</li>
+<li>hex。#RRGGBB。<ul>
+<li>RR：红色值，十六进制正整数</li>
+<li>GG：绿色值，十六进制正整数</li>
+<li>BB：蓝色值，十六进制正整数</li>
+<li>取值范围：00 - FF。必须是两位数。对于只有一位的，应在前面补零</li>
+</ul>
+</li>
+<li>RGB(R,G,B)。<ul>
+<li>R：红色值，正整数 | 百分数</li>
+<li>G：绿色值，正整数 | 百分数</li>
+<li>B：蓝色值，正整数 | 百分数</li>
+<li>正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限</li>
+</ul>
+</li>
+<li>RGBA(R,G,B,A)。<ul>
+<li>A：Alpha透明度。取值0~1之间。IE9+</li>
+<li>对于IE6-8，可以使用滤镜filter处理</li>
+</ul>
+</li>
+<li>HSL(H,S,L)。<ul>
+<li>H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360。</li>
+<li>S：Saturation(饱和度)。取值为：0.0% - 100.0%</li>
+<li>L：Lightness(亮度)。取值为：0.0% - 100.0%</li>
+</ul>
+</li>
+<li>HSLA(H,S,L,A)<ul>
+<li>A：Alpha透明度。取值0~1之间。</li>
+</ul>
+</li>
+<li>transparent 是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值。<ul>
+<li>在CSS1中，transparent被用来作为background-color的一个参数值，用于表示背景透明。</li>
+<li>在CSS2中，border-color也开始接受transparent作为参数值，《Open eBook(tm) Publication Structure 1.0.1》[OEB101]延伸到color也接受transparent作为参数值。</li>
+<li>在CSS3中，transparent被延伸到任何一个有color值的属性上。</li>
+</ul>
+</li>
+<li>currentColor是 color 属性的值，具体意思是指：currentColor关键字的使用值是 color 属性值的计算值。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上述代码将会让div拥有一个红色的边框，这就解释了 border-color 属性的默认值是 color 属性的值；</span></span><br><span class="line"><span class="comment">如果将上述代码中的color属性定义删除，那么边框的颜色将取决于父元素的 color 计算值，因为 color 拥有继承性。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="文本取值"><a href="#文本取值" class="headerlink" title="文本取值"></a>文本取值</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">文本取值</th>
+<th style="text-align:left">版本</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">inherit</td>
+<td style="text-align:left">CSS2.1</td>
+<td style="text-align:left">该值使得属性能够继承祖先设置</td>
+</tr>
+<tr>
+<td style="text-align:left">initial</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">属性初始值</td>
+</tr>
+<tr>
+<td style="text-align:left">unset</td>
+<td style="text-align:left">CSS3</td>
+<td style="text-align:left">擦除属性申明</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;string&gt;</code></td>
+<td style="text-align:left">CSS2</td>
+<td style="text-align:left">字符串(含转义字符串)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;url&gt;</code></td>
+<td style="text-align:left">CSS2</td>
+<td style="text-align:left">在网页上提供一个资源地址。（图像，声频，视频或浏览器支持的其他任何资源）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;identifier&gt;</code></td>
+<td style="text-align:left">CSS2</td>
+<td style="text-align:left">使用用户自定义标识名作为组件取值</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>inherit 可以让一个不具备继承特性的属性可以继承父元素</li>
+<li>initial 重置某个属性为UA默认设置</li>
+<li>一个属性定义了unset值，如果该属性是默认继承属性，该值等同于inherit，如果该属性是非继承属性，该值等同于initial</li>
+<li>字符串可以由双引号或单引号包起来；转义字符串由 反斜杠<code>(\)</code>开始，如：<code>\&#39;</code>, <code>\&quot;</code>。content、font-family 等。</li>
+<li><url> 有引号和无引号都是正确的。background</url></li>
+<li>自定义标识。如 myIdentifier<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">	<span class="attribute">animation</span>: myIdentifier <span class="number">3s</span> linear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">keyframes</span> myIdentifier &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  100% &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="zhouyu1993 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫上面的二维码，奇妙的世界等着你！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持技术分享，您的支持将鼓励我！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="zhouyu1993 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="zhouyu1993 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh/2018/09/10/css[权重]/" rel="next" title="权重">
+                <i class="fa fa-chevron-left"></i> 权重
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zh/2018/09/11/css[margin]/" rel="prev" title="margin">
+                margin <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjYwNi85MTY3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="zhouyu1993" />
+            
+              <p class="site-author-name" itemprop="name">zhouyu1993</p>
+              <p class="site-description motion-element" itemprop="description">zhouyu1993's blogs</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gwyloved.github.io/" title="sample's blogs" target="_blank">sample's blogs</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#长度值与单位"><span class="nav-number">1.</span> <span class="nav-text">长度值与单位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#长度取值"><span class="nav-number">1.1.</span> <span class="nav-text">长度取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长度单位"><span class="nav-number">1.2.</span> <span class="nav-text">长度单位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器支持"><span class="nav-number">1.2.1.</span> <span class="nav-text">浏览器支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用相对长度"><span class="nav-number">1.2.2.</span> <span class="nav-text">常用相对长度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#em-与-rem-的区别"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">em 与 rem 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vw、vh、vmin、vmax"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">vw、vh、vmin、vmax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#百分比"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">% 百分比</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#width-height-的百分比"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">width/height 的百分比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#margin-的百分比"><span class="nav-number">1.2.2.3.2.</span> <span class="nav-text">margin 的百分比</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#padding-的百分比"><span class="nav-number">1.2.2.3.3.</span> <span class="nav-text">padding 的百分比</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#角度值与单位"><span class="nav-number">2.</span> <span class="nav-text">角度值与单位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#角度单位"><span class="nav-number">2.1.</span> <span class="nav-text">角度单位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#deg"><span class="nav-number">2.1.1.</span> <span class="nav-text">deg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grad"><span class="nav-number">2.1.2.</span> <span class="nav-text">grad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rad"><span class="nav-number">2.1.3.</span> <span class="nav-text">rad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#turn"><span class="nav-number">2.1.4.</span> <span class="nav-text">turn</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间取值与单位"><span class="nav-number">3.</span> <span class="nav-text">时间取值与单位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#时间单位"><span class="nav-number">3.1.</span> <span class="nav-text">时间单位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#颜色取值"><span class="nav-number">4.</span> <span class="nav-text">颜色取值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本取值"><span class="nav-number">5.</span> <span class="nav-text">文本取值</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhouyu1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+<h5>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</h5>
+
+<div class="links-of-author">
+  
+    
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-weibo"></i>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-globe"></i>知乎</a>
+      </span>
+    
+  
+</div>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script defer>
+  // use sw
+  var opensw = location.hostname === 'zhouyu1993.github.io'
+  if (opensw) {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js', {
+          scope: '/'
+        }).then(function (registration) {
+          // register success
+          console.log('ServiceWorker registration successful with scope:', registration.scope)
+        }).catch((err) => {
+          // register failure
+          console.log('ServiceWorker registration failed:', err)
+        })
+      })
+    }
+  }
+</script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zz6VWq4HelTwLc79eS4WYNYd-gzGzoHsz", "QyKSBePhKCFPRO23Sxkk2BBI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

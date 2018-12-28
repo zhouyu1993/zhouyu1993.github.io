@@ -6,6 +6,8 @@ categories:
 
 tags:
   - js
+
+date: 2018/08/14
 ---
 
 拷贝，copy，复制，抄本、副本、别本。

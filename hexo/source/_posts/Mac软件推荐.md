@@ -2,10 +2,12 @@
 title: Mac软件推荐
 
 categories:
-  - Mac
+  - mac
 
 tags:
   - software
+
+date: 2018/08/08
 ---
 
 推荐一些常用的 Mac 软件

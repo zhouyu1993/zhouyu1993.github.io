@@ -20,7 +20,7 @@
     "clean": "cd hexo && hexo clean",
     "dev": "cd hexo && npm run dev",
     "build": "cd hexo && npm run build",
-    "deploy": "cd hexo && npm run deploy"
+    "deploy": "rm -rf about/* archives/* categories/* css/* images/* js/* lib/* page/* tags/* uploads/* zh/* && cd hexo && npm run deploy"
   },
   "hexo": {
     "version": "3.4.4"

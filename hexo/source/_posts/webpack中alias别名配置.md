@@ -6,6 +6,8 @@ categories:
 
 tags:
   - js
+
+date: 2018/08/13
 ---
 
 webpack 中 alias 别名配置
