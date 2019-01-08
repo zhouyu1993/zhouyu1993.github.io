@@ -172,78 +172,17 @@ git clone git@github.com:zhouyu1993/zhouyu1993.github.io.git
 
 ## git clone [url]
 
-克隆远程 Git 仓库；这里 url 有两种地址：
+克隆远程 Git 仓库
 
-使用 git:// 协议或者使用 SSH 传输协议，更安全
+`Git` 支持许多数据传输协议。之前的例子使用的是 `git://` 协议，不过你也可以用 `http(s)://` 或者 `user@server:/path.git` 表示的 `SSH` 传输协议。
+
+使用 `git://` 协议或者 `SSH` 传输协议，更安全！
 
 > git@[host]:[user-name]/[project-name].git
 
-使用https:// 协议或者 http:// 协议
+使用 `http(s)://` 协议
 
 > https://[host]/[user-name]/[project-name].git
-
-## 如果是使用 SSH, 需要先配置
-
-* 1.检查本机是否有 SSH key
-
-``` bash
-cd ~/.ssh
-```
-
-如果 No such file or directory
-
-``` bash
-cd ~
-mkdir .ssh
-
-# 接 2
-```
-
-如果正常进入, 查看是否有 id_rsa.pub
-
-``` bash
-ls # 或 ll
-```
-
-如果无, 则清空
-
-``` bash
-rm *
-# 接 2
-```
-
-如果有，检查是否可用, 接 3
-
-* 2.重新设置 SSH sey
-
-``` bash
-cd ~
-# 填写库的登陆邮箱
-ssh-keygen -t rsa -C '1490079545@qq.com'
-# 有结果如下：
-Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): #可不填直接回车#
-Created directory '/c/Users/Administrator/.ssh'. #创建id_rsa#
-Enter passphrase (empty for no passphrase): #可不填直接回车#
-Enter same passphrase again: #不填直接回车#
-Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa. #保存id_rsa#
-Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub. #创建id_rsa.pub#
-# 配置
-git config --global user.name 'RainJoy' #name#
-git config --global user.email '1490079545@qq.com' #email#
-```
-
-* 3.在库的 Settings > SSH key 对应 key 填写位置填写生成的 SSH key
-``` bash
-cat ~/.ssh/id_rsa.pub
-# 复制内容，填写到相应位置
-```
-
-* 4.测试 SSH key 是否设置成功。以 SSH key 方式下载项目即可
-
-``` bash
-$ git clone git@github.com:zhouyu1993/zhouyu1993.github.io.git
-# 看是否成功
-```
 
 ## 检测当前文件状态
 
@@ -281,6 +220,10 @@ git checkout .
   - 匹配模式可以以（/）开头防止递归。
   - 匹配模式可以以（/）结尾指定目录。
   - 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。
+
+``` bash
+touch .gitignore
+```
 
 ## 查看库的整体提交记录
 
@@ -402,3 +345,97 @@ git push origin -d [branche-name]
 ``` bash
 git config core.ignorecase false
 ```
+
+# 配置 SSH
+
+[ssh](https://gitlab.com/help/ssh/README)
+
+* 1.检查本机是否有 SSH key
+
+  ``` bash
+  cd ~/.ssh
+  ```
+
+  如果 `.ssh` No such file or directory
+
+  ``` bash
+  cd ~
+
+  mkdir .ssh
+
+  # 接 2
+  ```
+
+  如果正常进入, 查看是否有 `*_rsa.pub`
+
+  ``` bash
+  ls -a # 或 ll -a
+  ```
+
+  如果无, 则清空
+
+  ``` bash
+  rm *
+  # 接 2
+  ```
+
+  如果有，检查是否可用, 接 3
+
+* 2.重新设置 SSH sey
+
+  ``` bash
+  cd ~/.ssh
+  # 填写库的登陆邮箱
+  ssh-keygen -t rsa -C '1490079545@qq.com'
+
+  # 有结果如下：
+  Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): #可不填直接回车# #如果填写，则重命名，例如 xiaomi_rsa
+  Created directory '/c/Users/Administrator/.ssh'. #创建id_rsa#
+  Enter passphrase (empty for no passphrase): #可不填直接回车# #如果填写则是密码
+  Enter same passphrase again: #可不填直接回车# #如果填写则是密码
+  Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa. #保存id_rsa#
+  Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub. #创建id_rsa.pub#
+
+  # 配置 git
+  git config --global user.name 'RainJoy' #name#
+  git config --global user.email '1490079545@qq.com' #email#
+  git config --list
+  ```
+
+* 3.在库的 Settings > SSH key 对应 key 填写位置填写生成的 SSH key
+
+  ``` bash
+  # 复制 id_rsa.pub 内容，填写到相应位置
+  cat ~/.ssh/id_rsa.pub
+
+  # 或者
+  pbcopy < ~/.ssh/id_rsa.pub # 复制文件内容
+  ```
+
+* 4.测试 SSH key 是否设置成功
+
+  ``` bash
+  ssh -T git@github.com
+
+  # 有结果如下：
+  Are you sure you want to continue connecting (yes/no)? # 这里一定输入 yes 不能直接回车，不然会报 Host key verification failed.
+  Enter passphrase for key '/Users/xxx/.ssh/*_rsa': # 输入设置的密码
+
+  ssh -T git@gitlab.com
+
+  # 有结果如下：
+  Are you sure you want to continue connecting (yes/no)? # 这里一定输入 yes 不能直接回车，不然会报 Host key verification failed.
+  Enter passphrase for key '/Users/xxx/.ssh/*_rsa': # 输入设置的密码
+  ```
+
+* 以 SSH key 方式下载项目即可
+
+  ``` bash
+  git clone git@github.com:zhouyu1993/zhouyu1993.github.io.git
+  ```
+
+# LICENSE 开源许可证
+
+http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
+
+MIT 或 Apache
