@@ -19,8 +19,6 @@ db.json
 
 # dependencies
 node_modules
-yarn.lock
-package-lock.json
 
 # misc
 .DS_Store
