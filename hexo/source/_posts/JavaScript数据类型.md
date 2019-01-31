@@ -514,7 +514,7 @@ console.log(str.method, str) // undefined, 'abc
 
 `prototype`，原型属性，是 Function 函数对象(除了内置函数对象)才具有的属性，是通过调用构造函数而创建的那个对象实例的原型对象，是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法(我们把这个对象叫做原型对象)。在原型对象里有共有的方法，所有构造函数声明的实例都可以共享这个方法。
 
-![__proto__ 与 prototype](https://cmspic-10003009.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586)
+![__proto__ 与 prototype](https://cmspic-10004025.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586)
 
 每个函数都有 `prototype` 属性，除了 `Function.prototype.bind()`，该属性指向原型。
 
@@ -1272,7 +1272,7 @@ var obj = {
 
 ## == 操作符
 
-![== 操作符](https://cmspic-10003009.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908)
+![== 操作符](https://cmspic-10004025.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908)
 
 上图中的 `toPrimitive` 就是对象转基本类型。
 

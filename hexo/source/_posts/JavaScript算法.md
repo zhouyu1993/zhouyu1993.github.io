@@ -164,7 +164,7 @@ O(n!) 阶乘阶
 
 增长率:
 
-![增长率](https://pic2.zhimg.com/80/v2-11043ff03c8e1fc0ee9556867fdc46fa_hd.jpg)
+![增长率](https://cmspic-10004025.image.myqcloud.com/3700160e-b78d-4094-9630-dc77f3c2ec27)
 
 当数据规模 n 增长时，非多项式量级的执行时间就会急剧增加，所以，非多项式量级的代码算法是非常低效的算法。
 

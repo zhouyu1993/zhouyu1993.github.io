@@ -25,7 +25,7 @@ W3C DOM 标准被分为 3 个不同的部分：
 
 HTML DOM 将 HTML 文档表达为树结构，即 DOM 树。
 
-![DOM 树](https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif)
+![DOM 树](https://cmspic-10004025.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif)
 
 基于 DOM 树的一些可视(visual)的节点，WebKit 来根据需要来创建相应的 RenderObject 节点，这些节点也构成了一颗树，称之为 Render 树。基于 Render 树，WebKit 也会根据需要来为它们中的某些节点创建新的 RenderLayer 节点，从而形成一棵 RenderLayer 树。
 
@@ -33,7 +33,7 @@ Render 树和 RenderLayer 树是 WebKit 支持渲染所提供的基础但是却�
 
 为了直观了解这三种树，下图给出了这三种树及其它们之间的对应关系。
 
-![三种树](https://cmspic-10003009.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif)
+![三种树](https://cmspic-10004025.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif)
 
 ## Render 树的建立
 
@@ -45,7 +45,7 @@ Render 树是基于 DOM 树建立起来的一颗新的树， 是布局和渲染�
 
 RenderObject 对象在 DOM 树创建的同时也会被创建，当然，如果 DOM 中有动态加入元素时，也可能会相应地创建 RenderObject 对象。下图示例的是 RenderObject 对象被创建的函数调用过程。
 
-![RenderObject 对象被创建的函数调用过程](https://cmspic-10003009.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif)
+![RenderObject 对象被创建的函数调用过程](https://cmspic-10004025.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif)
 
 Render 树建立之后，布局运算会计算出相关的属性，这其中有位置，大小，是否浮动等。有了这些信息之后，渲染引擎才只知道在何处以及如何画这些元素。
 
@@ -53,7 +53,7 @@ Render 树建立之后，布局运算会计算出相关的属性，这其中有�
 
 RenderObject 是 Render 树的节点基础类，提供了一组公共的接口。它有很多的子类，这些子类可能对应一些 DOM 树中的节点，例如 RenderText，有些则是容器类，例如 RenderBlock。下图给出了一些常用的类的继承关系图，这其中 RenderBlock 是一个非常重要的类。
 
-![常用的类的继承关系图](https://cmspic-10003009.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif)
+![常用的类的继承关系图](https://cmspic-10004025.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif)
 
 ## 匿名 RenderBlock 对象
 
@@ -63,7 +63,7 @@ RenderBlock 是用来表示块级元素，为了处理上的方便，某些情�
 
 # 浏览器如何构建 Render 树
 
-[Render 树的构建](https://cmspic-10003009.image.myqcloud.com/bc350930-b26a-11e8-ad16-6fbf6c430894_size_630x292)
+[Render 树的构建](https://cmspic-10004025.image.myqcloud.com/bc350930-b26a-11e8-ad16-6fbf6c430894_size_630x292)
 
 浏览器取回代码后，首先会构造 DOM 树，就是根据 HTML 标签构建 HTML DOM 树。
 

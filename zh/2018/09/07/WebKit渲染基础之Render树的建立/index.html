@@ -96,15 +96,15 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif">
-<meta property="og:updated_time" content="2018-12-28T06:44:34.595Z">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif">
+<meta property="og:updated_time" content="2019-01-30T08:46:31.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebKit渲染">
 <meta name="twitter:description" content="WebKit 是一个渲染引擎，而不是一个浏览器，它专注于网页内容展示，其中渲染是其中核心的部分之一。">
-<meta name="twitter:image" content="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
+<meta name="twitter:image" content="https://cmspic-10004025.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif">
 
 
 
@@ -191,7 +191,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">web front-end developer</p>
+        <p class="site-subtitle">front-end developer</p>
       
   </div>
 
@@ -370,8 +370,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T14:44:34+08:00">
-                2018-12-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T16:46:31+08:00">
+                2019-01-30
               </time>
             
           </span>
@@ -447,11 +447,11 @@
 <li>HTML DOM - 针对 HTML 文档的标准模型</li>
 </ul>
 <p>HTML DOM 将 HTML 文档表达为树结构，即 DOM 树。</p>
-<p><img src="https://cmspic-10003009.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif" alt="DOM 树"></p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/dc473240-b263-11e8-ad16-6fbf6c430894_size_486x266#gif" alt="DOM 树"></p>
 <p>基于 DOM 树的一些可视(visual)的节点，WebKit 来根据需要来创建相应的 RenderObject 节点，这些节点也构成了一颗树，称之为 Render 树。基于 Render 树，WebKit 也会根据需要来为它们中的某些节点创建新的 RenderLayer 节点，从而形成一棵 RenderLayer 树。</p>
 <p>Render 树和 RenderLayer 树是 WebKit 支持渲染所提供的基础但是却非常重要的设施。这是因为 WebKit 的布局计算依赖它们，浏览器的渲染和 GPU 硬件加速也都依赖于它们。幸运地是，得益于它们接口定义的灵活性，不同的浏览器可以很方便地来实现自己的渲染和加速机制。</p>
 <p>为了直观了解这三种树，下图给出了这三种树及其它们之间的对应关系。</p>
-<p><img src="https://cmspic-10003009.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif" alt="三种树"></p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/5b4def90-b267-11e8-ad16-6fbf6c430894_size_621x299#gif" alt="三种树"></p>
 <h2 id="Render-树的建立"><a href="#Render-树的建立" class="headerlink" title="Render 树的建立"></a>Render 树的建立</h2><p>Render 树是基于 DOM 树建立起来的一颗新的树， 是布局和渲染等机制的基础设施。Render 树节点和 DOM 树节点不是一一对应关系，那么哪些情况下需要建立新的 Render 节点呢？</p>
 <ul>
 <li>DOM 树的 document 节点</li>
@@ -459,13 +459,13 @@
 <li>某些情况下需要建立匿名的 Render 节点，该节点不对应于 DOM 树中的任何节点</li>
 </ul>
 <p>RenderObject 对象在 DOM 树创建的同时也会被创建，当然，如果 DOM 中有动态加入元素时，也可能会相应地创建 RenderObject 对象。下图示例的是 RenderObject 对象被创建的函数调用过程。</p>
-<p><img src="https://cmspic-10003009.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif" alt="RenderObject 对象被创建的函数调用过程"></p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/fab9e5b0-b268-11e8-ad16-6fbf6c430894_size_333x319#gif" alt="RenderObject 对象被创建的函数调用过程"></p>
 <p>Render 树建立之后，布局运算会计算出相关的属性，这其中有位置，大小，是否浮动等。有了这些信息之后，渲染引擎才只知道在何处以及如何画这些元素。</p>
 <h2 id="RenderObject-类及其子类"><a href="#RenderObject-类及其子类" class="headerlink" title="RenderObject 类及其子类"></a>RenderObject 类及其子类</h2><p>RenderObject 是 Render 树的节点基础类，提供了一组公共的接口。它有很多的子类，这些子类可能对应一些 DOM 树中的节点，例如 RenderText，有些则是容器类，例如 RenderBlock。下图给出了一些常用的类的继承关系图，这其中 RenderBlock 是一个非常重要的类。</p>
-<p><img src="https://cmspic-10003009.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif" alt="常用的类的继承关系图"></p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/7a2119e0-b269-11e8-ad16-6fbf6c430894_size_557x404#gif" alt="常用的类的继承关系图"></p>
 <h2 id="匿名-RenderBlock-对象"><a href="#匿名-RenderBlock-对象" class="headerlink" title="匿名 RenderBlock 对象"></a>匿名 RenderBlock 对象</h2><p>CSS 中有块级元素和内嵌(inline)元素之分。内嵌元素表现的是行布局形式，就是说这些元素以行进行显示。以 div 元素为例，如果设置属性 style 为 display:inline 时，则那是内嵌元素，那么它可能与前面的元素在同一行；如果该元素没有设置这个属性时，则是块级元素，那么在新的行里显示。</p>
 <p>RenderBlock 是用来表示块级元素，为了处理上的方便，某些情况下需要建立匿名的 RenderBlock 对象，因为 RenderBlock 的子女必须都是内嵌的元素或者都是非内嵌的元素。所以，当它包含两种元素的时候，那么它会为相邻的内嵌元素创建一个块级 RenderBlock 节点，然后设置该节点为自己的子女并且设置这些内嵌元素为它的子女。</p>
-<h1 id="浏览器如何构建-Render-树"><a href="#浏览器如何构建-Render-树" class="headerlink" title="浏览器如何构建 Render 树"></a>浏览器如何构建 Render 树</h1><p><a href="https://cmspic-10003009.image.myqcloud.com/bc350930-b26a-11e8-ad16-6fbf6c430894_size_630x292" target="_blank" rel="noopener">Render 树的构建</a></p>
+<h1 id="浏览器如何构建-Render-树"><a href="#浏览器如何构建-Render-树" class="headerlink" title="浏览器如何构建 Render 树"></a>浏览器如何构建 Render 树</h1><p><a href="https://cmspic-10004025.image.myqcloud.com/bc350930-b26a-11e8-ad16-6fbf6c430894_size_630x292" target="_blank" rel="noopener">Render 树的构建</a></p>
 <p>浏览器取回代码后，首先会构造 DOM 树，就是根据 HTML 标签构建 HTML DOM 树。</p>
 <p>之后会解析 CSS 样式，解析的顺序是浏览器的样式(UA defaults) -&gt; 页面的 link 标签引入的链接样式 -&gt; <code>@import</code> 引入的导入样式 -&gt; 写在 style 标签里面的内嵌样式 -&gt; 写在 html 标签是 style 属性的行内样式</p>
 <p>根据 DOM 树以及解析的 CSS 样式，构造 Render 树，在 Render 树中，会把 DOM 树中没有的元素给去除，比如 head 标签以及里面的内容，以及 display:none 的元素也会被去除。</p>
@@ -731,7 +731,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

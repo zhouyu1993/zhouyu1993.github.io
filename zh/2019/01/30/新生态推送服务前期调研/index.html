@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#222">
+<meta name="description" content="zhouyu1993's blog">
+<meta name="keywords" content="zhouyu1993's blog">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="zhouyu1993's blogs">
+
+
+
+
+
+
+
+
+<meta http-equiv="cache-control" content="no-transform">
+<meta http-equiv="cache-control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/favicon-32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/images/favicon-16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.3" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="工作,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文是对新生态推送服务前期调研的汇报。">
+<meta name="keywords" content="工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新生态推送服务前期调研">
+<meta property="og:url" content="https://zhouyu1993.github.io/zh/2019/01/30/新生态推送服务前期调研/index.html">
+<meta property="og:site_name" content="zhouyu1993&#39;s blogs">
+<meta property="og:description" content="本文是对新生态推送服务前期调研的汇报。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/6cfe8780-91c7-43f9-8688-77bb39c212f4">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/4dec6680-b126-4b46-8a3e-3d726ecacba1">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/dfbf44d7-05b6-4e61-8266-79a7601dc032">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/fab8efec-4f8b-41f7-b85e-f0a895eea5d9">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/5ceee21b-8933-4069-8389-21dd0679e63e">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/d3da1d4e-3393-4357-9a28-aa38e321f27d">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/e766e2d0-2e68-43c4-bee4-3869b6aceeea">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/a3e7ef8a-9459-435f-87a4-5bcdac230780">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/179b3307-2037-48bb-b8ba-bbba2ab8f9b0">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/3f3a429f-5e10-4259-90b6-80f46c9003bc">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/a4a7b1cd-a815-4f3d-9e5c-69cbc6f285da">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/8450b643-5a3d-4ac7-ab70-f5c05fd1ca0c">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/2dd06151-d69e-4600-95dd-83804f7332e4">
+<meta property="og:image" content="http://cmspic-10004025.image.myqcloud.com/3f6794a5-d644-440b-a1c6-57c64469279d">
+<meta property="og:image" content="https://camo.githubusercontent.com/42b2a5b50c42458554503860448134e3584df446/68747470733a2f2f434d4c4a532e6f72672f646f632f6173736574732f6d76766d342e706e67">
+<meta property="og:updated_time" content="2019-01-30T11:03:30.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新生态推送服务前期调研">
+<meta name="twitter:description" content="本文是对新生态推送服务前期调研的汇报。">
+<meta name="twitter:image" content="https://cmspic-10004025.image.myqcloud.com/6cfe8780-91c7-43f9-8688-77bb39c212f4">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script type="text/javascript">
+  if (/eruda=true/.test(window.location)) {
+    document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
+    document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
+  }
+</script>
+
+
+
+  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2019/01/30/新生态推送服务前期调研/">
+
+
+
+
+
+  <title>新生态推送服务前期调研 | zhouyu1993's blogs</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-111529988-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhouyu1993's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">front-end developer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2019/01/30/新生态推送服务前期调研/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">新生态推送服务前期调研</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T00:00:00+08:00">
+                2019-01-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T19:03:30+08:00">
+                2019-01-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2019/01/30/新生态推送服务前期调研/" class="leancloud_visitors" data-flag-title="新生态推送服务前期调研">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文是对新生态推送服务前期调研的汇报。</p>
+<a id="more"></a>
+<h2 id="推送服务"><a href="#推送服务" class="headerlink" title="推送服务"></a>推送服务</h2><p>首先我个人之前对推送服务不太了解，经过这两个月的接触，有了以下一些粗略的认知。</p>
+<blockquote>
+<p>所谓推送，就是信息的 “web广播”，是通过一定的技术标准或协议，在互联网上定期传送用户需要的信息，从而来减少信息过载、减少用户网络搜索时间的一项技术。它根据用户的兴趣来搜索、过滤信息，并将信息定期推送给用户，帮助用户高效率地发掘有价值的信息。</p>
+</blockquote>
+<p>提取关键词：定期、兴趣、搜索、过滤、效率。</p>
+<blockquote>
+<p>从技术而言，信息推送是一项以数据挖掘、自然语言处理以及互联网等多门技术为基础的综合性方向。将合适的信息推送给合适的人，是一项极具挑战的工作。这个过程需要对信息作充分的分析，并对人的兴趣、行为做细致的刻画，并对两者进行有效匹配。</p>
+</blockquote>
+<p>提取关键句：将合适的信息推送给合适的人。</p>
+<h3 id="推送服务原理"><a href="#推送服务原理" class="headerlink" title="推送服务原理"></a>推送服务原理</h3><p>手机上的推送服务原理很简单，就是通过建立一条手机与服务器之间的连接链路（即长连接），当有消息需要发送到手机时，通过此链路发送即可。</p>
+<p>长连接，指在一个连接上可以连续发送多个数据包，在连接保持期间，如果没有数据包发送，需要双方发链路检测包。</p>
+<p>推送服务的使用流程虽然略有差别（不同系统、不同设备），但是大致都和 IOS 的 APNS 相似。</p>
+<p>先看几个名词：</p>
+<ul>
+<li>IOS 应用程序即 App。</li>
+<li>APNS (Apple Push Notification Service)，苹果推送通知服务。</li>
+<li>PUSH 服务端程序，指某个 App 内使用的具体推送接口。</li>
+<li>deviceToken 用户标识，可能是设备信息、应用信息等。</li>
+</ul>
+<p>推送服务过程：</p>
+<ol>
+<li>首先是 IOS 应用程序注册消息推送（接入推送服务）；</li>
+<li>IOS 应用程序向 APNS 索要 deviceToken，IOS 应用程序接受 deviceToken（获取用户标识/口/密钥，用于确认）；</li>
+<li>IOS 应用程序将 deviceToken 发送给 PUSH 服务端程序（授权服务端）。</li>
+<li>PUSH 服务端程序向 APNS 发送消息。</li>
+<li>APNS 将消息发送给 IOS 应用程序。</li>
+</ol>
+<p><strong>App - PUSH 服务端（第三方/桥梁） - PNS</strong></p>
+<p>应用程序，多端，包括：App (Android、Ios)、快应用 (Android)、小程序 (微信、QQ、支付宝、头条、百度等)、Web (PC、Mobile、PWA)等。我们在 PC 上使用邮箱或者微博时，经常会有个提示框，“禁止/允许显示通知”，这个就类似对推送服务的授权。</p>
+<p>PNS，则是设备系统（厂商）提供的推送通知服务，苹果、安卓或者电脑客户端等。小米则对应 MIUI 系统。</p>
+<p>我们关心以下5个环节：</p>
+<ol>
+<li>应用程序注册？（客户端做的事）</li>
+<li>应用程序怎么向 PNS 索要 deviceToken？（客户端做的事）</li>
+<li>应用程序怎么将 deviceToken 发送给 PUSH 服务端程序？（客户端做的事）</li>
+<li>PUSH 服务端程序怎么向 PNS 发送消息？（服务端做的事）</li>
+<li>PNS 怎么将消息发送给应用程序？（厂商做的事）</li>
+</ol>
+<p>下面我们分别看一下不同应用程序在推送能力上的发展。</p>
+<h2 id="App"><a href="#App" class="headerlink" title="App"></a>App</h2><p>App 方面我就不说了，目前小米推送对 Android、Ios 都已经支持。未来做的更多是，在支持全 Android 上的发展。</p>
+<h2 id="快应用"><a href="#快应用" class="headerlink" title="快应用"></a>快应用</h2><p>官方在<a href="https://doc.quickApp.cn/features/service/push.html" target="_blank" rel="noopener">推送能力</a>上已经提供了相关接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接入推送服务</span></span><br><span class="line"><span class="keyword">import</span> push <span class="keyword">from</span> <span class="string">'@service.push'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 订阅 push，后续可以收到 push 消息（一般可在应用初始化的地方进行调用。比如在 App 的 onCreate 方法中调用。）</span></span><br><span class="line"><span class="comment">// 这里其实就是授权开启推送服务</span></span><br><span class="line">push.subscribe(&#123;</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">`push.subscribe succeeded, result data = <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(data)&#125;</span>`</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment">// regId，PushService 返回的注册 id，可用于针对某个用户发送消息</span></span><br><span class="line">    <span class="built_in">console</span>.log(data.regId)</span><br><span class="line">  &#125;,</span><br><span class="line">  fail: <span class="function"><span class="keyword">function</span> (<span class="params">data, code</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">`push.subscribe failed, result data = <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(</span></span></span><br><span class="line"><span class="string"><span class="subst">        data</span></span></span><br><span class="line"><span class="string"><span class="subst">      )&#125;</span>, code = <span class="subst">$&#123;code&#125;</span>`</span></span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'push.subscribe completed'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取服务提供商，字符串，服务提供商的代号，如厂商的英文品牌名称，假如无此服务则返回空字符串</span></span><br><span class="line"><span class="built_in">console</span>.log(push.getProvider())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加 push 事件回调（透传消息的 payload 内容可在此回调中收到）</span></span><br><span class="line">push.on(&#123;</span><br><span class="line">  callback: <span class="function"><span class="keyword">function</span> (<span class="params">ret</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`received pass through message, ret = <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(ret)&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>官网上所展现的前端如何接入推送服务，还是比较简单的。</p>
+<p>在支持明细中，可以看到已经有 5 家厂商支持。</p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/6cfe8780-91c7-43f9-8688-77bb39c212f4" alt="快应用推送支持"></p>
+<p>我们看到小米对应的就是小米消息推送服务。而且对应上面提供的 API 来看，目前已经支持通知栏消息和透传消息。可见快应用中推送服务的应用，应该和安卓中推送服务的应用，大同小异。</p>
+<p>未来设想或预期是这样的，小米消息推送服务能够去支持其他厂商，支持全 Android 的 App 同时，也支持全 Android 的快应用。</p>
+<p>另外，以下 API 是可能需要：</p>
+<ul>
+<li><a href="https://doc.quickApp.cn/features/system/device.html" target="_blank" rel="noopener">设备信息</a>，获取设备信息、获取设备唯一标识、获取用户唯一标识等。</li>
+<li><a href="https://doc.quickApp.cn/features/system/App.html" target="_blank" rel="noopener">应用信息</a>，获取应用信息。</li>
+<li><a href="https://doc.quickApp.cn/features/system/router.html" target="_blank" rel="noopener">路由信息</a>，<code>router.getState()</code> 获取路由信息。</li>
+<li>获取地理位置、网路状态等其他信息</li>
+</ul>
+<h3 id="快应用推送演示"><a href="#快应用推送演示" class="headerlink" title="快应用推送演示"></a>快应用推送演示</h3><p>小米漂流瓶（自研快应用业务团队）：</p>
+<p>我方捞瓶子对话，熄屏等待对方回话。对方回话，我方接收到一条推送</p>
+<p>小米手机（MIUI 10）的通知栏上直接显示小米漂流瓶，可见快应用跟 App 没什么区别</p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/4dec6680-b126-4b46-8a3e-3d726ecacba1" alt="小米漂流瓶1"></p>
+<p>点击通知栏上的消息卡片，即可直接进入小米漂流瓶对应的消息对话页面：</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/dfbf44d7-05b6-4e61-8266-79a7601dc032" alt="小米漂流瓶2"></p>
+<p>另外，我分别在小米手机以及魅族手机上测试了京东的客服系统，以及唯品会的订单系统。跟客服对话，退出/熄屏后没有消息提示；下单不支付超时也没有消息提示，可能都没有接入推送服务。一个是目前快应用推送服务接入还是比较繁琐；二个是快应用使用量可能不够大。</p>
+<p>当我们能够提供全 Android 的支持，简化了接入流程，或许就可以吸引 CP 进行接入。</p>
+<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>小程序是以 App 为载体的，从目前推送服务的呈现效果来看，是通知栏跟 App 之间的交互，而非快应用那种直达，更不用说透传消息。未来有没有可能做成直达，或者支持透传消息，这就要看各大 App 的发展了。</p>
+<h3 id="微信-QQ-小程序-腾讯系"><a href="#微信-QQ-小程序-腾讯系" class="headerlink" title="微信/QQ 小程序 (腾讯系)"></a>微信/QQ 小程序 (腾讯系)</h3><p>微信小程序是以微信为载体的。</p>
+<p>在微信小程序中是无法获取到设备信息、设备唯一标识、用户唯一标识这些东西的。</p>
+<p>我们可以通过 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wx.getSystemInfo.html" target="_blank" rel="noopener">wx.getSystemInfo</a> 来获取到系统信息及小程序信息，但用处有限。</p>
+<p>目前微信小程序的消息推送，是借助于【模版消息】实现的。</p>
+<p>“模板消息”是什么？</p>
+<p>模板消息是微信提供的消息推送的能力，以服务通知的形式将小程序的消息推送至用户的聊天列表。在进入小程序服务通知时，能看到小程序的推送消息。这个消息可以是活动信息，可以是商品降价信息，将运营者想向用户传达的消息直接传递至用户。用户甚至可以点击服务消息进入小程序，进入到运营者指定的页面。</p>
+<h4 id="模版消息"><a href="#模版消息" class="headerlink" title="模版消息"></a>模版消息</h4><blockquote>
+<p>基于微信的通知渠道，微信为开发者提供了可以高效触达用户的模板消息能力，以便实现服务的闭环并提供更佳的体验。</p>
+</blockquote>
+<ul>
+<li>模板推送位置：<code>服务通知</code></li>
+<li>模板下发条件：用户本人在微信体系内与页面有交互行为后触发，【支付或提交表单】</li>
+<li>模板跳转能力：点击查看详情仅能跳转下发模板的该帐号的各个页面</li>
+</ul>
+<h5 id="具体能力"><a href="#具体能力" class="headerlink" title="具体能力"></a>具体能力</h5><p>开发者/运营者在微信公众平台 <a href="https://mp.weixin.qq.com" target="_blank" rel="noopener">https://mp.weixin.qq.com</a> 配置模版消息，有模版库可选，也可自定义模版：</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/fab8efec-4f8b-41f7-b85e-f0a895eea5d9" alt="微信公众平台-模版消息1"></p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/5ceee21b-8933-4069-8389-21dd0679e63e" alt="微信公众平台-模版消息2"></p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/d3da1d4e-3393-4357-9a28-aa38e321f27d" alt="微信公众平台-模版消息3"></p>
+<p>前端接入：</p>
+<ul>
+<li>当用户完成<a href="https://developers.weixin.qq.com/miniprogram/dev/api/wx.requestPayment.html" target="_blank" rel="noopener">支付行为</a>，可以获取 <code>prepay_id</code> 用于发送模板消息</li>
+<li>页面的 <a href="https://developers.weixin.qq.com/miniprogram/dev/component/form.html" target="_blank" rel="noopener"><code>&lt;form&gt;</code></a> 组件，属性 <code>report-submit</code> 为 <code>true</code> 时，可以声明为需要发送模板消息，此时点击按钮提交表单可以获取 <code>formId</code>，用于发送模板消息</li>
+</ul>
+<p>服务端调用微信接口，对模板消息进行管理：</p>
+<ul>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/getTemplateLibraryList.html" target="_blank" rel="noopener">获取小程序模板库标题列表</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/getTemplateLibraryById.html" target="_blank" rel="noopener">获取模板库某个模板标题下关键词库</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/addTemplate.html" target="_blank" rel="noopener">组合模板并添加至帐号下的个人模板库</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/getTemplateList.html" target="_blank" rel="noopener">获取帐号下已存在的模板列表</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/deleteTemplate.html" target="_blank" rel="noopener">删除帐号下的某个模板</a></li>
+</ul>
+<p>服务端发送模版消息接口：<a href="https://developers.weixin.qq.com/miniprogram/dev/api/sendTemplateMessage.html" target="_blank" rel="noopener">sendTemplateMessage</a></p>
+<p>我们无法主动向用户推送，只有接受到用户指令才能推送。需要接受到 <code>prepay_id</code> 或者 <code>formId</code>。这跟微信公众号不同，微信公众号是可以主动推送的。</p>
+<h5 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h5><p>当用户在小程序内完成过支付行为，可允许开发者向用户在 7 天内推送有限条数的模板消息（1 次支付可下发 3 条，多次支付下发条数独立，互相不影响）</p>
+<p><code>wx.requestPayment</code> 支付完成后获取的 <code>prepay_id</code> 跟 <code>formId</code> 类似，不过 <code>prepay_id</code> 就具体代表了支付行为。</p>
+<h5 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h5><p>当用户在小程序内发生过提交表单行为且该表单声明为要发模板消息的，开发者需要向用户提供服务时，可允许开发者向用户在 7 天内推送有限条数的模板消息（1 次提交表单可下发 1 条，多次提交下发条数独立，相互不影响）</p>
+<p>前端接入：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">report-submit</span> <span class="attr">bindsubmit</span>=<span class="string">"tracker"</span> <span class="attr">class</span>=<span class="string">"reset-form my-class"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">formType</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"reset-button"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> md5 <span class="keyword">from</span> <span class="string">'crypto-js/md5'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 小程序 AppId 等信息</span></span><br><span class="line"><span class="keyword">const</span> AppId = <span class="string">'App_id'</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'url'</span></span><br><span class="line"></span><br><span class="line">Component(&#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    tracker (e) &#123;</span><br><span class="line">      <span class="comment">// 这里获取 formId，每获取一次，则可下发1条</span></span><br><span class="line">      <span class="keyword">const</span> formId = e.detail &amp;&amp; e.detail.formId</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (formId === <span class="string">'the formId is a mock one'</span>) <span class="keyword">return</span> <span class="built_in">console</span>.warn(<span class="string">`模拟器操作不上报formid, 合法request里需要配置 <span class="subst">$&#123;WXDATA&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 采集 formId</span></span><br><span class="line">      wx.login(&#123;</span><br><span class="line">        success: <span class="function">(<span class="params">&#123; code &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 登录获取用户 code</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 将 AppId、formId、code 等整合</span></span><br><span class="line">          <span class="keyword">const</span> str = <span class="string">`<span class="subst">$&#123;AppId&#125;</span><span class="subst">$&#123;formId&#125;</span><span class="subst">$&#123;code&#125;</span>`</span></span><br><span class="line">          <span class="comment">// 加密</span></span><br><span class="line">          <span class="keyword">const</span> sign = md5(str)</span><br><span class="line"></span><br><span class="line">          <span class="comment">// 发送给服务端【告诉服务端可以发送模版消息】</span></span><br><span class="line">          request(&#123;</span><br><span class="line">            url: <span class="string">`<span class="subst">$&#123;url&#125;</span>?App_id=<span class="subst">$&#123;AppId&#125;</span>&amp;form_id=<span class="subst">$&#123;formId&#125;</span>&amp;code=<span class="subst">$&#123;code&#125;</span>&amp;sign=<span class="subst">$&#123;sign&#125;</span>`</span>,</span><br><span class="line">            showLoading: <span class="literal">false</span>,</span><br><span class="line">            fail: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">            isSuccess: <span class="function"><span class="params">()</span> =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">            success: <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>form</code> 内的每次点击都会触发 <code>submit</code> 事件！</p>
+<h4 id="微信小程序推送演示"><a href="#微信小程序推送演示" class="headerlink" title="微信小程序推送演示"></a>微信小程序推送演示</h4><p>小米商城 -&gt; 闪购 -&gt; 提醒我</p>
+<p>用户点击【提醒我】按钮。提交表单获取 <code>formId</code>，发送给服务端。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/e766e2d0-2e68-43c4-bee4-3869b6aceeea" alt="小米商城1"></p>
+<p>服务端接受到 <code>formId</code>，同时根据<code>某些参数</code>判断该 <code>formId</code> 是个定时提醒功能，从而在指定时间下发指定模版。</p>
+<p>客户端接受到通知。这里看到，通知栏是微信的消息，说明确实借助的还是微信自身的推送功能，是微信与设备之间的连接。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/a3e7ef8a-9459-435f-87a4-5bcdac230780" alt="小米商城2"></p>
+<p>点击这条通知栏消息，打开微信，我们看到顶部有一栏消息【服务通知】。显然【服务通知】类似于一个特别的【联系人或者公众号】，用来存放微信所有的通知。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/179b3307-2037-48bb-b8ba-bbba2ab8f9b0" alt="小米商城3"></p>
+<p>点击【服务通知】，可以看到小程序【小米商城】发来的通知。这个通知，和小米商城的微信公众平台上配置的模版，是一模一样的，只是有了具体内容。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/3f3a429f-5e10-4259-90b6-80f46c9003bc" alt="小米商城4"></p>
+<p>点击这条通知，跳转到小程序【小米商城】的指定页面。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/a4a7b1cd-a815-4f3d-9e5c-69cbc6f285da" alt="小米商城5"></p>
+<p>上面展示了用户主动要求提醒的流程，而且这个提醒是一次性的，用户点击 1 次只会定时发送 1 条。</p>
+<p>那如果有个每天定时提醒的需求呢？</p>
+<p>例如【孩子王-天天打开领现金】，需求是用户设置【打卡提醒】后，接下来的【1.17-1.31】每天早上9点进行提醒！</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/8450b643-5a3d-4ac7-ab70-f5c05fd1ca0c" alt="孩子王1"></p>
+<p>如何在用户点击一次按钮后，拥有向用户发送多个通知的能力？网上也提供了一些解决方案。</p>
+<p><a href="https://segmentfault.com/a/1190000016214784" target="_blank" rel="noopener">微信小程序如何突破模板消息限制，获取多个formId</a></p>
+<p>这里给出的方案是嵌套 N 个 <code>form</code>，利用点击穿透，同时提交多个 <code>form</code>，以获取多个不同的 <code>formId</code> 来发送多个消息模板通知。</p>
+<p><a href="https://blog.csdn.net/rolan1993/article/details/79398362" target="_blank" rel="noopener">突破微信小程序模板消息限制，实现无限制主动推送</a></p>
+<p>为了突破模板消息的推送限制，实现 7 天内任性推送，只需收集到足够的推送码。一个 <code>formId</code> 代表着开发者有向当前用户推送模板消息的一次权限。</p>
+<p>将 <code>form</code> 套在页面最外层，这样用户只要点击，不管点什么，都会去发送一个推送码，从而就能不停地收集。</p>
+<p>这种做法也是迫不得已的，耍小聪明。不停收集，收集了很多垃圾信息。另外如果滥用通知，就会导致模板消息被封。</p>
+<p>我们是不是可以提供更好的解决方案？如何收集推送码，这个问题是前端需要考虑的，当然也可以放到将来的新生态统计业务中。</p>
+<p>张小龙在微信公开课上关于“用户将小程序找回”的问题时说：</p>
+<blockquote>
+<p>“很多人说小程序为什么不能发通知或推送？但是我们看到在手机上，每一个 App 都会把消息推送使用到尽，最终的结果是，用户只好忽略了所有的推送，所以靠推送是不能解决问题的。即使我们提供了一种叫模板消息的能力，也会被滥用掉。所有的公司都有骚扰用户的动机，就不能指望所有的公司有自我克制的能力。”</p>
+</blockquote>
+<p>确实是这样，我手机里面大部分App的通知提醒都被我忽略禁止了，因为有强迫症，有消息通知（红点）我就要里面去点开，然后想办法去掉红点，很多时候连标题都没看我就直接关闭了。</p>
+<p>模板消息滥用，会被用户举报，导致模板消息被封，这让小程序开发者/运营者们很痛苦。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/2dd06151-d69e-4600-95dd-83804f7332e4" alt="微信公众平台1"></p>
+<p>以上，大概可以总结出两点，我们将来做小程序推送SDK，有两个目的：1是封装集成，方便开发者接入；2是降低模板消息被封概率，使小程序推送更准确更直观。</p>
+<p>目前有这几个平台已经开始做了这样的事情：</p>
+<ul>
+<li><a href="https://www.xiaoshentui.com/" target="_blank" rel="noopener">阿拉丁-小神推</a></li>
+<li><a href="https://doc.minApp.com/js-sdk/template-message.html" target="_blank" rel="noopener">知晓云</a></li>
+<li><a href="http://doc.mssnn.cn/870251" target="_blank" rel="noopener">vpush</a></li>
+<li><a href="https://docs.bmob.cn/data/wechatApp/b_developdoc/doc/index.html#小程序模板消息" target="_blank" rel="noopener">bmob</a></li>
+</ul>
+<p>以【阿拉丁-小神推】为例子，根据用户特征打标签，根据用户行为事件打标签，根据用户对消息的回访状况打标签。这意味，在不同场景下，收集 formId，每一种场景的 formId 代表一类标签。这样既有足够的 formId，又能根据标签分类，将用户数据化分析，从而做到推送精确，回报率高！</p>
+<p><a href="http://doc.aldwx.com/push_new/chanpinshiyongshouce/profession.html" target="_blank" rel="noopener">前端接入SDK手册</a></p>
+<p><a href="http://doc.aldwx.com/push_new/jieruwendang/APItuisongdiaoyongwendang.html" target="_blank" rel="noopener">API推送调用文档</a></p>
+<p>前端开发者接入SDK，提供App_key(sdk的key)，用于校验开发者小程序的能力，有时还需要用户key，用于校验用户的授权情况。</p>
+<ol>
+<li><p>收集粉丝/用户：提供上报 <code>openid</code> 或 <code>jscode</code> 的方法。</p>
+</li>
+<li><p>收集 <code>formId</code>：还是要用 <code>&lt;form&gt;</code>，但提供收集 <code>formId</code> 的方法。</p>
+</li>
+</ol>
+<p><a href="http://tongji.xiaoshentui.com/?demoType=1" target="_blank" rel="noopener">小神推demo</a></p>
+<ol>
+<li><p>后台统计数据可视化</p>
+</li>
+<li><p>创建模版/编辑模版等，预览性</p>
+</li>
+<li><p>选择指定模版，选择指定用户（采集到 formId 根据标签），进行手动发送。</p>
+</li>
+<li><p>当然也可以预设条件，用户触发自动发送</p>
+</li>
+</ol>
+<p><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=136096671#id-新生态统计业务打法调研-七.阿拉丁调研" target="_blank" rel="noopener">新生态统计业务打法调研-七.阿拉丁调研</a></p>
+<p>在小程序推送服务这块，我们可能极大地需要借鉴阿拉丁。简单来说，就是封装小程序接口，提供 SDK 收集推送码，做可视化、模版化配置，让开发者或运营者简洁方便地下发推送。</p>
+<h3 id="支付宝小程序-阿里系"><a href="#支付宝小程序-阿里系" class="headerlink" title="支付宝小程序 (阿里系)"></a>支付宝小程序 (阿里系)</h3><p><a href="https://docs.alipay.com/mini/introduce/message" target="_blank" rel="noopener">https://docs.alipay.com/mini/introduce/message</a></p>
+<p>抄微信的，没啥区别</p>
+<p>目前需要借助支付宝-生活号，类似微信公众号以及微信中的服务通知。</p>
+<h3 id="头条、抖音小程序-字节跳动"><a href="#头条、抖音小程序-字节跳动" class="headerlink" title="头条、抖音小程序 (字节跳动)"></a>头条、抖音小程序 (字节跳动)</h3><p>抄微信的，没啥区别</p>
+<p>而且目前在官网上没有发现明确的推送功能。</p>
+<h3 id="百度智能小程序"><a href="#百度智能小程序" class="headerlink" title="百度智能小程序"></a>百度智能小程序</h3><p><a href="https://smartprogram.baidu.com/docs/develop/api/open_infomation/#sendTemplateMessage/" target="_blank" rel="noopener">sendTemplateMessage</a></p>
+<p>只看到有消息模版API，但没有发现模板库在哪儿配置或者使用条件。</p>
+<h2 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h2><p>Hybrid App (Ionic)、React Native、Weex 等使用，到 PWA 的发展。</p>
+<p>小程序就是一种广义上的PWA，只不过小程序的依赖平台是微信/支付宝等App，而PWA依赖的环境是浏览器。。PWA虽然是一个Web App依赖于浏览器，但是它却支持推送、离线启动、缓存和可安装等。</p>
+<p>未来，PWA 有没有可能终极大混战？成为下一代应用标准？</p>
+<p>在 <a href="https://www.jianshu.com/p/9970a9340a2d" target="_blank" rel="noopener">PWA 使用 Push API 实现消息推送</a> 一文中，我们可以了解到浏览器是如何实现推送服务的。</p>
+<p>但目前来看，比如 H5 上的 IM 或客服，一直是个比较头疼的业务，无论从交互上还是及时准确触达上，以及离线推送或者与系统级、应用级的沟通上，都还有待发展。</p>
+<h2 id="未来可能性"><a href="#未来可能性" class="headerlink" title="未来可能性"></a>未来可能性</h2><p>微信小程序趋于完善，开发者或用户量都是最大的。</p>
+<p>对于小程序的模版消息思考：【直达服务】</p>
+<p>张小龙在微信公开课演讲时，说他觉得微信里还是很多东西藏得实在太深了！</p>
+<p>对于模版消息，用户接受到一条消息，每次得点开微信(1)，点开服务消息(2)，在点击具体的消息(3)，才能进入小程序(4)。能不能跳过2、3，点开消息直接进入小程序呢？</p>
+<p>另外值得一提的是，目前微信小程序在 Android 上可以添加至桌面，支付宝小程序在 Android、Ios 上都可以添加至桌面。</p>
+<p>最后在说一下多端适配。</p>
+<p>我们渴望做成一个这样的服务商，提供同时适配 App (Android、Ios)、快应用、小程序以及未来的 H5-PWA。无论是这样的服务还是这样的 SDK，其实与【多端统一开发框架】不谋而合。</p>
+<p>目前京东的 <a href="https://taro.aotu.io/" target="_blank" rel="noopener">taro</a>、滴滴的 <a href="https://github.com/didi/chameleon" target="_blank" rel="noopener">chameleon</a> 都在做【多端统一开发框架】，渴望用一个框架去实现【让一套代码运行多端】。那既然是一个框架，将来接入推送是不是只需要一个 SDK 更合理。这或许是个好的契机。</p>
+<p><img src="http://cmspic-10004025.image.myqcloud.com/3f6794a5-d644-440b-a1c6-57c64469279d" alt="taro支持"></p>
+<p><img src="https://camo.githubusercontent.com/42b2a5b50c42458554503860448134e3584df446/68747470733a2f2f434d4c4a532e6f72672f646f632f6173736574732f6d76766d342e706e67" alt="chameleon支持"></p>
+<hr>
+<p>参考：</p>
+<ul>
+<li><a href="https://baike.baidu.com/item/推送" target="_blank" rel="noopener">推送</a></li>
+<li><a href="https://baike.baidu.com/item/推送服务" target="_blank" rel="noopener">推送服务</a></li>
+<li><a href="https://baike.baidu.com/item/信息推送" target="_blank" rel="noopener">信息推送</a></li>
+<li><a href="https://baike.baidu.com/item/长连接" target="_blank" rel="noopener">长连接</a></li>
+<li><a href="https://www.jianshu.com/p/38f4d1a4763b" target="_blank" rel="noopener">移动端设备标识码：DeviceID、IMEI、IDFA、UDID和UUID等</a></li>
+<li><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=136096632" target="_blank" rel="noopener">新生态统计服务</a></li>
+<li><a href="https://doc.quickApp.cn/features/service/push.html" target="_blank" rel="noopener">快应用-推送能力</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/template-message.html" target="_blank" rel="noopener">微信小程序-模版消息</a></li>
+<li><a href="https://segmentfault.com/a/1190000016214784" target="_blank" rel="noopener">微信小程序如何突破模板消息限制，获取多个formId</a></li>
+<li><a href="https://blog.csdn.net/rolan1993/article/details/79398362" target="_blank" rel="noopener">突破微信小程序模板消息限制，实现无限制主动推送</a></li>
+<li><a href="https://mp.weixin.qq.com/s/OjQOqHSNbpq9Q9llv8T3-g" target="_blank" rel="noopener">为什么别人靠推送能把留存做到40%，而你一推就被封？</a></li>
+<li><a href="http://m.ebrun.com/313595.html?eb=com_chan_lcol_fylb" target="_blank" rel="noopener">小程序2018年行业报告： 总量或将超500万</a></li>
+<li><a href="https://www.jianshu.com/p/9970a9340a2d" target="_blank" rel="noopener">PWA 使用 Push API 实现消息推送</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="zhouyu1993 wechat" style="width: 200px; max-width: 100%;">
+    <div>扫一扫上面的二维码，奇妙的世界等着你！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持技术分享，您的支持将鼓励我！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="zhouyu1993 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="zhouyu1993 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工作/" rel="tag"># 工作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh/2018/12/28/css[box-sizing]/" rel="next" title="box-sizing">
+                <i class="fa fa-chevron-left"></i> box-sizing
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjYwNi85MTY3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhouyu1993">
+            
+              <p class="site-author-name" itemprop="name">zhouyu1993</p>
+              <p class="site-description motion-element" itemprop="description">zhouyu1993's blogs</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gwyloved.github.io/" title="sample's blogs" target="_blank">sample's blogs</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#推送服务"><span class="nav-number">1.</span> <span class="nav-text">推送服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#推送服务原理"><span class="nav-number">1.1.</span> <span class="nav-text">推送服务原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App"><span class="nav-number">2.</span> <span class="nav-text">App</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快应用"><span class="nav-number">3.</span> <span class="nav-text">快应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快应用推送演示"><span class="nav-number">3.1.</span> <span class="nav-text">快应用推送演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序"><span class="nav-number">4.</span> <span class="nav-text">小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微信-QQ-小程序-腾讯系"><span class="nav-number">4.1.</span> <span class="nav-text">微信/QQ 小程序 (腾讯系)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模版消息"><span class="nav-number">4.1.1.</span> <span class="nav-text">模版消息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#具体能力"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">具体能力</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#支付"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">支付</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#提交表单"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">提交表单</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微信小程序推送演示"><span class="nav-number">4.1.2.</span> <span class="nav-text">微信小程序推送演示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付宝小程序-阿里系"><span class="nav-number">4.2.</span> <span class="nav-text">支付宝小程序 (阿里系)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头条、抖音小程序-字节跳动"><span class="nav-number">4.3.</span> <span class="nav-text">头条、抖音小程序 (字节跳动)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度智能小程序"><span class="nav-number">4.4.</span> <span class="nav-text">百度智能小程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PWA"><span class="nav-number">5.</span> <span class="nav-text">PWA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未来可能性"><span class="nav-number">6.</span> <span class="nav-text">未来可能性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhouyu1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+<h5>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</h5>
+
+<div class="links-of-author">
+  
+    
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-weibo"></i>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-globe"></i>知乎</a>
+      </span>
+    
+  
+</div>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script defer>
+  // use sw
+  var opensw = location.hostname === 'zhouyu1993.github.io'
+  if (opensw) {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js', {
+          scope: '/'
+        }).then(function (registration) {
+          // register success
+          console.log('ServiceWorker registration successful with scope:', registration.scope)
+        }).catch((err) => {
+          // register failure
+          console.log('ServiceWorker registration failed:', err)
+        })
+      })
+    }
+  }
+</script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zz6VWq4HelTwLc79eS4WYNYd-gzGzoHsz", "QyKSBePhKCFPRO23Sxkk2BBI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

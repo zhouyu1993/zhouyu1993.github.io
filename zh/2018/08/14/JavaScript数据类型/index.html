@@ -96,13 +96,13 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="JavaScript 中七种数据类型(内置类型)，分为两大类型：基本类型和对象(object)可分为两大类，即原始类型和引用类型。 六种原始类型：null，undefined，boolean，number，string，symbol 一种引用类型：对象(object)。这里的 object 是广泛上的一切对像，即一切引用类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586">
-<meta property="og:image" content="https://cmspic-10003009.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908">
-<meta property="og:updated_time" content="2018-12-28T06:42:59.263Z">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586">
+<meta property="og:image" content="https://cmspic-10004025.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908">
+<meta property="og:updated_time" content="2019-01-30T08:46:31.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数据类型">
 <meta name="twitter:description" content="JavaScript 中七种数据类型(内置类型)，分为两大类型：基本类型和对象(object)可分为两大类，即原始类型和引用类型。 六种原始类型：null，undefined，boolean，number，string，symbol 一种引用类型：对象(object)。这里的 object 是广泛上的一切对像，即一切引用类型。">
-<meta name="twitter:image" content="https://cmspic-10003009.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586">
+<meta name="twitter:image" content="https://cmspic-10004025.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586">
 
 
 
@@ -189,7 +189,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">web front-end developer</p>
+        <p class="site-subtitle">front-end developer</p>
       
   </div>
 
@@ -368,8 +368,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T14:42:59+08:00">
-                2018-12-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T16:46:31+08:00">
+                2019-01-30
               </time>
             
           </span>
@@ -595,7 +595,7 @@
 <h3 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h3><p><code>constructor</code>，对创建对象的函数的引用(指针)，指回原构造函数。对于 object 对象，该指针指向原始的 Object() 函数。</p>
 <p><code>__proto__</code>，隐式原型，是每个对象都有的一个属性。一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。</p>
 <p><code>prototype</code>，原型属性，是 Function 函数对象(除了内置函数对象)才具有的属性，是通过调用构造函数而创建的那个对象实例的原型对象，是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法(我们把这个对象叫做原型对象)。在原型对象里有共有的方法，所有构造函数声明的实例都可以共享这个方法。</p>
-<p><img src="https://cmspic-10003009.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586" alt="__proto__ 与 prototype"></p>
+<p><img src="https://cmspic-10004025.image.myqcloud.com/3c3eae80-a4ef-11e8-9774-f1d87802945e_size_520x586" alt="__proto__ 与 prototype"></p>
 <p>每个函数都有 <code>prototype</code> 属性，除了 <code>Function.prototype.bind()</code>，该属性指向原型。</p>
 <p>每个对象都有 <code>__proto__</code> 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 <code>[[prototype]]</code>，但是 <code>[[prototype]]</code> 是内部属性，我们并不能访问到，所以使用 <code>_proto_</code> 来访问。</p>
 <p>对象可以通过 <code>__proto__</code> 来寻找不属于该对象的属性，<code>__proto__</code> 将对象连接起来组成了原型链。</p>
@@ -734,7 +734,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">'1'</span> <span class="comment">// '11'</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> * <span class="string">'2'</span> <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>] + [<span class="number">2</span>, <span class="number">1</span>] <span class="comment">// '1,22,1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// [1, 2].toString() -&gt; '1,2'</span></span><br><span class="line"><span class="comment">// [2, 1].toString() -&gt; '2,1'</span></span><br><span class="line"><span class="comment">// '1,2' + '2,1' = '1,22,1'</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> + <span class="string">''</span> <span class="comment">// '1'，可以实现数字转字符串！</span></span><br><span class="line"></span><br><span class="line"><span class="string">'1'</span> - <span class="number">0</span> <span class="comment">// 1，可以实现字符串转数字！</span></span><br><span class="line"></span><br><span class="line">+ <span class="string">'1'</span> <span class="comment">// 1，可以实现字符串转数字！</span></span><br></pre></td></tr></table></figure>
 <p>对于加号需要注意这个表达式 <code>&#39;a&#39; + + &#39;b&#39;</code>。在加法运算中，一般在变量前加 ‘+’，可以保证变量转化为数字。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a'</span> + + <span class="string">'b'</span> <span class="comment">// -&gt; "aNaN"</span></span><br><span class="line"><span class="comment">// 因为 + 'b' -&gt; NaN</span></span><br><span class="line"><span class="comment">// 你也许在一些代码中看到过 + '1' -&gt; 1</span></span><br></pre></td></tr></table></figure>
-<h2 id="操作符"><a href="#操作符" class="headerlink" title="== 操作符"></a>== 操作符</h2><p><img src="https://cmspic-10003009.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908" alt="== 操作符"></p>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="== 操作符"></a>== 操作符</h2><p><img src="https://cmspic-10004025.image.myqcloud.com/8b46e0f0-ab58-11e8-a714-437600d65b55_size_1078x908" alt="== 操作符"></p>
 <p>上图中的 <code>toPrimitive</code> 就是对象转基本类型。</p>
 <p>在 == 比较中，需要将【布尔值/字符串/】转化为【数值】，需要将【对象】转化为【基本类型】。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">NaN</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">NaN</span> == <span class="literal">false</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">''</span> == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">-0</span> == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([] == <span class="literal">false</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([] == []) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([] == ![]) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == <span class="literal">false</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == &#123;&#125;) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; == !&#123;&#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
@@ -813,8 +813,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2018/08/14/JavaScript继承机制/" rel="next" title="JavaScript继承机制">
-                <i class="fa fa-chevron-left"></i> JavaScript继承机制
+              <a href="/zh/2018/08/14/JavaScript深浅复制(拷贝)/" rel="next" title="JavaScript深浅复制(拷贝)">
+                <i class="fa fa-chevron-left"></i> JavaScript深浅复制(拷贝)
               </a>
             
           </div>
@@ -823,8 +823,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2018/08/24/JavaScript安全整数/" rel="prev" title="JavaScript安全整数">
-                JavaScript安全整数 <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2018/08/14/JavaScript继承机制/" rel="prev" title="JavaScript继承机制">
+                JavaScript继承机制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -909,7 +909,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
