@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="BFC">
+<meta name="description" content="啥叫 BFC 啊？">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BFC">
 <meta property="og:url" content="https://zhouyu1993.github.io/zh/2018/12/28/css[BFC]/index.html">
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
-<meta property="og:description" content="BFC">
+<meta property="og:description" content="啥叫 BFC 啊？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T06:09:39.278Z">
+<meta property="og:updated_time" content="2019-02-01T02:03:05.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC">
-<meta name="twitter:description" content="BFC">
+<meta name="twitter:description" content="啥叫 BFC 啊？">
 
 
 
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T14:09:39+08:00">
-                2018-12-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T10:03:05+08:00">
+                2019-02-01
               </time>
             
           </span>
@@ -432,9 +432,9 @@
       
 
       
-        <p>BFC</p>
+        <p>啥叫 BFC 啊？</p>
 <a id="more"></a>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">BFC</a></p>
+<h2 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h2><p>我们先来了解一下文档流，或者定位方案。</p>
 <p>文档流其实分为普通流、浮动流和定位流三种。</p>
 <h3 id="普通流-normal-flow"><a href="#普通流-normal-flow" class="headerlink" title="普通流 (normal flow)"></a>普通流 (normal flow)</h3><p>在普通流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。</p>
 <h3 id="浮动流-float-flow"><a href="#浮动流-float-flow" class="headerlink" title="浮动流 (float flow)"></a>浮动流 (float flow)</h3><p>在浮动布局中，元素首先按照普通流的位置出现，然后根据浮动的方向尽可能的向左边或右边偏移，其效果与印刷排版中的文本环绕相似。</p>
@@ -442,11 +442,11 @@
 <p>position: absolute; 是相对向上查找的 position: relative; 父辈元素。</p>
 <p>position: fixed; 是相对 viewpoint。</p>
 <p>在绝对定位布局中，元素会整体脱离普通流，因此绝对定位元素不会对其兄弟元素造成影响，而元素具体的位置由绝对定位的坐标决定。</p>
-<h3 id="BFC-概念"><a href="#BFC-概念" class="headerlink" title="BFC 概念"></a>BFC 概念</h3><p>BFC，块格式化上下文（Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。</p>
+<h2 id="BFC-概念"><a href="#BFC-概念" class="headerlink" title="BFC 概念"></a>BFC 概念</h2><p>BFC，块格式化上下文（Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。</p>
 <p>属于上述文档流中的普通流！</p>
 <p>具有 BFC 特性的元素可以看作是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且 BFC 具有普通容器所没有的一些特性。</p>
 <p>通俗一点来讲，可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部。</p>
-<h3 id="触发或创建-BFC"><a href="#触发或创建-BFC" class="headerlink" title="触发或创建 BFC"></a>触发或创建 BFC</h3><ul>
+<h2 id="触发或创建-BFC"><a href="#触发或创建-BFC" class="headerlink" title="触发或创建 BFC"></a>触发或创建 BFC</h2><ul>
 <li>根元素或包含根元素的元素</li>
 <li>浮动元素（元素的 float 不是 none）</li>
 <li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
@@ -462,7 +462,7 @@
 <li>多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1）</li>
 <li>column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。</li>
 </ul>
-<h3 id="BFC-特性或规则及应用"><a href="#BFC-特性或规则及应用" class="headerlink" title="BFC 特性或规则及应用"></a>BFC 特性或规则及应用</h3><ul>
+<h2 id="BFC-特性或规则及应用"><a href="#BFC-特性或规则及应用" class="headerlink" title="BFC 特性或规则及应用"></a>BFC 特性或规则及应用</h2><ul>
 <li>内部的Box会在垂直方向，一个接一个地放置；<ul>
 <li>我们平常说的盒子是由margin、border、padding、content组成的，实际上每种类型的四条边定义了一个盒子，分别是分别是margin box、border box、padding box、content box，这四种类型的盒子一直存在，即使他们的值为0。决定块盒在包含块中与相邻块盒的垂直间距的便是margin-box。</li>
 <li>Box之间的距离虽然也可以使用padding来控制，但是此时实际上还是属于box内部里面，而且使用padding来控制的话就不能再使用border属性了。</li>
@@ -483,7 +483,13 @@
 <p>左边的宽度固定，右边的内容自适应宽度(去掉上面右边内容的宽度)</p>
 </li>
 </ul>
-<h3 id="BFC-与-Layout"><a href="#BFC-与-Layout" class="headerlink" title="BFC 与 Layout"></a>BFC 与 Layout</h3><p>IE 作为浏览器中的奇葩，当然不可能按部就班的支持 BFC 标准，于是乎 IE 中有了 Layout 这个东西。Layout 和 BFC 基本是等价的，为了处理 IE 的兼容性，在需要触发 BFC 时，我们除了需要用触发条件中的 CSS 属性来触发 BFC，还需要针对 IE 浏览器使用 <code>zoom: 1</code> 来触发 IE 浏览器的 Layout。</p>
+<h2 id="BFC-与-Layout"><a href="#BFC-与-Layout" class="headerlink" title="BFC 与 Layout"></a>BFC 与 Layout</h2><p>IE 作为浏览器中的奇葩，当然不可能按部就班的支持 BFC 标准，于是乎 IE 中有了 Layout 这个东西。Layout 和 BFC 基本是等价的，为了处理 IE 的兼容性，在需要触发 BFC 时，我们除了需要用触发条件中的 CSS 属性来触发 BFC，还需要针对 IE 浏览器使用 <code>zoom: 1</code> 来触发 IE 浏览器的 Layout。</p>
+<hr>
+<p>参考：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">MDN-BFC</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25321647" target="_blank" rel="noopener">10 分钟理解 BFC 原理</a></li>
+</ul>
 
       
     </div>
@@ -551,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2018/10/26/git相关/" rel="next" title="git相关">
-                <i class="fa fa-chevron-left"></i> git相关
+              <a href="/zh/2018/12/28/css[box-sizing]/" rel="next" title="box-sizing">
+                <i class="fa fa-chevron-left"></i> box-sizing
               </a>
             
           </div>
@@ -561,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2018/12/28/css[box-sizing]/" rel="prev" title="box-sizing">
-                box-sizing <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2019/01/30/新生态推送服务前期调研/" rel="prev" title="新生态推送服务前期调研">
+                新生态推送服务前期调研 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -756,7 +762,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通流-normal-flow"><span class="nav-number">1.</span> <span class="nav-text">普通流 (normal flow)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动流-float-flow"><span class="nav-number">2.</span> <span class="nav-text">浮动流 (float flow)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位流-absolute-positioning-flow"><span class="nav-number">3.</span> <span class="nav-text">绝对定位流 (absolute positioning flow)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-概念"><span class="nav-number">4.</span> <span class="nav-text">BFC 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#触发或创建-BFC"><span class="nav-number">5.</span> <span class="nav-text">触发或创建 BFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-特性或规则及应用"><span class="nav-number">6.</span> <span class="nav-text">BFC 特性或规则及应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-与-Layout"><span class="nav-number">7.</span> <span class="nav-text">BFC 与 Layout</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档流"><span class="nav-number">1.</span> <span class="nav-text">文档流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通流-normal-flow"><span class="nav-number">1.1.</span> <span class="nav-text">普通流 (normal flow)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动流-float-flow"><span class="nav-number">1.2.</span> <span class="nav-text">浮动流 (float flow)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对定位流-absolute-positioning-flow"><span class="nav-number">1.3.</span> <span class="nav-text">绝对定位流 (absolute positioning flow)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-概念"><span class="nav-number">2.</span> <span class="nav-text">BFC 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发或创建-BFC"><span class="nav-number">3.</span> <span class="nav-text">触发或创建 BFC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-特性或规则及应用"><span class="nav-number">4.</span> <span class="nav-text">BFC 特性或规则及应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-与-Layout"><span class="nav-number">5.</span> <span class="nav-text">BFC 与 Layout</span></a></li></ol></div>
             
 
           </div>
