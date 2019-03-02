@@ -75,3 +75,11 @@ git commit -m 'init'
 
 git remote add origin git@github.com:zhouyu1993/zhouyu1993.github.io.git
 ```
+
+# 重要
+
+## 微信订阅号
+
+（RainJoy1993-rainjoy1993@gmail.com）- JS接口安全域名：
+
+  MP_verify_O8JL39LeNd4lXSd9.txt
