@@ -78,6 +78,20 @@ git remote add origin git@github.com:zhouyu1993/zhouyu1993.github.io.git
 
 # 重要
 
+## 网页统计
+
+https://analytics.google.com/analytics/web/
+
+google5f5b2bc345b78f19.html
+
+## 网页计数
+
+http://busuanzi.ibruce.info/
+
+## 网页评论
+
+https://www.livere.com/
+
 ## 微信订阅号
 
 （RainJoy1993-rainjoy1993@gmail.com）- JS接口安全域名：
