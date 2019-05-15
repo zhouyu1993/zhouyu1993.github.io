@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "df72dc2f7f78e217397f",
+    "revision": "efe23808ebfa42411e32",
     "url": "/awesome/cms-admin/assets/css/app.a2fa19cc.css"
   },
   {
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/js/about.722e6e5d.js"
   },
   {
-    "revision": "df72dc2f7f78e217397f",
-    "url": "/awesome/cms-admin/assets/js/app.320cb698.js"
+    "revision": "efe23808ebfa42411e32",
+    "url": "/awesome/cms-admin/assets/js/app.b0442a26.js"
   },
   {
-    "revision": "91be207eab6e38aa847f1ad838e8547b",
+    "revision": "dcf73cecaa066f960714ea5745702c56",
     "url": "/awesome/cms-admin/index.html"
   },
   {
@@ -72,16 +72,16 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/mock/order/list.json"
   },
   {
+    "revision": "77b598779b94b748fafa97de88a42d0a",
+    "url": "/awesome/cms-admin/mock/user/1.json"
+  },
+  {
     "revision": "d37f837d686c0f58cf1aaa3b5d6e0a3c",
     "url": "/awesome/cms-admin/mock/user/2.json"
   },
   {
     "revision": "78783f3b3bcd2eb06da5d5ec1ca49c62",
     "url": "/awesome/cms-admin/mock/user/3.json"
-  },
-  {
-    "revision": "77b598779b94b748fafa97de88a42d0a",
-    "url": "/awesome/cms-admin/mock/user/1.json"
   },
   {
     "revision": "097d8f634f7d2f2e72640f722d2e524a",
