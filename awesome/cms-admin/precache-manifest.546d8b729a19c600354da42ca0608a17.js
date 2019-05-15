@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "efe23808ebfa42411e32",
-    "url": "/awesome/cms-admin/assets/css/app.a2fa19cc.css"
+    "revision": "986bcb72dbf0410c429a",
+    "url": "/awesome/cms-admin/assets/css/app.bcfe80d1.css"
   },
   {
     "revision": "601e5c67d4852f522938",
@@ -48,15 +48,15 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/fonts/element-icons.535877f5.woff"
   },
   {
-    "revision": "ab2844a74238cb32f41a",
-    "url": "/awesome/cms-admin/assets/js/about.722e6e5d.js"
+    "revision": "504425538f425ea88401",
+    "url": "/awesome/cms-admin/assets/js/about.c2d93620.js"
   },
   {
-    "revision": "efe23808ebfa42411e32",
-    "url": "/awesome/cms-admin/assets/js/app.b0442a26.js"
+    "revision": "986bcb72dbf0410c429a",
+    "url": "/awesome/cms-admin/assets/js/app.3bd247d7.js"
   },
   {
-    "revision": "dcf73cecaa066f960714ea5745702c56",
+    "revision": "ec5ea30a161f2785bda20811f0004a17",
     "url": "/awesome/cms-admin/index.html"
   },
   {
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/mock/userInfo.json"
   },
   {
-    "revision": "ab2844a74238cb32f41a",
-    "url": "/awesome/cms-admin/assets/css/about.c2318128.css"
+    "revision": "504425538f425ea88401",
+    "url": "/awesome/cms-admin/assets/css/about.2216422b.css"
   }
 ];
