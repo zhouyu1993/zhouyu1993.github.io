@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "986bcb72dbf0410c429a",
+    "revision": "444fdf14539f77baf0b1",
     "url": "/awesome/cms-admin/assets/css/app.bcfe80d1.css"
   },
   {
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/awesome/cms-admin/assets/js/about.c2d93620.js"
   },
   {
-    "revision": "986bcb72dbf0410c429a",
-    "url": "/awesome/cms-admin/assets/js/app.3bd247d7.js"
+    "revision": "444fdf14539f77baf0b1",
+    "url": "/awesome/cms-admin/assets/js/app.334a6704.js"
   },
   {
-    "revision": "ec5ea30a161f2785bda20811f0004a17",
+    "revision": "5dc8373f0cbb44b55addeae1c7250bc6",
     "url": "/awesome/cms-admin/index.html"
   },
   {
