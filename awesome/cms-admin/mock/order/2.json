@@ -2,11 +2,28 @@
   "code": 0,
   "message": "ok",
   "data": {
-    "data": "2019-05-02",
     "orderId": "2",
-    "productId": "2",
-    "productName": "产品2",
-    "userId": "3",
-    "userName": "Nacy"
+    "orderTime": "2019-05-02",
+    "productList": [
+      {
+        "productId": "1",
+        "productName": "产品1"
+      },
+      {
+        "productId": "2",
+        "productName": "产品2"
+      }
+    ],
+    "productName": "产品1,产品2",
+    "staffId": "3",
+    "staffName": "员工3",
+    "staffPhone": "18100000000",
+    "customerName": "客户2",
+    "customerPhone": "18200000000",
+    "delivererName": "配送员2",
+    "delivererPhone": "18300000000",
+    "delivererAddress": "x省y市z区",
+    "delivererTime": "2019-05-03",
+    "state": "2"
   }
 }

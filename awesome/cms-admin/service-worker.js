@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/awesome/cms-admin/precache-manifest.d29aa30a890c44dfabeeb8b3ff9fb632.js"
+  "/awesome/cms-admin/precache-manifest.dcb6038019dfe6f1eff4fef03c9cc4a0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "cms-admin"});
