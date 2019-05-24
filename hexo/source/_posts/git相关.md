@@ -20,6 +20,52 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
 
 [doc](https://git-scm.com/book/zh/v2/)
 
+https://git-scm.com/book/zh/v2/起步-初次运行-Git-前的配置
+
+https://git-scm.com/book/zh/v2/Git-基础-获取-Git-仓库
+
+https://git-scm.com/book/zh/v2/Git-基础-记录每次更新到仓库
+
+https://git-scm.com/book/zh/v2/Git-基础-查看提交历史
+
+https://git-scm.com/book/zh/v2/Git-基础-撤消操作
+
+https://git-scm.com/book/zh/v2/Git-基础-远程仓库的使用
+
+https://git-scm.com/book/zh/v2/Git-基础-打标签
+
+https://git-scm.com/book/zh/v2/Git-分支-分支的新建与合并
+
+https://git-scm.com/book/zh/v2/Git-分支-分支管理
+
+https://git-scm.com/book/zh/v2/Git-分支-远程分支
+
+https://git-scm.com/book/zh/v2/服务器上的-Git-生成-SSH-公钥
+
+https://git-scm.com/book/zh/v2/GitHub-对项目做出贡献
+
+``` bash
+git remote add upstream [url] # 将源版本库添加为一个远端，并命名为“upstream”（上游）
+
+git fetch upstream # 从远端抓取最新的内容
+
+git merge upstream/master # 将主分支的内容合并到你的分支中
+
+vim test.js # 增删改查文件，推送
+
+git add test.js
+
+git commit -m 'build: add test.js'
+
+git push
+```
+
+创建一个任务列表：
+
+- [x] 编写代码
+- [ ] 编写所有测试程序
+- [ ] 为代码编写文档
+
 ## 关于版本控制 VC
 
 版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
@@ -260,6 +306,16 @@ git push
 ```
 
 ## 将远程仓库更新到本地项目
+
+### 推荐 fetch + merge
+
+``` bash
+git fetch # 默认更新所有分支
+```
+
+``` bash
+git merge # 合并冲突
+```
 
 ``` bash
 git pull
