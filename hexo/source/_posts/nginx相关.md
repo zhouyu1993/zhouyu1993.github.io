@@ -69,7 +69,9 @@ brew services stop nginx
 brew services restart nginx
 ```
 
-注意，这里不要使用 `nginx` 命令来启动 nginx 服务，这样不方便停止
+注意，这里不要使用 `nginx` 命令来启动 nginx 服务，这样不方便停止。
+
+nginx 配置等详细见下面 `2.4. 使用nginx`。
 
 # linux
 

@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
 <meta property="og:description" content="不同系统中nginx的安装与使用。 包括：MacOS、linux、windows 等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T13:22:46.034Z">
+<meta property="og:updated_time" content="2019-06-10T13:31:36.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx">
 <meta name="twitter:description" content="不同系统中nginx的安装与使用。 包括：MacOS、linux、windows 等。">
@@ -365,7 +365,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-10T21:22:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-10T21:31:36+08:00">
                 2019-06-10
               </time>
             
@@ -445,7 +445,8 @@
 <p>nginx 的配置文件在 <code>/usr/local/etc/nginx/nginx.conf</code></p>
 <h2 id="使用-nginx"><a href="#使用-nginx" class="headerlink" title="使用 nginx"></a>使用 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看使用 brew 安装的服务列表（包括服务状态）</span></span><br><span class="line">brew services list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除已卸载应用的无用的配置</span></span><br><span class="line">brew services cleanup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 80 端口</span></span><br><span class="line">lsof -i:80</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 nginx 服务，并注册</span></span><br><span class="line">brew services start nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止 nginx 服务，并取消注册</span></span><br><span class="line">brew services stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 nginx 服务，并注册</span></span><br><span class="line">brew services restart nginx</span><br></pre></td></tr></table></figure>
 
-<p>注意，这里不要使用 <code>nginx</code> 命令来启动 nginx 服务，这样不方便停止</p>
+<p>注意，这里不要使用 <code>nginx</code> 命令来启动 nginx 服务，这样不方便停止。</p>
+<p>nginx 配置等详细见下面 <code>2.4. 使用nginx</code>。</p>
 <h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h2><ul>
 <li><p>ls: 列出目录</p>
 </li>
@@ -882,8 +883,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2019/04/16/分享-Vue.js 源码解析-answershuto/" rel="next" title="Vue.js 源码解析">
-                <i class="fa fa-chevron-left"></i> Vue.js 源码解析
+              <a href="/zh/2019/04/16/分享-小菜前端的技术栈是如何规划和演进的-Scott/" rel="next" title="小菜前端的技术栈是如何规划和演进的">
+                <i class="fa fa-chevron-left"></i> 小菜前端的技术栈是如何规划和演进的
               </a>
             
           </div>
