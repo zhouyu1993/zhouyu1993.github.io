@@ -434,6 +434,7 @@
       
         <p>啥叫 BFC 啊？</p>
 <a id="more"></a>
+
 <h2 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h2><p>我们先来了解一下文档流，或者定位方案。</p>
 <p>文档流其实分为普通流、浮动流和定位流三种。</p>
 <h3 id="普通流-normal-flow"><a href="#普通流-normal-flow" class="headerlink" title="普通流 (normal flow)"></a>普通流 (normal flow)</h3><p>在普通流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。</p>
@@ -463,23 +464,30 @@
 <li>column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。</li>
 </ul>
 <h2 id="BFC-特性或规则及应用"><a href="#BFC-特性或规则及应用" class="headerlink" title="BFC 特性或规则及应用"></a>BFC 特性或规则及应用</h2><ul>
-<li>内部的Box会在垂直方向，一个接一个地放置；<ul>
+<li><p>内部的Box会在垂直方向，一个接一个地放置；</p>
+<ul>
 <li>我们平常说的盒子是由margin、border、padding、content组成的，实际上每种类型的四条边定义了一个盒子，分别是分别是margin box、border box、padding box、content box，这四种类型的盒子一直存在，即使他们的值为0。决定块盒在包含块中与相邻块盒的垂直间距的便是margin-box。</li>
 <li>Box之间的距离虽然也可以使用padding来控制，但是此时实际上还是属于box内部里面，而且使用padding来控制的话就不能再使用border属性了。</li>
 <li>其实就是我们平常所说的div一行一行块级放置的样式</li>
 </ul>
 </li>
-<li>同一个BFC下相邻块级元素的垂直方向外边距会发生折叠，即之前提到的margin折叠只发生在同一个BFC中；</li>
-<li>浮动定位和清除浮动时只会应用于同一个BFC内的元素；</li>
-<li>浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动；</li>
-<li>BFC可以包含浮动元素—清除内部浮动后；</li>
+<li><p>同一个BFC下相邻块级元素的垂直方向外边距会发生折叠，即之前提到的margin折叠只发生在同一个BFC中；</p>
+</li>
+<li><p>浮动定位和清除浮动时只会应用于同一个BFC内的元素；</p>
+</li>
+<li><p>浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动；</p>
+</li>
+<li><p>BFC可以包含浮动元素—清除内部浮动后；</p>
+</li>
 <li><p>BFC可以阻止元素被浮动元素覆盖，BFC的区域不会与float box重叠；</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100px;width: 100px;float: left;background: blue"</span>&gt;</span>我是一个左浮动的元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 200px; height: 200px;background: red"</span>&gt;</span>我是一个没有设置浮动，也没有触发 BFC 元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>第二个元素有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 如果想避免元素被覆盖，可触第二个元素的 BFC 特性，在第二个元素中加入 overflow: hidden;</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100px;width: 100px;float: left;background: blue"</span>&gt;</span>我是一个左浮动的元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 200px; height: 200px;background: red;overflow: hidden"</span>&gt;</span>我是一个没有设置浮动，也没有触发 BFC 元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>实现两列自适应布局；</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 100px;width: 100px;float: left;background: blue"</span>&gt;</span>我是一个左浮动的元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"height: 200px;background: red;overflow: hidden"</span>&gt;</span>我是一个没有设置浮动，也没有触发 BFC 元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>左边的宽度固定，右边的内容自适应宽度(去掉上面右边内容的宽度)</p>
 </li>
 </ul>
@@ -557,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2018/12/28/css[box-sizing]/" rel="next" title="box-sizing">
-                <i class="fa fa-chevron-left"></i> box-sizing
+              <a href="/zh/2018/10/26/git相关/" rel="next" title="git相关">
+                <i class="fa fa-chevron-left"></i> git相关
               </a>
             
           </div>
@@ -567,8 +575,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2019/01/30/新生态推送服务前期调研/" rel="prev" title="新生态推送服务前期调研">
-                新生态推送服务前期调研 <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2018/12/28/css[box-sizing]/" rel="prev" title="box-sizing">
+                box-sizing <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -653,7 +661,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

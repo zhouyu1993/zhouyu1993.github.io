@@ -434,6 +434,7 @@
       
         <p>margin</p>
 <a id="more"></a>
+
 <p>外补白 [ margin-top ] || [ margin-right ] || [ margin-bottom ] || [ margin-left ]</p>
 <p>适用于所有元素，除非 table | inline-table | table-caption 的表格类元素之外。</p>
 <p>取值：</p>
@@ -443,6 +444,7 @@
 <li><percentage>：用百分比来定义外补白。水平（默认）书写模式下，参照其包含块 <code>width</code> 进行计算，其它情况参照 height ，可以为负值</percentage></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">检索或设置对象四边的外延边距。</span><br><span class="line">如果提供全部四个参数值，将按上、右、下、左的顺序作用于四边。</span><br><span class="line">如果只提供一个，将用于全部的四边。</span><br><span class="line">如果提供两个，第一个用于上、下，第二个用于左、右。</span><br><span class="line">如果提供三个，第一个用于上，第二个用于左、右，第三个用于下。</span><br><span class="line">外延边距始终透明。</span><br></pre></td></tr></table></figure>
+
 <p><strong>非替代(non-Replaced)行内元素可以使用该属性设置左、右两边的外补丁；若要设置上、下两边的外补丁，必须先使该对象表现为块级或内联块级。</strong></p>
 <h2 id="margin折叠"><a href="#margin折叠" class="headerlink" title="margin折叠"></a>margin折叠</h2><p>margin collapsing，某些相邻的margin会发生合并。</p>
 <p>会发生外边距折叠的三种基本情况：</p>
@@ -468,9 +470,11 @@
 <li>如果所有参与折叠的外边距都为负，折叠后的外边距的值为最小的负边距的值。这一规则适用于相邻元素和嵌套元素。</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 0;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-bottom: 10px;"</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 30px;"</span>&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px;"</span>&gt;</span>这是又一个标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>本例中，第一个div的margin-bottom（10px），第二个div的margin-top（30px），第二个div的子元素div的margin-top（10px）将被合并，因为它们三个相邻。它们之间的margin间隙最后是（30px），即取三者之间最大的那个值。</p>
 <p>如果给上例中的div加上border的话：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 0;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-bottom: 10px;"</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 30px;border:1px solid #000;"</span>&gt;</span></span><br><span class="line">  	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px;"</span>&gt;</span>这是又一个标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>本例中，第一个div的margin-bottom（10px），第二个div的margin-top（30px）将被合并，因为它们两个相邻。第二个div的子元素div的margin-top不与它们合并，因为它被border分隔，不与它们相邻。</p>
 <p>margin折叠常规认知：</p>
 <ul>
@@ -555,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2018/09/11/css[取值与单位]/" rel="next" title="取值与单位">
-                <i class="fa fa-chevron-left"></i> 取值与单位
+              <a href="/zh/2018/09/10/css[权重]/" rel="next" title="权重">
+                <i class="fa fa-chevron-left"></i> 权重
               </a>
             
           </div>
@@ -565,8 +569,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2018/10/08/JavaScript算法/" rel="prev" title="JavaScript算法">
-                JavaScript算法 <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2018/09/11/css[取值与单位]/" rel="prev" title="取值与单位">
+                取值与单位 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -651,7 +655,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

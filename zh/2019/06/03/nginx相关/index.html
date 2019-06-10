@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#222">
+<meta name="description" content="zhouyu1993's blog">
+<meta name="keywords" content="zhouyu1993's blog">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="zhouyu1993's blogs">
+
+
+
+
+
+
+
+
+<meta http-equiv="cache-control" content="no-transform">
+<meta http-equiv="cache-control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/images/favicon-32.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/images/favicon-16.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/icon.png?v=5.1.3" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="software,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="不同系统中nginx的安装与使用。 包括：MacOS、linux、windows 等。">
+<meta name="keywords" content="software">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx">
+<meta property="og:url" content="https://zhouyu1993.github.io/zh/2019/06/03/nginx相关/index.html">
+<meta property="og:site_name" content="zhouyu1993&#39;s blogs">
+<meta property="og:description" content="不同系统中nginx的安装与使用。 包括：MacOS、linux、windows 等。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-10T13:22:46.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx">
+<meta name="twitter:description" content="不同系统中nginx的安装与使用。 包括：MacOS、linux、windows 等。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script type="text/javascript">
+  if (/eruda=true/.test(window.location)) {
+    document.write('<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
+    document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
+  }
+</script>
+
+
+
+  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2019/06/03/nginx相关/">
+
+
+
+
+
+  <title>nginx | zhouyu1993's blogs</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-111529988-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhouyu1993's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">front-end developer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2019/06/03/nginx相关/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouyu1993">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouyu1993's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nginx</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T00:00:00+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-10T21:22:46+08:00">
+                2019-06-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/zh/2019/06/03/nginx相关/" class="leancloud_visitors" data-flag-title="nginx">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>不同系统中nginx的安装与使用。</p>
+<p>包括：MacOS、linux、windows 等。</p>
+<a id="more"></a>
+
+<h1 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h1><h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># First update the formulae and Homebrew itself:</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"><span class="comment"># You can now find out what is outdated with:</span></span><br><span class="line">brew outdated</span><br><span class="line"></span><br><span class="line"><span class="comment"># Upgrade everything with:</span></span><br><span class="line">brew upgrage</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check nginx information to see if it is installed:</span></span><br><span class="line">brew search nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install nginx</span></span><br><span class="line">brew install nginx</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，</p>
+<p>nginx 目录在 <code>/usr/local/Cellar/nginx</code></p>
+<p>nginx 的主页文件在 <code>/usr/local/var/www</code></p>
+<p>nginx 的日志文件在 <code>/usr/local/var/log/nginx</code></p>
+<p>nginx 的配置文件在 <code>/usr/local/etc/nginx/nginx.conf</code></p>
+<h2 id="使用-nginx"><a href="#使用-nginx" class="headerlink" title="使用 nginx"></a>使用 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看使用 brew 安装的服务列表（包括服务状态）</span></span><br><span class="line">brew services list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除已卸载应用的无用的配置</span></span><br><span class="line">brew services cleanup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 80 端口</span></span><br><span class="line">lsof -i:80</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 nginx 服务，并注册</span></span><br><span class="line">brew services start nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止 nginx 服务，并取消注册</span></span><br><span class="line">brew services stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 nginx 服务，并注册</span></span><br><span class="line">brew services restart nginx</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里不要使用 <code>nginx</code> 命令来启动 nginx 服务，这样不方便停止</p>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h2><ul>
+<li><p>ls: 列出目录</p>
+</li>
+<li><p>cd: 切换目录</p>
+</li>
+<li><p>pwd: 显示目前的目录</p>
+</li>
+<li><p>mkdir: 创建一个新的目录</p>
+</li>
+<li><p>cp: 复制文件或目录</p>
+</li>
+<li><p>rm: 移除文件或目录</p>
+</li>
+<li><p>mv: 移动文件与目录，或修改文件与目录的名称</p>
+</li>
+<li><p>cat: 由第一行开始显示文件内容</p>
+</li>
+<li><p>nl: 显示的时候，顺道输出行号！</p>
+</li>
+<li><p>more: 一页一页的显示文件内容</p>
+</li>
+<li><p>less: 与 more 类似，但是比 more 更好的是，他可以往前翻页！</p>
+</li>
+<li><p>head: 只看头几行</p>
+</li>
+<li><p>tail: 只看尾巴几行</p>
+</li>
+<li><p>touch: 创建空白文档</p>
+</li>
+<li><p>vi: 创建一个编辑状态的空文档，只有保存退出后才创建成功，文件属性与 touch 创建的相同</p>
+</li>
+<li><p>vim: vi 的升级版本</p>
+</li>
+</ul>
+<p><a href="https://www.runoob.com/linux/linux-command-manual.html" target="_blank" rel="noopener">linux 命令大全</a></p>
+<h2 id="在终端利用-ssh-登录远程服务器"><a href="#在终端利用-ssh-登录远程服务器" class="headerlink" title="在终端利用 ssh 登录远程服务器"></a>在终端利用 ssh 登录远程服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录</span></span><br><span class="line">ssh -p [服务器port] [userName]@[服务器ip]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-nginx-1"><a href="#安装-nginx-1" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><p><a href="https://nginx.org/en/linux_packages.html" target="_blank" rel="noopener">linux packages</a></p>
+<p>需要根据 <code>linux</code> 的版本选择对应的包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印当前系统相关信息（操作系统名称、在网络上的主机名称、操作系统的发行编号、操作系统的版本、处理器类型、硬件平台、电脑类型、操作系统名称等）</span></span><br><span class="line">uname -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看操作系统的标识文件</span></span><br><span class="line">cat /etc/*-release</span><br></pre></td></tr></table></figure>
+
+<p>发现是 CentOS 7</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看机器的 ip</span></span><br><span class="line">ifconfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看机器是否能访问外网</span></span><br><span class="line">curl -l https://www.baidu.com</span><br><span class="line"></span><br><span class="line">wget https://www.baidu.com</span><br><span class="line"></span><br><span class="line">ping baidu.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果机器能访问外网："><a href="#如果机器能访问外网：" class="headerlink" title="如果机器能访问外网："></a>如果机器能访问外网：</h3><p><code>Install the prerequisites:</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update &amp;&amp; yum install yum-utils</span><br></pre></td></tr></table></figure>
+
+<p>To set up the yum repository, create the file named <code>/etc/yum.repos.d/nginx.repo</code> with the following contents:</p>
+<blockquote>
+<p>[nginx-stable]<br>name=nginx stable repo<br>baseurl=<a href="http://nginx.org/packages/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/centos/$releasever/$basearch/</a><br>gpgcheck=1<br>enabled=1<br>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a></p>
+</blockquote>
+<blockquote>
+<p>[nginx-mainline]<br>name=nginx mainline repo<br>baseurl=<a href="http://nginx.org/packages/mainline/centos/$releasever/$basearch/" target="_blank" rel="noopener">http://nginx.org/packages/mainline/centos/$releasever/$basearch/</a><br>gpgcheck=1<br>enabled=0<br>gpgkey=<a href="https://nginx.org/keys/nginx_signing.key" target="_blank" rel="noopener">https://nginx.org/keys/nginx_signing.key</a></p>
+</blockquote>
+<p>By default, the repository for stable nginx packages is used. If you would like to use mainline nginx packages, run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --<span class="built_in">enable</span> nginx-mainline</span><br></pre></td></tr></table></figure>
+
+<p>To install nginx, run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果机器不能访问外网："><a href="#如果机器不能访问外网：" class="headerlink" title="如果机器不能访问外网："></a>如果机器不能访问外网：</h3><p>本地安装 <code>PCRE</code> 和 <code>Nginx</code> ：</p>
+<p><code>PCRE</code> 作用是让 <code>Nginx</code> 支持 <code>Rewrite</code> 功能。</p>
+<ol>
+<li>下载 <code>PCRE</code> 安装包，下载地址：<a href="https://sourceforge.net/projects/pcre/files/pcre/" target="_blank" rel="noopener">https://sourceforge.net/projects/pcre/files/pcre/</a></li>
+</ol>
+<p>选择最新的 <code>zip</code> 包，例如：<a href="http://downloads.sourceforge.net/project/pcre/pcre/8.43/pcre-8.43.tar.gz" target="_blank" rel="noopener">http://downloads.sourceforge.net/project/pcre/pcre/8.43/pcre-8.43.tar.gz</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://downloads.sourceforge.net/project/pcre/pcre/8.43/pcre-8.43.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载 <code>Nginx</code> 安装包，下载地址：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></li>
+</ol>
+<p>选择最新的 <code>zip</code> 包，例如：<a href="http://nginx.org/download/nginx-1.17.0.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.17.0.tar.gz</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.17.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 <code>ssh</code> 上传 <code>PCRE</code> 和 <code>Nginx</code> 的安装包</li>
+</ol>
+<p>如果已知服务器密码，在本地：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp -r [本地文件路径] [userName]@[服务器ip]/[服务器文件路径]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
+
+<p>如果未知服务器密码，在服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp -r [userName]@[本地ip]/[本地文件路径] [服务器文件路径]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入密码</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，未知服务器密码时，需要本地开启 <code>ssh</code>。下面给出 <code>MacOS</code> 开启 <code>ssh</code> 服务的方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemsetup -getremotelogin <span class="comment"># 查看 ssh 服务状态</span></span><br><span class="line"></span><br><span class="line">sudo systemsetup -setremotelogin on <span class="comment"># 开启 ssh 服务</span></span><br><span class="line"></span><br><span class="line">sudo systemsetup -setremotelogin off <span class="comment"># 关闭 ssh 服务</span></span><br></pre></td></tr></table></figure>
+
+<p>或者 <code>系统偏好设置 -&gt; 共享 -&gt; 远程登录</code></p>
+<ol start="4">
+<li>解压 <code>pcre</code> 安装包并编译安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入刚刚上传安装包的文件目录，自定义。这里选择 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压 pcre</span></span><br><span class="line">tar -zxvf pcre-8.43.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装 pcre</span></span><br><span class="line"><span class="built_in">cd</span> pcre-8.43</span><br><span class="line"></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 pcre 版本</span></span><br><span class="line">pcre-config --version</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>解压 <code>nginx</code> 安装包并编译安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入刚刚上传安装包的文件目录，自定义。这里选择 /usr/local/src</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压 nginx</span></span><br><span class="line">tar -zxvf nginx-1.17.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看是否存在 openssl</span></span><br><span class="line"><span class="built_in">which</span> openssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装 nginx</span></span><br><span class="line"><span class="built_in">cd</span> nginx-1.17.0</span><br><span class="line"></span><br><span class="line">./configure --with-http_stub_status_module --with-http_ssl_module --with-pcre=/usr/<span class="built_in">local</span>/src/pcre-8.43</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 nginx 版本</span></span><br><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -v</span><br></pre></td></tr></table></figure>
+
+<p><code>nginx</code> 编译选项：</p>
+<ul>
+<li>–prefix=path 定义一个目录，存放服务器上的文件，也就是 nginx 的安装目录。默认为 <code>/usr/local/nginx</code>。</li>
+<li>–sbin-path=path 设置 nginx 的可执行文件的路径，默认为 <code>*prefix*/sbin/nginx</code>。</li>
+<li>–conf-path=path 设置 nginx.conf 文件的路径。默认为 <code>*prefix*/conf/nginx.conf</code>。</li>
+<li>–pid-path=path 设置 nginx.pid 文件的路径。安装完成后，可以随时改变的文件名，在 nginx.conf 配置文件中使用 PID 指令。默认为 <code>*prefix*/logs/nginx.pid</code>。</li>
+<li>–error-log-path=path 设置主错误、警告和诊断文件的路径。安装完成后，可以随时改变的文件名，在 nginx.conf 配置文件中使用 error_log 指令。默认为 <code>*prefix*/logs/error.log</code>。</li>
+<li>–http-log-path=path 设置主请求的 HTTP 服务器的日志文件的路径。安装完成后，可以随时改变的文件名，在nginx.conf 配置文件中使用 access_log 指令。默认为 <code>*prefix*/logs/access.log</code>。</li>
+<li>–with-http_stub_status_module 开启 <code>stub_status</code> 模块监控，查看 <code>Nginx</code> 的一些状态信息。</li>
+<li>–with-http_ssl_module 使用 <code>https</code> 协议模块。默认情况下，该模块没有被构建。建立并运行此模块的 <code>openssl</code> 库是必需的。</li>
+<li>–with-pcre=path 设置 <code>PCRE</code> 库的源码路径。让 <code>Nginx</code> 支持 <code>Rewrite</code> 功能。</li>
+</ul>
+<ol start="5">
+<li>将 <code>nginx</code> 命令添加到 <code>PATH</code> 中</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改 /etc/profile</span></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到 export 行，在下面新增加一行，内容为：</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/webserver/nginx/sbin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保持并退出：</span></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 nginx 版本</span></span><br><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-nginx-1"><a href="#使用-nginx-1" class="headerlink" title="使用 nginx"></a>使用 <code>nginx</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nginx -h/--<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 nginx</span></span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>/usr/local/nginx/conf/nginx.conf</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>http</code> 块下加 <code>include conf.d/*.conf;</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">  include       mime.types;</span><br><span class="line">  default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 新增</span></span><br><span class="line">  include       conf.d/*.conf;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建 <code>/usr/local/nginx/conf/conf.d</code> 文件夹，新建 <code>xxx.com.conf</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/conf &amp;&amp; mkdir conf.d</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> conf.d &amp;&amp; vi xxx.com.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">upstream mipush-op &#123;</span><br><span class="line"> server yyy.yyy.yyy.yyy:port;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name xxx.com;</span><br><span class="line">  ssi on;</span><br><span class="line"></span><br><span class="line">  error_log /home/work/<span class="built_in">log</span>/nginx/xxx.com-error.log;</span><br><span class="line">  access_log /home/work/<span class="built_in">log</span>/nginx/xxx.com-access.log;</span><br><span class="line">  log_not_found on;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">set</span> <span class="variable">$root_dir</span> /home/work/html/xxx.com;</span><br><span class="line">  <span class="built_in">set</span> <span class="variable">$root_dir_zh</span> <span class="variable">$root_dir</span>/zh_CN/;</span><br><span class="line">  <span class="built_in">set</span> <span class="variable">$root_dir_en</span> <span class="variable">$root_dir</span>/en/;</span><br><span class="line"></span><br><span class="line">  root <span class="variable">$root_dir</span>;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    rewrite ^(.*)$ http://xxx.com/zh_CN/ redirect;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location ^~ /zh_CN &#123;</span><br><span class="line">    <span class="built_in">alias</span> <span class="variable">$root_dir_zh</span>;</span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /zh_CN/index.html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location ^~ /en &#123;</span><br><span class="line">    <span class="built_in">alias</span> <span class="variable">$root_dir_en</span>;</span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /en/index.html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location ~ /(mipush/op/.*)$ &#123;</span><br><span class="line">    rewrite ^/mipush/(.*)$ /<span class="variable">$1</span> <span class="built_in">break</span>;</span><br><span class="line">    proxy_pass http://mipush-op;</span><br><span class="line">    proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 /404.html;</span><br><span class="line">  error_page 500 /500.html;</span><br><span class="line">  error_page 502 /502.html;</span><br><span class="line">  error_page 503 /503.html;</span><br><span class="line">  error_page 504 /504.html;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 自定义 404</span></span><br><span class="line">  location = /404.html &#123;</span><br><span class="line">    root <span class="variable">$root_dir</span>/404.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重新加载 <code>nginx</code> 配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查</span></span><br><span class="line">nginx -t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载</span></span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>停止 <code>nginx</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">nginx -s quit/stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 80 端口</span></span><br><span class="line">lsof -i:80</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询 nginx 主进程号</span></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 强制停止 nginx</span></span><br><span class="line"><span class="built_in">kill</span> -9 [主进程号]</span><br></pre></td></tr></table></figure>
+
+<h1 id="nginx-常用命令"><a href="#nginx-常用命令" class="headerlink" title="nginx 常用命令"></a>nginx 常用命令</h1><p>nginx -h</p>
+<p>nginx -v</p>
+<p>nginx -V</p>
+<p>nginx -t</p>
+<p>nginx -s stop/quit/reopen/reload</p>
+<h1 id="nginx-配置相关知识"><a href="#nginx-配置相关知识" class="headerlink" title="nginx 配置相关知识"></a>nginx 配置相关知识</h1><h2 id="location-匹配"><a href="#location-匹配" class="headerlink" title="location 匹配"></a>location 匹配</h2><h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location [ = | ^~ | ~ | ~* | !~ | !~* | / ] uri &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location @name &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>语法规则很简单，一个 location 关键字，后面跟着可选的修饰符，后面是要匹配的字符，花括号中是要执行的操作。</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">=   <span class="comment"># 进行普通字符精确匹配。只有请求的 url 路径与后面的字符串完全相等时，才会命中</span></span><br><span class="line"></span><br><span class="line">^~  <span class="comment"># 表示普通字符匹配，如果该选项匹配，只匹配该选项，不再匹配别的选项，一般用来匹配目录</span></span><br><span class="line"></span><br><span class="line">~   <span class="comment"># 表示执行一个正则匹配，区分大小写</span></span><br><span class="line"></span><br><span class="line">~*  <span class="comment"># 表示执行一个正则匹配，不区分大小写</span></span><br><span class="line"></span><br><span class="line">!~  <span class="comment"># 表示执行一个正则不匹配，区分大小写</span></span><br><span class="line"></span><br><span class="line">!~*  <span class="comment"># 表示执行一个正则不匹配，不区分大小写</span></span><br><span class="line"></span><br><span class="line">/    <span class="comment"># 通用匹配, 如果没有其它匹配，任何请求都会匹配到</span></span><br><span class="line"></span><br><span class="line">@    <span class="comment"># 定义一个命名的 location，使用在内部定向时，例如 error_page, try_files</span></span><br></pre></td></tr></table></figure>
+
+<p>顺序 no优先级：</p>
+<p>(location =) &gt; (location 完整路径) &gt; (location ^~ 路径) &gt; (location <del>、</del>* 正则顺序) &gt; (location 部分起始路径) &gt; (/)</p>
+<p>建议使用：<code>=、^~、~*、/</code></p>
+<h3 id="匹配过程"><a href="#匹配过程" class="headerlink" title="匹配过程"></a>匹配过程</h3><ul>
+<li>对请求的 url 序列化。例如，对 %xx 等字符进行解码，去除 url 中多个相连的 /，解析 url 中的 .，.. 等。这一步是匹配的前置工作。</li>
+<li>location 有两种表示形式，一种是使用前缀字符，一种是使用正则。如果是正则的话，前面有 ~ 或 ~* 修饰符。</li>
+<li>具体的匹配过程如下：<ul>
+<li>首先先检查使用前缀字符定义的 location，选择最长匹配的项并记录下来。</li>
+<li>如果找到了精确匹配的 location，也就是使用了 = 修饰符的 location，结束查找，使用它的配置。</li>
+<li>然后按顺序查找使用正则定义的 location，如果匹配则停止查找，使用它定义的配置。</li>
+<li>如果没有匹配的正则 location，则使用前面记录的最长匹配前缀字符 location。</li>
+</ul>
+</li>
+</ul>
+<p>基于以上的匹配过程，我们可以得到以下两点启示：</p>
+<ol>
+<li>使用正则定义的 location 在配置文件中出现的顺序很重要。因为找到第一个匹配的正则后，查找就停止了，后面定义的正则就是再匹配也没有机会了。</li>
+<li>使用精确匹配可以提高查找的速度。例如经常请求 / 的话，可以使用 = 来定义 location。</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">location = / &#123;</span><br><span class="line">  <span class="comment"># 精确匹配 / ，主机名后面不能带任何字符串</span></span><br><span class="line">  [ configuration A ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">  <span class="comment"># 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求</span></span><br><span class="line">  <span class="comment"># 但是正则和最长字符串会优先匹配</span></span><br><span class="line">  [ configuration B ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /documents/ &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /documents/ 开头的地址，匹配符合以后，记住还要继续往下搜索</span></span><br><span class="line">  <span class="comment"># 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span></span><br><span class="line">  [ configuration C ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ /documents/Abc &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /documents/Abc 开头的地址，匹配符合以后，还要继续往下搜索</span></span><br><span class="line">  <span class="comment"># 只有后面的正则表达式没有匹配到时，这一条才会采用这一条</span></span><br><span class="line">  [ configuration CC ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ^~ /images/ &#123;</span><br><span class="line">  <span class="comment"># 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。</span></span><br><span class="line">  [ configuration D ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|jpeg)$ &#123;</span><br><span class="line">  <span class="comment"># 匹配所有以 .gif, .jpg 或 .jpeg 结尾的请求</span></span><br><span class="line">  <span class="comment"># 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则</span></span><br><span class="line">  [ configuration E ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /images/ &#123;</span><br><span class="line">  <span class="comment"># 字符匹配到 /images/，继续往下，会发现 ^~ 存在</span></span><br><span class="line">  [ configuration F ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /images/abc &#123;</span><br><span class="line">  <span class="comment"># 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在</span></span><br><span class="line">  <span class="comment"># F 与 G 的放置顺序是没有关系的</span></span><br><span class="line">  [ configuration G ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ /images/abc/ &#123;</span><br><span class="line">  <span class="comment"># 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用</span></span><br><span class="line">  [ configuration H ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* /js/.*/\.js &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>/ -&gt; config A<br>精确完全匹配，匹配到A，即使 /index.html 也匹配不了</li>
+<li>/downloads/download.html -&gt; config B<br>完整路径，匹配到B，往下继续搜索发现没有任何匹配，最后采用B</li>
+<li>/images/1.gif -&gt; configuration D<br>完整路径，匹配到F，往下匹配到D，停止往下，采用D</li>
+<li>/images/abc/def -&gt; config D<br>完整路径，最长匹配到G，往下匹配到D，停止往下，采用D<br>你可以看到 任何以 /images/ 开头的都会匹配到D并停止，FG写在这里是没有任何意义的，H是永远轮不到的，这里只是为了说明匹配顺序</li>
+<li>/documents/document.html -&gt; config C<br>完整路径，匹配到C，往下继续搜索发现没有任何匹配，最后采用C</li>
+<li>/documents/1.jpg -&gt; configuration E<br>完整路径，匹配到C，往下正则匹配到E</li>
+<li>/documents/Abc.jpg -&gt; config CC<br>完整路径，最长匹配到C，往下正则顺序匹配到CC，不会往下到E（正则匹配时，顺序很重要，一旦匹配就停止了）</li>
+</ul>
+<h3 id="实际使用建议"><a href="#实际使用建议" class="headerlink" title="实际使用建议"></a>实际使用建议</h3><p>实际使用中，个人觉得至少有三个匹配规则定义，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接匹配网站根，通过域名访问网站首页比较频繁，使用这个会加速处理，官网如是说。</span></span><br><span class="line"><span class="comment"># 这里是直接转发给后端应用服务器了，也可以是一个静态首页</span></span><br><span class="line"><span class="comment"># 第一个必选规则</span></span><br><span class="line">location = / &#123;</span><br><span class="line">  proxy_pass http://tomcat:8080/index</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二个必选规则是处理静态文件请求，这是 nginx 作为 http 服务器的强项</span></span><br><span class="line"><span class="comment"># 有两种配置模式，目录匹配或后缀匹配,任选其一或搭配使用</span></span><br><span class="line">location ^~ /static/ &#123;</span><br><span class="line">  root /webroot/static/;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|jpeg|png|css|js|ico)$ &#123;</span><br><span class="line">  root /webroot/res/;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三个规则就是通用规则，用来转发动态请求到后端应用服务器</span></span><br><span class="line"><span class="comment"># 非静态文件请求就默认是动态请求，自己根据实际把握</span></span><br><span class="line"><span class="comment"># 毕竟目前的一些框架的流行，带 .php, .jsp 后缀的情况很少了</span></span><br><span class="line">location / &#123;</span><br><span class="line">  proxy_pass http://tomcat:8080/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="location-name-的用法"><a href="#location-name-的用法" class="headerlink" title="location @name 的用法"></a>location <code>@name</code> 的用法</h3><p>@用来定义一个命名 location。主要用于内部重定向，不能用来处理正常的请求。其用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ @custom</span><br><span class="line">&#125;</span><br><span class="line">location @custom &#123;</span><br><span class="line">  <span class="comment"># ...do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上例中，当尝试访问 url 找不到对应的文件就重定向到我们自定义的命名 location（此处为custom）。</p>
+<p>值得注意的是，命名 location 中不能再嵌套其它的命名 location。</p>
+<h3 id="URL-尾部的-需不需要"><a href="#URL-尾部的-需不需要" class="headerlink" title="URL 尾部的 / 需不需要"></a>URL 尾部的 / 需不需要</h3><p>推荐带</p>
+<p>根据约定，URL 尾部的 / 表示目录，没有 / 表示文件。</p>
+<p>访问 /some-dir/ 时，服务器会自动去该目录下找对应的默认文件。</p>
+<p>访问 /some-dir 时，服务器会先去找 some-dir 文件，找不到的话会将 some-dir 当成目录，重定向到 /some-dir/，去该目录下找默认文件。</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>定义在 server, location, if 模块中</p>
+<p>设置指定变量的值。变量的值可以包含文本，变量或者是它们的组合形式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    <span class="built_in">set</span> <span class="variable">$var1</span> <span class="string">"host is "</span>;</span><br><span class="line">    <span class="built_in">set</span> <span class="variable">$var2</span> <span class="variable">$host</span>;</span><br><span class="line">    <span class="built_in">set</span> <span class="variable">$var3</span> <span class="string">" uri is <span class="variable">$request_uri</span>"</span>;</span><br><span class="line">    <span class="built_in">return</span> 200 <span class="string">"response ok <span class="variable">$var1</span><span class="variable">$var2</span><span class="variable">$var3</span>"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 发送如下请求</span></span><br><span class="line"><span class="comment"># curl 127.0.0.1:8080/test</span></span><br><span class="line"><span class="comment"># response ok host is 127.0.0.1 uri is /test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="root-与-alias"><a href="#root-与-alias" class="headerlink" title="root 与 alias"></a>root 与 alias</h2><p>推荐 alias</p>
+<p>都可以定义在 location 模块中，都是用来指定请求资源的真实路径。</p>
+<p>root，是把location那部分也给拼接起来了。</p>
+<p>alias，正如其名，代理！是将 <code>/i/</code> 代理为 <code>/data/w3</code>。</p>
+<ol>
+<li>alias 只能作用在 location 中，而 root 可以存在 server、http 和 location 中。</li>
+<li>alias 后面必须要用 “/” 结束，否则会找不到文件，而 root 则对 ”/” 可有可无。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /i/ &#123;</span><br><span class="line">  root /data/w3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://localhost/i/" target="_blank" rel="noopener">http://localhost/i/</a> -&gt; /data/w3</p>
+<p><strong><a href="http://localhost/i/test.html" target="_blank" rel="noopener">http://localhost/i/test.html</a> -&gt; /data/w3/i/test.html</strong></p>
+<p><strong><a href="http://localhost/i/j/test.html" target="_blank" rel="noopener">http://localhost/i/j/test.html</a> -&gt; /data/w3/i/j/test.html</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /i/ &#123;</span><br><span class="line">  <span class="built_in">alias</span> /data/w3/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://localhost/i/" target="_blank" rel="noopener">http://localhost/i/</a> -&gt; /data/w3</p>
+<p><strong><a href="http://localhost/i/test.html" target="_blank" rel="noopener">http://localhost/i/test.html</a> -&gt; /data/w3/test.html</strong></p>
+<p><strong><a href="http://localhost/i/j/test.html" target="_blank" rel="noopener">http://localhost/i/j/test.html</a> -&gt; /data/w3/j/test.html</strong></p>
+<h2 id="try-files"><a href="#try-files" class="headerlink" title="try_files"></a>try_files</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">upstream mongrel &#123;</span><br><span class="line">  server 127.0.0.1:4000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">  try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ <span class="variable">$uri</span>.html =404;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">  try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html @mongrel;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location @mongrel &#123;</span><br><span class="line">  proxy_pass http://mongrel;</span><br><span class="line">  proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当用户请求 <a href="http://localhost/example" target="_blank" rel="noopener">http://localhost/example</a> 时，这里的 $uri 就是 <code>/example</code>。</p>
+<p>try_files 会到服务器里尝试找这个文件。如果存在名为 <code>/$root/example</code>（其中 $root 是项目代码安装目录）的文件，就直接把这个文件的内容发送给用户。</p>
+<p>显然，目录中没有叫 example 的文件。然后就看 $uri/，增加了一个 /，也就是看有没有名为 <code>/$root/example/</code> 的目录，如果有则去该目录下找默认文件 <code>/$root/example/index.html</code>。</p>
+<p>又找不到，就会看 /index.html，发起一个内部 “子请求”，重定向到 <a href="http://localhost/index.html。" target="_blank" rel="noopener">http://localhost/index.html。</a></p>
+<p>又找不到，就会看 @mongrel，发起一个内部 “子请求”，重定向到 <code>@mongrel</code> 模块。</p>
+<h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2><p>指令拥有默认值，<code>index index.html</code>，即，如果没有给出 <code>index</code>，默认初始页为 <code>index.html</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  root  /data/www;</span><br><span class="line">  try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ <span class="variable">$uri</span>.html =404;</span><br><span class="line">  index index.html index.htm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="rewrite"><a href="#rewrite" class="headerlink" title="rewrite"></a>rewrite</h2><p>rewrite 功能就是，使用 nginx 提供的全局变量或自己设置的变量，结合正则表达式和标志位实现 url 重写以及重定向。</p>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>rewrite 只能放在 server {}, location {}, if {} 中，并且只能对域名后边的除去传递的参数外的字符串起作用。例如 <a href="http://seanlook.com/a/we/index.php?id=1&amp;u=str" target="_blank" rel="noopener">http://seanlook.com/a/we/index.php?id=1&amp;u=str</a> 只对 <code>/a/we/index.php</code> 重写。</p>
+<p>语法：<code>rewrite regex replacement [flag];</code></p>
+<p>如果相对域名或参数字符串起作用，可以使用全局变量匹配，也可以使用 proxy_pass 反向代理。</p>
+<p>表面看 rewrite 和 location 功能有点像，都能实现跳转，主要区别在于 rewrite 是在同一域名内更改获取资源的路径，而 location 是对一类路径做控制访问或反向代理，可以 proxy_pass 到其他机器。很多情况下 rewrite 也会写在 location 里，它们的执行顺序是：</p>
+<ol>
+<li>执行 server 块的 rewrite 指令</li>
+<li>执行 location 匹配</li>
+<li>执行选定的 location 中的 rewrite 指令</li>
+</ol>
+<p>如果其中某步 uri 被重写，则重新循环执行 1-3，直到找到真实存在的文件；循环超过 10 次，则返回 500 Internal Server Error 错误。</p>
+<ul>
+<li><code>rewrite</code> 指令是使用指定的正则表达式 <code>regex</code> 来匹配请求的 <code>uri</code>，如果匹配成功，则使用 <code>replacement</code> 更改 <code>uri</code>。</li>
+<li><code>rewrite</code> 指令按照它们在配置文件中出现的顺序执行。可以使用 <code>flag</code> 标志来终止指令的进一步处理。如果替换字符串</li>
+<li><code>replacement</code> 以 <code>http://</code>，<code>https://</code> 或 <code>$ scheme</code> 开头，则停止处理后续内容，并直接重定向返回给客户端。</li>
+</ul>
+<p>第一种情况 重写的字符串带 <code>http://</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  <span class="comment"># 当匹配正则表达式 /test1/(.*)时 请求将被临时重定向到 http://www.$1.com</span></span><br><span class="line">  <span class="comment"># 相当于 flag 写为 redirect</span></span><br><span class="line">  rewrite /test1/(.*) http://www.<span class="variable">$1</span>.com;</span><br><span class="line">  <span class="built_in">return</span> 200 <span class="string">"ok"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 在浏览器中输入 127.0.0.1:8080/test1/baidu</span></span><br><span class="line"><span class="comment"># 则临时重定向到 http://www.baidu.com</span></span><br><span class="line"><span class="comment"># 后面的 return 指令将没有机会执行了</span></span><br></pre></td></tr></table></figure>
+
+<p>第二种情况 重写的字符串不带 <code>http://</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">  rewrite /test1/(.*) www.<span class="variable">$1</span>.com;</span><br><span class="line">  <span class="built_in">return</span> 200 <span class="string">"ok"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 在终端中输入 curl 127.0.0.1:8080/test1/baidu</span></span><br><span class="line"><span class="comment"># ok</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此处没有带 http:// 所以只是简单的重写。请求的 uri 由 /test1/baidu 重写为 www.baidu.com</span></span><br><span class="line"><span class="comment"># 因为会顺序执行 rewrite 指令，所以下一步执行 return 指令，响应了 ok</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="flag-标志位"><a href="#flag-标志位" class="headerlink" title="flag 标志位"></a>flag 标志位</h3><ul>
+<li>last: 相当于 Apache 的 [L] 标记，表示完成 rewrite。</li>
+<li>break: 停止执行当前虚拟主机的后续 rewrite 指令集。</li>
+<li>redirect: 返回 302 临时重定向，地址栏会显示跳转后的地址</li>
+<li>permanent: 返回 301 永久重定向，地址栏会显示跳转后的地址</li>
+</ul>
+<p>因为 301 和 302 不能简单的只返回状态码，还必须有重定向的 URL，这就是 return 指令无法返回 301、302 的原因了。这里 last 和 break 区别有点难以理解：</p>
+<h4 id="last-与-break"><a href="#last-与-break" class="headerlink" title="last 与 break"></a>last 与 break</h4><ol>
+<li>last 一般写在 server 和 if 中，而 break 一般使用在 location 中</li>
+<li>last 不终止重写后的 url 匹配，即新的 url 会再从 server 走一遍匹配流程，而 break 终止重写后的匹配</li>
+<li>last 和 break 都能阻止继续执行后面的 rewrite 指令</li>
+</ol>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">rewrite xxx1 yyy last; ⑦</span><br><span class="line">rewrite xxx2 yyy last; ⑧</span><br><span class="line">rewrite xxx3 yyy last; ⑨</span><br><span class="line">rewrite xxx4 yyy last; ⑩</span><br><span class="line"></span><br><span class="line">location ~  url1 &#123;</span><br><span class="line">  rewrite url1 url2 last; ①</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~  url3 &#123;</span><br><span class="line">  rewrite url3 url4 <span class="built_in">break</span>; ②</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 这条指令会被忽略</span></span><br><span class="line">  rewrite url3 url5;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 因为 fastcgi_pass 不是 rewrite 模块的指令，所以它不会被 break终止</span></span><br><span class="line">  fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~  url5 &#123;</span><br><span class="line">  rewrite url5 url6 <span class="built_in">break</span>;  ②</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 这条指令会被忽略</span></span><br><span class="line">  rewrite url5 url7;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 因为 proxy_pass 不是 rewrite 模块的指令，所以它不会被 break终止</span></span><br><span class="line">  proxy_pass https://www.baidu.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个 location 中的 rewrite 指令处理完成之后，会跳出 location，再重新判断 rewrite 7 ~ 9 的规则。</p>
+<p>第二个 location 中的 rewrite 指令处理完成之后，不会跳出 location，更不会重新判断 rewrite 7 ~ 9 的规则。而只能将信息传递给后面的 fastcgi_pass 或者 proxy_pass 等指令。</p>
+<p>last: 使用了 last 指令，rewrite 后会跳出 location 作用域，重新开始再走一次刚刚的行为。</p>
+<p>break: 使用了 break 指令，rewrite 后不会跳出 location 作用域。它的生命也在这个 location 中终结。</p>
+<p>last 和 break 相对于访问日志的请求状态码是 200。</p>
+<h4 id="permanent-和-redirect"><a href="#permanent-和-redirect" class="headerlink" title="permanent 和 redirect"></a>permanent 和 redirect</h4><p>permanent 301 永久重定向</p>
+<p>redirect 302 临时重定向</p>
+<p>SEO</p>
+<p>在利用百度的搜索引擎的时候，301 的 SEO 是对应重定向后的内容和 url，302 的 SEO 是对应重定向后的内容和重定向前的 url；<br>在利用 Google 的搜索引擎的时候，Google会将 302 按照 301 处理，所以 SEO 都是重定向后的内容和 url；</p>
+<p>尽量要使用 301 跳转，防止网址劫持。</p>
+<p>尽量使用 permanent。</p>
+<p>浏览器会缓存 301 的请求，不会缓存 302 的。</p>
+<p>如果是个人网站，或网站用途只是开发测试，改动的可能性比较大，建议使用 302。</p>
+<p>如果是生产环境，或改动的可能性比较小，建议使用 301。</p>
+<h3 id="rewrite-后的请求参数"><a href="#rewrite-后的请求参数" class="headerlink" title="rewrite 后的请求参数"></a>rewrite 后的请求参数</h3><p>如果替换字符串 replacement 包含新的请求参数，则在它们之后附加先前的请求参数。如果你不想要之前的参数，则在替换字符串 replacement 的末尾放置一个问号，避免附加它们。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于最后加了个 ?，原来的请求参数将不会被追加到 rewrite 之后的 url 后面</span></span><br><span class="line">rewrite ^/users/(.*)$ /show?user=<span class="variable">$1</span>? last;</span><br></pre></td></tr></table></figure>
+
+<h3 id="if-指令"><a href="#if-指令" class="headerlink" title="if 指令"></a>if 指令</h3><p>if 可放在 server {}, location {} 中，语法为 <code>if (condition) { ... }</code>。</p>
+<p>对给定的条件 condition 进行判断。如果为真，大括号内的 rewrite 指令将被执行，if 条件 (conditon) 可以是如下任何内容：</p>
+<ul>
+<li><p>当表达式只是一个变量时，如果值为空或任何以 0 开头的字符串都会当做 false</p>
+</li>
+<li><p>直接比较变量和内容时，使用 = 或 !=。注意此处不要把相等当做赋值语句啊</p>
+</li>
+<li><p><code>~</code>  区分大小写的正则匹配，<code>~*</code> 不区分大小写的正则匹配，<code>!~</code>、<code>!~*</code> 前面两者的非</p>
+</li>
+<li><p>检测文件是否存在，使用 -f(存在) 和 !-f(不存在)</p>
+</li>
+<li><p>检测路径是否存在，使用 -d(存在) 和 !-d(不存在) 后面判断可以是字符串也可是变量</p>
+</li>
+<li><p>检测文件、路径、或者链接文件是否存在，使用 -e(存在) 和 !-e(不存在) 后面判断可以是字符串也可是变量</p>
+</li>
+<li><p>检测文件是否为可执行文件，使用 -x(可执行) 和 !-x(不可执行) 后面判断可以是字符串也可是变量</p>
+</li>
+</ul>
+<p>注意，上面第1、2、3条被判断的必须是变量，第4、5、6、7则可以是变量也可是字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">set $variable &quot;0&quot;;</span><br><span class="line"></span><br><span class="line">if ($variable) &#123;</span><br><span class="line">  # 不会执行，因为 &quot;0&quot; 为 false</span><br><span class="line">  break;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 使用变量与正则表达式匹配 没有问题</span><br><span class="line">if ($http_host ~ &quot;^star\.igrow\.cn$&quot;) &#123;</span><br><span class="line">  break;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 字符串与正则表达式匹配 报错</span><br><span class="line">if (&quot;star&quot; ~ &quot;^star\.igrow\.cn$&quot;) &#123;</span><br><span class="line">  break;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 检查文件类的 字符串与变量均可</span><br><span class="line">if (!-f &quot;/data.log&quot;) &#123;</span><br><span class="line">    break;            </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (!-f $filename) &#123;</span><br><span class="line">  break;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">if ($http_user_agent ~ MSIE) &#123;</span><br><span class="line">  rewrite ^(.*)$ /msie/$1 break;</span><br><span class="line">&#125; //如果 UA 包含 &quot;MSIE&quot;，rewrite 请求到 /msid/ 目录下</span><br><span class="line"></span><br><span class="line">if ($http_cookie ~* &quot;id=([^;]+)(?:;|$)&quot;) &#123;</span><br><span class="line">  set $id $1;</span><br><span class="line">&#125; // 如果 cookie 匹配正则，设置变量 $id 等于正则引用部分</span><br><span class="line"></span><br><span class="line">if ($request_method = POST) &#123;</span><br><span class="line">  return 405;</span><br><span class="line">&#125; // 如果提交方法为 POST，则返回状态 405（Method not allowed）。return 不能返回 301，302</span><br><span class="line"></span><br><span class="line">if ($slow) &#123;</span><br><span class="line">  limit_rate 10k;</span><br><span class="line">&#125; // 限速，$slow 可以通过 set 指令设置</span><br><span class="line"></span><br><span class="line">if (!-f $request_filename)&#123;</span><br><span class="line">  break;</span><br><span class="line">  proxy_pass http://127.0.0.1;</span><br><span class="line">&#125; // 如果请求的文件名不存在，则反向代理到 localhost。这里的 break 也是停止 rewrite 检查</span><br><span class="line"></span><br><span class="line">if ($args ~ post=140)&#123;</span><br><span class="line">  rewrite ^ http://example.com/ permanent;</span><br><span class="line">&#125; // 如果 query string 中包含 &quot;post=140&quot;，永久重定向到 example.com</span><br><span class="line"></span><br><span class="line">location ~* \.(gif|jpg|png|swf|flv)$ &#123;</span><br><span class="line">  valid_referers none blocked www.jefflei.com www.leizhenfang.com;</span><br><span class="line">  if ($invalid_referer) &#123;</span><br><span class="line">    return 404;</span><br><span class="line">  &#125; // 防盗链</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>下面是可以用作 if 判断的全局变量：</p>
+<ul>
+<li>$args ： 这个变量等于请求行中的参数，同 $query_string</li>
+<li>$content_length ： 请求头中的 Content-length 字段。</li>
+<li>$content_type ： 请求头中的 Content-Type 字段。</li>
+<li>$document_root ： 当前请求在 root 指令中指定的值。</li>
+<li>$host ： 请求主机头字段，否则为服务器名称。</li>
+<li>$http_user_agent ： 客户端 agent 信息</li>
+<li>$http_cookie ： 客户端 cookie 信息</li>
+<li>$limit_rate ： 这个变量可以限制连接速率。</li>
+<li>$request_method ： 客户端请求的动作，通常为 GET 或 POST。</li>
+<li>$remote_addr ： 客户端的 IP 地址。</li>
+<li>$remote_port ： 客户端的端口。</li>
+<li>$remote_user ： 已经经过 Auth Basic Module 验证的用户名。</li>
+<li>$request_filename ： 当前请求的文件路径，由 root 或 alias 指令与 uri 请求生成。</li>
+<li>$scheme ： HTTP 方法（如 http，https）。</li>
+<li>$server_protocol ： 请求使用的协议，通常是 HTTP/1.0 或 HTTP/1.1。</li>
+<li>$server_addr ： 服务器地址，在完成一次系统调用后可以确定这个值。</li>
+<li>$server_name ： 服务器名称。</li>
+<li>$server_port ： 请求到达服务器的端口号。</li>
+<li>$request_uri ： 包含请求参数的原始 uri，不包含主机名，如：”/foo/bar.php?arg=baz”。</li>
+<li>$uri ： 不带请求参数的当前 uri，$uri 不包含主机名，如 ”/foo/bar.html”。</li>
+<li>$document_uri ： 与 $uri 相同。</li>
+</ul>
+<h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><p>return 可放在 server {}, location {}, if (conditon) {} 中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> code [text];</span><br><span class="line"><span class="built_in">return</span> code URL;</span><br><span class="line"><span class="built_in">return</span> URL;</span><br></pre></td></tr></table></figure>
+
+<p>该指令将结束执行直接返回 http 状态码到客户端.</p>
+<p>支持的 http 状态码：200, 204, 400, 402-406, 408, 410, 411, 413, 416, 500-504，还有非标准的 444 状态码。</p>
+<p>从 <code>0.8.42</code> 版本开始，<code>return</code> 语句可以指定重定向 <code>url</code> (状态码可以为如下几种 301,302,303,307)，也可以为其他状态码指定响应的文本内容，并且重定向的 <code>url</code> 和响应的文本可以包含变量。</p>
+<p>有一种特殊情况，就是重定向的 <code>url</code> 可以指定为此服务器本地的 <code>uri</code> ，这样的话，<code>nginx</code> 会依据请求的协议 <code>$scheme</code>， <code>server_name_in_redirect</code> 和 <code>port_in_redirect</code> 自动生成完整的 <code>url</code> （此处要说明的是 <code>server_name_in_redirect</code> 和 <code>port_in_redirect</code> 指令是表示是否将 <code>server</code> 块中的 <code>server_name</code> 和 <code>listen</code> 的端口作为 <code>redirect</code> 用）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># return code [text]; 返回 ok 给客户端</span></span><br><span class="line">location = /ok &#123;</span><br><span class="line">  <span class="built_in">return</span> 200 <span class="string">"ok"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># return code URL; 临时重定向到 百度</span></span><br><span class="line">location = /redirect &#123;</span><br><span class="line">  <span class="built_in">return</span> 302 http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># return URL; 和上面一样 默认也是临时重定向</span></span><br><span class="line">location = /redirect &#123;</span><br><span class="line">  <span class="built_in">return</span> http://www.baidu.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="proxy-pass"><a href="#proxy-pass" class="headerlink" title="proxy_pass"></a>proxy_pass</h2><p>反向代理。在 proxy_pass 后面的 url 加 /，表示绝对根路径；如果没有 /，表示相对路径，把匹配的路径部分也给代理走。</p>
+<p>最好 location 后面的 url 加 /，proxy_pass 后面的 url 也加 /。当然也视具体情况！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /proxy &#123;</span><br><span class="line">  proxy_pass https://www.baidu.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/proxy -&gt; <a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></p>
+<p>/proxys?wd=nginx -&gt; <a href="https://www.baidu.com/s?wd=nginx" target="_blank" rel="noopener">https://www.baidu.com/s?wd=nginx</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /proxy &#123;</span><br><span class="line">  proxy_pass https://www.baidu.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/proxy -&gt; <a href="https://www.baidu.com/proxy" target="_blank" rel="noopener">https://www.baidu.com/proxy</a> -&gt; 404 -&gt; /search/error.html -&gt; 502</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">  proxy_pass https://www.baidu.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/proxy -&gt; 301 -&gt; /proxy/ -&gt; <a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a></p>
+<p>/proxy/s?wd=nginx -&gt; <a href="https://www.baidu.com/s?wd=nginx" target="_blank" rel="noopener">https://www.baidu.com/s?wd=nginx</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">  proxy_pass https://www.baidu.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/proxy -&gt; 301 -&gt; /proxy/ -&gt; <a href="https://www.baidu.com/proxy/" target="_blank" rel="noopener">https://www.baidu.com/proxy/</a> -&gt; 404 -&gt; /search/error.html -&gt; 502</p>
+<h3 id="正向代理与反向代理"><a href="#正向代理与反向代理" class="headerlink" title="正向代理与反向代理"></a>正向代理与反向代理</h3><p>例子！！！</p>
+<h2 id="proxy-host、-host-与-http-host"><a href="#proxy-host、-host-与-http-host" class="headerlink" title="$proxy_host、$host 与 $http_host"></a>$proxy_host、$host 与 $http_host</h2><p>默认是 <code>proxy_set_header Host $proxy_host;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">upstream myLocalhost &#123;  </span><br><span class="line">  server 127.0.0.1:8080;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">upstream baidu &#123;  </span><br><span class="line">  server www.baidu.com;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;  </span><br><span class="line">  listen       80;  </span><br><span class="line">  server_name  chuan.aty.sohuno.com;  </span><br><span class="line">  proxy_set_header Host <span class="variable">$http_host</span>;  </span><br><span class="line"></span><br><span class="line">  location /myLocalhost &#123;  </span><br><span class="line">    proxy_pass myLocalhost;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line">  location /baidu &#123;  </span><br><span class="line">    proxy_pass http://baidu;  </span><br><span class="line">    proxy_set_header Host <span class="variable">$proxy_host</span>;  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /baidu2 &#123;  </span><br><span class="line">    proxy_pass http://baidu;  </span><br><span class="line">    proxy_set_header Host www.baidu.com;  </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /baidu3 &#123;  </span><br><span class="line">    proxy_pass http://baidu;  </span><br><span class="line">    proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /baidu4 &#123;  </span><br><span class="line">    proxy_pass http://baidu;  </span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location /baidu5 &#123;  </span><br><span class="line">    proxy_pass http://baidu;  </span><br><span class="line">    proxy_set_header Host <span class="variable">$host</span>:<span class="variable">$proxy_port</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当匹配到 /baidu 时，使用 baidu 处理，到 upstream 就匹配到 w<a href="http://www.baidu.com，这里接转换成" target="_blank" rel="noopener">www.baidu.com，这里接转换成</a> IP 进行转发了。假如 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 是在另一台 nginx 下配置的，ip 为 10.22.10.116，则 $proxy_host 则对应为 10.22.10.116。此时相当于设置了 Host 为 10.22.10.116。如果想让 Host是 <a href="http://www.baidu.com，则进行如下设置：" target="_blank" rel="noopener">www.baidu.com，则进行如下设置：</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host www.baidu.com;</span><br></pre></td></tr></table></figure>
+
+<p>如果不想改变请求头 Host 的值，可以这样来设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host <span class="variable">$http_host</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是，如果客户端请求头中没有携带这个头部，那么传递到后端服务器的请求也不含这个头部。这种情况下，更好的方式是使用 <code>$host</code> 变量——它的值在请求包含 Host 请求头时为 Host 字段的值，在请求未携带 Host 请求头时为虚拟主机的主域名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host <span class="variable">$host</span>;</span><br></pre></td></tr></table></figure>
+
+<p>此外，服务器名可以和后端服务器的端口一起传送：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host <span class="variable">$host</span>:<span class="variable">$proxy_port</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果某个请求头的值为空，那么这个请求头将不会传送给后端服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Accept-Encoding <span class="string">""</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="document-uri、-uri-与-request-uri"><a href="#document-uri、-uri-与-request-uri" class="headerlink" title="$document_uri、$uri 与 $request_uri"></a>$document_uri、$uri 与 $request_uri</h2><p>$document_uri 与 $uri 一样</p>
+<p>$uri 指的是请求的文件和路径，不包含 ”?” 或者 ”#” 之类的东西</p>
+<p>$request_uri 则指的是请求的整个字符串，包含了后面请求的东西（”?”、”#”等）</p>
+<p>例如，请求地址：<a href="https://www.baidu.com/s?wd=nginx" target="_blank" rel="noopener">https://www.baidu.com/s?wd=nginx</a></p>
+<p>$uri：<code>/s</code></p>
+<p>$request_uri：<code>/s?wd=nginx</code></p>
+<h2 id="upstream"><a href="#upstream" class="headerlink" title="upstream"></a>upstream</h2><p>nginx 负载均衡</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="zhouyu1993 wechat" style="width: 200px; max-width: 100%;">
+    <div>扫一扫上面的二维码，奇妙的世界等着你！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持技术分享，您的支持将鼓励我！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="zhouyu1993 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="zhouyu1993 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/software/" rel="tag"># software</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/zh/2019/04/16/分享-Vue.js 源码解析-answershuto/" rel="next" title="Vue.js 源码解析">
+                <i class="fa fa-chevron-left"></i> Vue.js 源码解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMjYwNi85MTY3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhouyu1993">
+            
+              <p class="site-author-name" itemprop="name">zhouyu1993</p>
+              <p class="site-description motion-element" itemprop="description">zhouyu1993's blogs</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gwyloved.github.io/" title="sample's blogs" target="_blank">sample's blogs</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MacOS"><span class="nav-number">1.</span> <span class="nav-text">MacOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-nginx"><span class="nav-number">1.1.</span> <span class="nav-text">安装 nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-nginx"><span class="nav-number">1.2.</span> <span class="nav-text">使用 nginx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux"><span class="nav-number">2.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用命令"><span class="nav-number">2.1.</span> <span class="nav-text">linux 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在终端利用-ssh-登录远程服务器"><span class="nav-number">2.2.</span> <span class="nav-text">在终端利用 ssh 登录远程服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-nginx-1"><span class="nav-number">2.3.</span> <span class="nav-text">安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果机器能访问外网："><span class="nav-number">2.3.1.</span> <span class="nav-text">如果机器能访问外网：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果机器不能访问外网："><span class="nav-number">2.3.2.</span> <span class="nav-text">如果机器不能访问外网：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-nginx-1"><span class="nav-number">2.4.</span> <span class="nav-text">使用 nginx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx-常用命令"><span class="nav-number">3.</span> <span class="nav-text">nginx 常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx-配置相关知识"><span class="nav-number">4.</span> <span class="nav-text">nginx 配置相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#location-匹配"><span class="nav-number">4.1.</span> <span class="nav-text">location 匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法规则"><span class="nav-number">4.1.1.</span> <span class="nav-text">语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符"><span class="nav-number">4.1.2.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配过程"><span class="nav-number">4.1.3.</span> <span class="nav-text">匹配过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">4.1.4.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际使用建议"><span class="nav-number">4.1.5.</span> <span class="nav-text">实际使用建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-name-的用法"><span class="nav-number">4.1.6.</span> <span class="nav-text">location @name 的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL-尾部的-需不需要"><span class="nav-number">4.1.7.</span> <span class="nav-text">URL 尾部的 / 需不需要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set"><span class="nav-number">4.2.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#root-与-alias"><span class="nav-number">4.3.</span> <span class="nav-text">root 与 alias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-files"><span class="nav-number">4.4.</span> <span class="nav-text">try_files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index"><span class="nav-number">4.5.</span> <span class="nav-text">index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rewrite"><span class="nav-number">4.6.</span> <span class="nav-text">rewrite</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规则"><span class="nav-number">4.6.1.</span> <span class="nav-text">规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flag-标志位"><span class="nav-number">4.6.2.</span> <span class="nav-text">flag 标志位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#last-与-break"><span class="nav-number">4.6.2.1.</span> <span class="nav-text">last 与 break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#permanent-和-redirect"><span class="nav-number">4.6.2.2.</span> <span class="nav-text">permanent 和 redirect</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rewrite-后的请求参数"><span class="nav-number">4.6.3.</span> <span class="nav-text">rewrite 后的请求参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-指令"><span class="nav-number">4.6.4.</span> <span class="nav-text">if 指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">4.6.5.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#return"><span class="nav-number">4.6.6.</span> <span class="nav-text">return</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-pass"><span class="nav-number">4.7.</span> <span class="nav-text">proxy_pass</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正向代理与反向代理"><span class="nav-number">4.7.1.</span> <span class="nav-text">正向代理与反向代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy-host、-host-与-http-host"><span class="nav-number">4.8.</span> <span class="nav-text">$proxy_host、$host 与 $http_host</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-uri、-uri-与-request-uri"><span class="nav-number">4.9.</span> <span class="nav-text">$document_uri、$uri 与 $request_uri</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#upstream"><span class="nav-number">4.10.</span> <span class="nav-text">upstream</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhouyu1993</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+<h5>
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</h5>
+
+<div class="links-of-author">
+  
+    
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhouyu1993/" target="_blank" title="GitHub" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/9129348/joy-rain/" target="_blank" title="StackOverflow" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="mailto:1490079545@qq.com/" target="_blank" title="E-Mail" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/100806722192060947141/" target="_blank" title="Google" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yu917and130bing/" target="_blank" title="微博" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-weibo"></i>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/rainjoy/" target="_blank" title="知乎" style="margin: 0 auto">
+          
+            <i class="fa fa-fw fa-globe"></i>知乎</a>
+      </span>
+    
+  
+</div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script defer>
+  console.log('%c\n ', 'padding:0 159px;line-height:318px;background:url("https://zhouyu1993.github.io/images/avatar.png") no-repeat;');
+  console.log('%c小米内推简历提交：zhouyu7@xiaomi.com（你将有机会直接获得面试资格）', 'color:red');
+
+  // use sw
+  var opensw = location.hostname === 'zhouyu1993.github.io'
+  if (opensw) {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/service-worker.js', {
+          scope: '/'
+        }).then(function (registration) {
+          // register success
+          console.log('ServiceWorker registration successful with scope:', registration.scope)
+        }).catch((err) => {
+          // register failure
+          console.log('ServiceWorker registration failed:', err)
+        })
+      })
+    }
+  }
+</script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zz6VWq4HelTwLc79eS4WYNYd-gzGzoHsz", "QyKSBePhKCFPRO23Sxkk2BBI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

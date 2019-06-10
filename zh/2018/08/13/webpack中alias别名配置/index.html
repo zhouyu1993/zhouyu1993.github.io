@@ -434,13 +434,18 @@
       
         <p>webpack 中 alias 别名配置</p>
 <a id="more"></a>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line"> alias: &#123;</span><br><span class="line">   <span class="string">'@'</span>: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">   <span class="string">'@a'</span>: path.resolve(__dirname, <span class="string">'src'</span>, <span class="string">'assets'</span>),</span><br><span class="line">   <span class="string">'@c'</span>: path.resolve(__dirname, <span class="string">'src'</span>, <span class="string">'components'</span>),</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>在 js 中使用：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原本这样写</span></span><br><span class="line"><span class="keyword">import</span> formatTime <span class="keyword">from</span> <span class="string">'../../src/utils/formatTime'</span></span><br><span class="line"><span class="keyword">import</span> banner <span class="keyword">from</span> <span class="string">'../../src/assets/img/banner.png'</span></span><br><span class="line"><span class="keyword">import</span> swiper <span class="keyword">from</span> <span class="string">'../../src/components/swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在可以这样写</span></span><br><span class="line"><span class="keyword">import</span> formatTime <span class="keyword">from</span> <span class="string">'@/utils/formatTime'</span></span><br><span class="line"><span class="keyword">import</span> banner <span class="keyword">from</span> <span class="string">'@/src/assets/img/banner.png'</span></span><br><span class="line"><span class="keyword">import</span> swiper <span class="keyword">from</span> <span class="string">'@/src/components/swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> banner <span class="keyword">from</span> <span class="string">'@a/img/banner.png'</span></span><br><span class="line"><span class="keyword">import</span> swiper <span class="keyword">from</span> <span class="string">'@c/swiper'</span></span><br></pre></td></tr></table></figure>
+
 <p>在 scss 中使用：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 原本这样写 */</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">'../../src/assets/css/mixin'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 现在可以这样写 */</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">'~@src/assets/css/mixin'</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">import</span> <span class="string">'~@a/css/mixin'</span>;</span><br></pre></td></tr></table></figure>
+
 <p>在 template 中使用：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 原本这样写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../../src/assets/img/logo.png"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 现在可以这样写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"~@/src/assets/img/logo.png"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"~@a/img/logo.png"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>注意区别，<code>@</code> 前需要多加个 <code>~</code></p>
 
       
@@ -519,8 +524,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2018/08/14/JavaScript深浅复制(拷贝)/" rel="prev" title="JavaScript深浅复制(拷贝)">
-                JavaScript深浅复制(拷贝) <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2018/08/14/JavaScript数据类型/" rel="prev" title="JavaScript数据类型">
+                JavaScript数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -596,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

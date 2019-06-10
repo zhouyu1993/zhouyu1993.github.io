@@ -434,6 +434,7 @@
       
         <p>最近在做收银台业务，成功下单后，后端需要返回给前端订单号，前端根据订单号去跳转收银台，然后付款。但是碰到个奇怪的问题，一致订单异常。</p>
 <a id="more"></a>
+
 <p>一开始，我觉得订单异常，肯定是后端某个环节有问题，我前端就负责拿订单号去跳转收银台，能出什么问题？</p>
 <p>我指着下单接口，“你看，你接口给我的订单号是 <code>201808221019001800</code>”，又指着收银台接口，“你看，我传给收银台的订单号是 <code>201808221019001800</code>”，这订单异常，肯定是后端有问题啊！</p>
 <p>后端调试了半天，找不到原因，“我这都查过了，我写的代码都是对的啊！不过为什么你的订单号是 201808221019001800，我后台查不到这个订单啊！而且你的 uid 是 10007777，订单尾号应该是 1777 才对，我订单号取的逻辑是 ‘年月日时分秒’ 再加 uid 的第一位和后三位！是不是你那边请求问题啊”。</p>
@@ -449,12 +450,15 @@
 <p>解决方案就是接口转化为 <code>String</code> 类型返回。</p>
 <h3 id="最大安全整数、最小安全整数"><a href="#最大安全整数、最小安全整数" class="headerlink" title="最大安全整数、最小安全整数"></a>最大安全整数、最小安全整数</h3><p>js 最大安全整数是 <code>Number.MAX_SAFE_INTEGER</code>，最小安全整数是 <code>Number.MIN_SAFE_INTEGER</code>，</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER <span class="comment">// 9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MAX_SAFE_INTEGER === <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) - <span class="number">1</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER <span class="comment">// -9007199254740991</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.MIN_SAFE_INTEGER === <span class="number">1</span> - <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="2-的-53-次方"><a href="#2-的-53-次方" class="headerlink" title="2 的 53 次方"></a>2 的 53 次方</h3><p>js 安全整数的范围是 (Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER) 即 -2^53~2^53 (不包含边界) 。</p>
 <p>安全整数，意思是说能够 one-by-one 表示的整数，也就是说在(-2^53, 2^53)范围内，双精度数表示和整数是一对一的，反过来说，在这个范围以内，所有的整数都有唯一的浮点数表示，这叫做安全整数。超过这个范围，会有两个或更多整数的双精度表示是相同的；反过来说，超过这个范围，有的整数是无法精确表示的，只能round到与它相近的浮点数（说到底就是科学计数法）表示，这种情况下叫做不安全整数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) <span class="comment">// 9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) === <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span> <span class="comment">// 9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">2</span> <span class="comment">// 9007199254740994</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">3</span> <span class="comment">// 9007199254740996</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">4</span> <span class="comment">// 9007199254740996</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow（<span class="number">2</span>,<span class="number">53</span>）+ <span class="number">5</span> <span class="comment">// 9007199254740996</span></span><br></pre></td></tr></table></figure>
+
 <p>当运算数与运算结果都处于安全整数的范围内时，才能保证 js 运算结果正确。</p>
 <p>请求接口中返回一个整数，例如订单号，是个不安全整数，就会导致前端处理异常！</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">201808221019001777</span> <span class="comment">// 被处理成 201808221019001800</span></span><br></pre></td></tr></table></figure>
+
 <p>js 安全整数的范围为啥是 (Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER) 即 -2^53~2^53 (不包含边界) ？</p>
 <p>js 里数字类型只有一种，Number 类型，是双精度浮点型，都是 64-bit (1bit 的符号位，11bits 的指数部分，以及 52bits 的小数部分) 的双精度浮点数(double)！</p>
 <p>js 里的整型 int 是 双精度浮点型 double 的一个子集，而不是一个独立的数据类型。</p>
@@ -465,6 +469,7 @@
 <li><a href="https://yuchengkai.cn/docs/zh/frontend/#%E4%B8%BA%E4%BB%80%E4%B9%88-0-1-0-2-0-3" target="_blank" rel="noopener">0.1 + 0.2 为什么不等于 0.3</a></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">1</span> <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">1.0</span> <span class="comment">// number</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> === <span class="number">1.0</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
 <p><a href="https://en.wikipedia.org/wiki/IEEE_754" target="_blank" rel="noopener">IEEE 754 双精度浮点数</a>。</p>
 <p><a href="https://www.zhihu.com/question/29010688" target="_blank" rel="noopener">参考1</a></p>
 <p><a href="http://2ality.com/2013/10/safe-integers.html" target="_blank" rel="noopener">参考3</a></p>
@@ -632,7 +637,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
