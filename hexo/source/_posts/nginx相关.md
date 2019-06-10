@@ -326,36 +326,32 @@ http {
 }
 ```
 
-新建 `/usr/local/nginx/conf/conf.d` 文件夹，新建 `xxx.com.conf`：
+新建 `/usr/local/nginx/conf/conf.d` 文件夹，新建 `dev.zhouyu.com.conf`：
 
 ``` bash
 cd /usr/local/nginx/conf && mkdir conf.d
 
-cd conf.d && vi xxx.com.conf
+cd conf.d && vi dev.zhouyu.com.conf
 ```
 
 ``` bash
-upstream mipush-op {
- server yyy.yyy.yyy.yyy:port;
-}
-
 server {
   listen 80;
-  server_name xxx.com;
+  server_name dev.zhouyu.com;
   ssi on;
 
-  error_log /home/work/log/nginx/xxx.com-error.log;
-  access_log /home/work/log/nginx/xxx.com-access.log;
+  error_log /home/work/log/nginx/dev.zhouyu.com-error.log; # 修改为实际目录
+  access_log /home/work/log/nginx/dev.zhouyu.com-access.log; # 修改为实际目录
   log_not_found on;
 
-  set $root_dir /home/work/html/xxx.com;
+  set $root_dir /home/work/html/dev.zhouyu.com; # 修改为实际目录
   set $root_dir_zh $root_dir/zh_CN/;
   set $root_dir_en $root_dir/en/;
 
   root $root_dir;
 
   location / {
-    rewrite ^(.*)$ http://xxx.com/zh_CN/ redirect;
+    rewrite ^(.*)$ http://dev.zhouyu.com/zh_CN/$1 permanent;
   }
 
   location ^~ /zh_CN {
@@ -368,10 +364,9 @@ server {
     try_files $uri $uri/ /en/index.html;
   }
 
-  location ~ /(mipush/op/.*)$ {
-    rewrite ^/mipush/(.*)$ /$1 break;
-    proxy_pass http://mipush-op;
-    proxy_set_header Host $http_host;
+  location /baidu {
+    proxy_pass https://www.baidu.com/;
+    proxy_set_header Host www.baidu.com; # 如果使用 $host 或 $http_host 会报 403
   }
 
   error_page 404 /404.html;
@@ -396,6 +391,8 @@ nginx -t
 # 重载
 nginx -s reload
 ```
+
+测试，配置：`127.0.0.1 dev.zhouyu.com`，浏览器访问：`http://dev.zhouyu.com/baidu`，看是否打开百度首页。
 
 停止 `nginx`
 
@@ -1043,11 +1040,11 @@ location /proxy/ {
 默认是 `proxy_set_header Host $proxy_host;`
 
 ``` bash
-upstream myLocalhost {  
+upstream my-localhost {  
   server 127.0.0.1:8080;  
 }
 
-upstream baidu {  
+upstream my-baidu {  
   server www.baidu.com;  
 }
 
@@ -1057,37 +1054,37 @@ server {
   proxy_set_header Host $http_host;  
 
   location /myLocalhost {  
-    proxy_pass myLocalhost;
+    proxy_pass http://my-localhost;
   }  
 
   location /baidu {  
-    proxy_pass http://baidu;  
+    proxy_pass http://my-baidu;  
     proxy_set_header Host $proxy_host;  
   }
 
   location /baidu2 {  
-    proxy_pass http://baidu;  
+    proxy_pass http://my-baidu;  
     proxy_set_header Host www.baidu.com;  
   }
 
   location /baidu3 {  
-    proxy_pass http://baidu;  
+    proxy_pass http://my-baidu;  
     proxy_set_header Host $http_host;
   }
 
   location /baidu4 {  
-    proxy_pass http://baidu;  
+    proxy_pass http://my-baidu;  
     proxy_set_header Host $host;
   }
 
   location /baidu5 {  
-    proxy_pass http://baidu;  
+    proxy_pass http://my-baidu;  
     proxy_set_header Host $host:$proxy_port;
   }
 }
 ```
 
-当匹配到 /baidu 时，使用 baidu 处理，到 upstream 就匹配到 wwww.baidu.com，这里接转换成 IP 进行转发了。假如 www.baidu.com 是在另一台 nginx 下配置的，ip 为 10.22.10.116，则 $proxy_host 则对应为 10.22.10.116。此时相当于设置了 Host 为 10.22.10.116。如果想让 Host是 www.baidu.com，则进行如下设置：
+当匹配到 /baidu 时，使用 baidu 处理，到 upstream 就匹配到 wwww.baidu.com，这里接转换成 IP 进行转发了。假如 www.baidu.com 是在另一台 nginx 下配置的，ip 为 10.22.10.116，则 $proxy_host 则对应为 10.22.10.116。此时相当于设置了 Host 为 10.22.10.116。如果想让 Host 是 www.baidu.com，则进行如下设置：
 
 ``` bash
 proxy_set_header Host www.baidu.com;
