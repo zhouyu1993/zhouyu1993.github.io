@@ -26,7 +26,8 @@
     "new": "cd hexo && npm run new",
     "dev": "cd hexo && npm run dev",
     "build": "cd hexo && npm run build",
-    "deploy": "rm -rf about/* archives/* categories/* css/* images/* js/* lib/* page/* tags/* uploads/* zh/* && cd hexo && npm run deploy"
+    "deploy": "rm -rf about/* archives/* categories/* css/* images/* js/* lib/* page/* tags/* uploads/* zh/* && cd hexo && npm run deploy",
+    "commit": "npx git-cz"
   },
   "hexo": {
     "version": "3.8.0"
