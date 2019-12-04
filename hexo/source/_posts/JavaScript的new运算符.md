@@ -26,58 +26,113 @@ new Constructor[([arguments])]
 
 `arguments` 一个用来被 Constructor 调用的参数列表。
 
-
 # 过程
 
 * 新生成了一个对象
 * 链接到原型
 * 绑定 this
-* 回新对象
+* 返回新对象
 
 在调用 `new` 的过程中会发生以上四件事情，我们也可以试着来自己实现一个 `new`。
 
 
 ``` js
 function Car (make, model, year) {
-   this.make = make
-   this.model = model
-   this.year = year
+  this.make = make
+  this.model = model
+  this.year = year
 }
 
-var car = new Car()
+const car1 = new Car()
+
+const car2 = new Car(1, 2, 3)
 ```
 
 ``` js
 function Car (make, model, year) {
-   this.make = make
-   this.model = model
-   this.year = year
+  this.make = make
+  this.model = model
+  this.year = year
 }
 
-var car = {}
-car.__proto__ = Car.prototype
-Car.call(car)
+const car1 = {}
+car1.__proto__ = Car.prototype
+Car.call(car1)
+
+const car2 = {}
+car2.__proto__ = Car.prototype
+Car.call(car2, 1, 2, 3)
 ```
 
 ``` js
 function Car (make, model, year) {
-   this.make = make
-   this.model = model
-   this.year = year
+  this.make = make
+  this.model = model
+  this.year = year
 }
 
 function create () {
   // 创建一个空的对象
-  let obj = {}
+  const obj = {}
+
   // 获得构造函数
-  let Con = [].shift.call(arguments)
+  const Con = [].shift.call(arguments)
+
+  console.log('Con: ', Con)
+
   // 链接到原型
   obj.__proto__ = Con.prototype
+
   // 绑定 this，执行构造函数
-  let result = Con.apply(obj, arguments)
+  const result = Con.apply(obj, arguments)
+
+  console.log('result: ', result)
+
   // 确保 new 出来的是个对象
   return typeof result === 'object' ? result : obj
 }
 
-var car = create(Car)
+const car1 = create(Car)
+
+const car2 = create(Car, 1, 2, 3)
 ```
+
+现在，我们在 `Car` 中返回 `{}` 或者 `null`：
+
+``` js
+function Car (make, model, year) {
+  this.make = make
+  this.model = model
+  this.year = year
+
+  return {}
+  // return null
+}
+
+function create () {
+  // 创建一个空的对象
+  const obj = {}
+
+  // 获得构造函数
+  const Con = [].shift.call(arguments)
+
+  console.log(Con)
+
+  // 链接到原型
+  obj.__proto__ = Con.prototype
+
+  // 绑定 this，执行构造函数
+  const result = Con.apply(obj, arguments)
+
+  console.log(result)
+
+  // 确保 new 出来的是个对象
+  return typeof result === 'object' ? result : obj
+}
+
+const car1 = create(Car)
+
+const car2 = create(Car, 1, 2, 3)
+```
+
+`确保 new 出来的是个对象` 也就是说，在 `new` 的构造函数的返回值是对象时就返回该返回值，不是对象则返回创建的对象
