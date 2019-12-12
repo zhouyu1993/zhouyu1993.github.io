@@ -97,3 +97,20 @@ https://www.livere.com/
 （RainJoy1993-rainjoy1993@gmail.com）- JS接口安全域名：
 
   MP_verify_O8JL39LeNd4lXSd9.txt
+
+---
+
+https://wiki.n.miui.com/pages/viewpage.action?pageId=162412707
+
+关于分享，我们组收集了下面几个，大家看有没有兴趣：
+
+* 小米推送快应用版sdk介绍
+* 小米推送小程序版sdk介绍
+* 自撸 cli 工具：微信小程序 cli 工具 + 微信小程序模版（支持 scss + npm 编译）
+* 造轮子：vue 组件库 https://zhouyu1993.github.io/awesome/rjcv/#/
+  - upload 组件 https://zhouyu1993.github.io/awesome/rjcv/#/uploader
+    * 基础上传
+    * 图片处理
+    * 腾讯云图片API
+* vue-ssr 之 nuxt.js
+* 基于 hexo 的个人博客搭建（PWA + serviceWorker、站内搜索、访问统计、评论）

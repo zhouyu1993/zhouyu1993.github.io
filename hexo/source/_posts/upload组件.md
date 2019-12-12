@@ -286,6 +286,10 @@ export default {
 * formData 的 xhr 上传
 * [exif-js](https://github.com/exif-js/exif-js)
 
+## 例子
+
+[孩子王-活动系统](https://huodong.cekid.com/hd/order/14471393830/comment?cmd=share&sharetype=0&isMiniProgram=false)
+
 ## 竞品对比
 
-[iview-upload](https://www.iviewui.com/components/upload)
+[iview-upload](https://github.com/iview/iview/blob/2.0/src/components/upload/upload.vue)
