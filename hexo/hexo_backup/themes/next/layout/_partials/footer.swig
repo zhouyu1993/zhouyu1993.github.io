@@ -78,7 +78,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
         // sw version
-        var v = '2018010701'
+        var v = '2021030201'
 
         navigator.serviceWorker.register('/service-worker.js?v=' + v, {
           scope: '/'

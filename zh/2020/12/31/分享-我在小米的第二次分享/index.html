@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="我在公司的第一次分享。分享两次事故。">
+<meta name="description" content="浅谈帧动画">
 <meta name="keywords" content="工作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我在公司的第一次分享">
-<meta property="og:url" content="https://zhouyu1993.github.io/zh/2017/08/08/我在公司的第一次分享/index.html">
+<meta property="og:title" content="浅谈帧动画">
+<meta property="og:url" content="https://zhouyu1993.github.io/zh/2020/12/31/分享-我在小米的第二次分享/index.html">
 <meta property="og:site_name" content="zhouyu1993&#39;s blogs">
-<meta property="og:description" content="我在公司的第一次分享。分享两次事故。">
+<meta property="og:description" content="浅谈帧动画">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-30T07:59:39.986Z">
+<meta property="og:updated_time" content="2021-03-02T07:41:56.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我在公司的第一次分享">
-<meta name="twitter:description" content="我在公司的第一次分享。分享两次事故。">
+<meta name="twitter:title" content="浅谈帧动画">
+<meta name="twitter:description" content="浅谈帧动画">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2017/08/08/我在公司的第一次分享/">
+  <link rel="canonical" href="https://zhouyu1993.github.io/zh/2020/12/31/分享-我在小米的第二次分享/">
 
 
 
 
 
-  <title>我在公司的第一次分享 | zhouyu1993's blogs</title>
+  <title>浅谈帧动画 | zhouyu1993's blogs</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2017/08/08/我在公司的第一次分享/">
+    <link itemprop="mainEntityOfPage" href="https://zhouyu1993.github.io/zh/2020/12/31/分享-我在小米的第二次分享/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouyu1993">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我在公司的第一次分享</h1>
+          <h1 class="post-title" itemprop="name headline">浅谈帧动画</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T00:00:00+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-31T00:00:00+08:00">
+                2020-12-31
               </time>
             
 
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T15:59:39+08:00">
-                2019-01-30
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-02T15:41:56+08:00">
+                2021-03-02
               </time>
             
           </span>
@@ -401,7 +401,7 @@
 
           
           
-             <span id="/zh/2017/08/08/我在公司的第一次分享/" class="leancloud_visitors" data-flag-title="我在公司的第一次分享">
+             <span id="/zh/2020/12/31/分享-我在小米的第二次分享/" class="leancloud_visitors" data-flag-title="浅谈帧动画">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,13 +432,7 @@
       
 
       
-        <p>我在公司的第一次分享。分享两次事故。</p>
-<a id="more"></a>
-
-<p>7月4日，因为项目中有一个记录用户报名推荐人的需求（类似分享赚），这个需要从 cookie 中获取。由于工作人员对相关技术问题知之甚少，链接配置有问题会导致推荐人获取错误。为了定位这个问题，我私下和后端商议，多写入一个 location.href 的信息，但是双方都没有考虑到数据库的最大写入值。由于在测试及预发验证不到位，这个隐患问题没有被发现。下午4点左右发版上线。我于6点下班。很快在6点半到7点半之间陆续暴露出问题。急忙赶回家，7点50分左右，因为很清楚是什么地方改动，而且属于小改动，我对此进行修复。</p>
-<p>总结：客观原因是，前端写入值超过后端数据库规定最大写入值，但后端未做拦截；主观原因是，我私下和后端商议，未考虑周全，未做风险评估，未上报测试。</p>
-<p>8月8日，项目新需求准备发版，因框架升级可以修复之前的问题，所以借此次需求我对项目进行升级。在升级过程中，从本地到开发到测试到预发环境，依次都展现出框架升级后的各类问题，针对各类问题，我在各类环境进行修复。主要是框架升级后，和其他库或者代码有所冲突。本次升级还有个比较麻烦的事是在各类环境装包 npm install 或者 yarn install 都失败，因此我将本地包压缩上传到开发环境，再进行解压。很快，开发环境调通。再发布到测试环境，测试环境经过测试人员验证，也没有问题。再发布到预发布环境，依然正常。最后于下午3点半左右发版上线，因为框架升级，由运维解压包然后我重启服务器。注意，我隐约觉得有问题，发之前我也和测试透露出可能有问题（我心里知道会出现和预发布环境一样的包问题），但觉得预发布环境调通了，线上即使出现问题，应该很快就可以解决，过于自信，过于大胆，我让运维在两台服务器上同时进行解压，然后我同时进行了重启。下一秒后，整个项目挂了。我第一反应是，立马暂停服务器，从而线上报 502。然后我去看线上环境的包，发现线上包和预发布环境包不一样，我立马让运维重新进行解压，并且我尝试进行手动发布包。于此同时，陆续有人反应项目挂了，说明此时确实是高峰期。我和运维不断发布／上传／压缩／解压／重启，但是依然不成功，时间已经过去半个小时，这时候多方人员要求我先进行回滚。我说没法回滚，主要原因是太麻烦了，而且回滚了也不一定成功。因为整个项目进行了升级，很多包发生变化，新的包覆盖旧的包没有完全生效，此时若回滚，需要将旧的包重新上传对【旧-新杂交包】进行覆盖，我没有把握可以成功。在4点和5点之间我们还在定位问题，我一边让运维将线上的包全部删除后再重新安装，一边在准备回滚（将上个版本的打包尝试替换）。线上安装的很慢，而我这里回滚进展的也很慢。而时间已经到了下午5点，事故已经发生一个半小时，上级领导决定让运维将线上切到预发布，这样可以让项目暂时可用，毕竟预发布是正常的，可以堵住问题的继续喷发。这样我就暂停了回滚，继续和运维在线上服务器进行尝试安装包，期待是因为包的问题导致项目异常。下午6点左右，两台装了一个半小时包的服务器终于装完了。。。我立马进行重启，终于正常了。。。</p>
-<p>总结：客观原因是，由于网络或其他原因，各环境装包困难，由本地装的包发到线上后，可能存在兼容问题，或者在解压覆盖过程中，出现偏差，具体是什么原因，真的不知道，反正包不对；主观原因是，我对框架进行升级，有一些包发生变化，这样可能带来隐患，未做考虑周全，未风险评估，未上报测试，虽然知道可能会出现问题但是没有做好事故发生的应对方案。</p>
+        <p><a href="https://zhouyu1993.github.io/share/浅谈帧动画.docx">浅谈帧动画</a></p>
 
       
     </div>
@@ -506,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/zh/2016/01/01/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/zh/2020/11/03/test2/package-lock/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -516,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/zh/2017/09/22/我在公司的第二次分享/" rel="prev" title="我在公司的第二次分享">
-                我在公司的第二次分享 <i class="fa fa-chevron-right"></i>
+              <a href="/zh/2021/01/01/JS-Angular/" rel="prev" title="Angular 入门">
+                Angular 入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +587,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +609,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -706,7 +700,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

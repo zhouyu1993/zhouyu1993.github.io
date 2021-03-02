@@ -1,5 +1,13 @@
-[Angular](https://angular.cn/docs)
+---
+title: Angular 入门
 
+categories:
+  - web
+
+tags:
+  - Angular
+
+date: 2021/01/01
 ---
 
 Angular 是一个【应用设计框架与开发平台】，用于创建高效、复杂、精致的【单页面应用】。
@@ -83,7 +91,7 @@ import {
 
 import {
 	UserService,
-} from './core/user.service';    
+} from './core/user.service';
 
 // @Component decorator [es6, decorator 装饰器]
 @Component({
@@ -117,4 +125,3 @@ export class AppComponent implements OnInit {
   }
 }
 ```
-
