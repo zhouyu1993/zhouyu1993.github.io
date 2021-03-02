@@ -14,6 +14,8 @@ Angular 是一个【应用设计框架与开发平台】，用于创建高效、
 
 Angular 的学习曲线是非常陡峭的，门槛较高，需要熟悉 HTML、CSS、JavaScript、ES2015 如 Class 类、Module 模块等，必须用 TypeScript 来开发，用 [类型](https://www.tslang.cn/docs/handbook/classes.html) 实现依赖注入，还会用 [注解/装饰器](https://www.tslang.cn/docs/handbook/decorators.html) 来提供元数据。
 
+<!-- more -->
+
 [依赖注入](https://angular.cn/guide/glossary#dependency-injection-di)
 
 [Angular 中的依赖注入](https://angular.cn/guide/dependency-injection)
