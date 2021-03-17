@@ -419,7 +419,7 @@ IE9+，Chrome，Safari，Firefox 和 Opera
 }
 ```
 
-`unicode-range` 定义字体支持的 unicode 字符范围。默认是 "U+0-10FFFF"。
+`unicode-range` 定义字体支持的 Unicode 字符范围。默认是 "U+0-10FFFF"。
 
 # Emoji 表情符号的使用
 
@@ -448,4 +448,53 @@ function decodeChar (input) {
 }
 
 decodeChar('&#128512;') // 😀
+```
+
+## 微信翻译：JS 之汉字与 Unicode 码的相互转化
+
+``` js
+'好'.charCodeAt(0).toString(16) // '597d'
+
+'好' === '\u597d'
+
+// 有问题，无法兼容非汉字，如数字字母字符
+function toUnicode (str) {
+  if (str == '' || typeof str == 'undefined') return '请输入汉字'
+
+  var str ='';
+
+  for (var i = 0; i < str.length; i ++) {
+    str += '\\u' + str.charCodeAt(i).toString(16)
+  }
+
+  return str;
+}
+
+// 有问题，无法兼容非汉字，如数字字母字符
+function toGB2312 (str){
+  if (str == '' || typeof str == 'undefined') return '请输入十六进制unicode'
+
+  str = str.split('\\u')
+
+  var str = '';
+
+  for (var i = 0; i < str.length; i ++) {
+    str += String.fromCharCode(parseInt(str[i], 16).toString(10))
+  }
+
+  return str;
+}
+
+// 考虑怎么确定汉子的范围
+
+// 兼容
+// escape 与 unescape
+const GB2312UnicodeConverter = {
+  ToUnicode: function (str) {
+    return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u')
+  },
+  ToGB2312: function (str) {
+    return unescape(str.replace(/\\u/gi, '%u'))
+  }
+}
 ```
