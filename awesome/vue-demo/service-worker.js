@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/awesome/vue-demo/index.html","26ca3dcf015584ae25f2f324f4c42fff"],["/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css","68c7a03d5ca7a82e1aecd41fcc2c485e"],["/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css.map","5467d0d7baf8690095a32a140536f894"],["/awesome/vue-demo/static/favicon.ico","4efaa5f78730c1c3443dd8b5251cc982"],["/awesome/vue-demo/static/icon.png","819d332c24a42704439ca7bed0649ddf"],["/awesome/vue-demo/static/js/0.4f0ef4c4fe8aa1f674b4.js","77319e792ad47144d340c423392b6a63"],["/awesome/vue-demo/static/js/0.4f0ef4c4fe8aa1f674b4.js.map","170d7c7d57cac08c69a7ff36554c7f2d"],["/awesome/vue-demo/static/js/1.13d73277184ca07d1983.js","f6b11fd0d755c3834a9aac9a443afd80"],["/awesome/vue-demo/static/js/1.13d73277184ca07d1983.js.map","054fac737b6fcd363368a86f28705117"],["/awesome/vue-demo/static/js/2.fa3eab8edc99f6749955.js","97bf90fc68cc7341e555e027545d8d2d"],["/awesome/vue-demo/static/js/2.fa3eab8edc99f6749955.js.map","0570e1f049829a2fb97141eddf7566fa"],["/awesome/vue-demo/static/js/3.5451a77617a882193b15.js","b0ce7878cc53cb86212f2444bcf3bdea"],["/awesome/vue-demo/static/js/3.5451a77617a882193b15.js.map","de5dca0599e956503bddbc582a58bfb9"],["/awesome/vue-demo/static/js/4.bc28f8ff7f824cccb78d.js","3fc625dc477792d768a91dc2093b023f"],["/awesome/vue-demo/static/js/4.bc28f8ff7f824cccb78d.js.map","43e31e0fea4715ad3bc34223d87a37c2"],["/awesome/vue-demo/static/js/5.f7e1652b52ab4db9a360.js","b7c4aea2c44ec455b31a6c46705ed09b"],["/awesome/vue-demo/static/js/5.f7e1652b52ab4db9a360.js.map","56376a0b2ceb14cddd66d128233b3b8f"],["/awesome/vue-demo/static/js/6.6db90c58983cf2593600.js","1fa6ddc270ee673b1059476b91f45314"],["/awesome/vue-demo/static/js/6.6db90c58983cf2593600.js.map","f4a13485339c7925653e384268d65ba9"],["/awesome/vue-demo/static/js/7.36f16eb1a2d56b73092b.js","dd7839db7edd13e000ed4bc5d9ac6736"],["/awesome/vue-demo/static/js/7.36f16eb1a2d56b73092b.js.map","2da68e20908930d7170d58041331cbc7"],["/awesome/vue-demo/static/js/8.2aef1c88f96aad458e15.js","3d2a72238f9fab18451cc25a23ee87d5"],["/awesome/vue-demo/static/js/8.2aef1c88f96aad458e15.js.map","9cb3c53d3d1354a787692a35f74137bb"],["/awesome/vue-demo/static/js/9.7d16161038fd23a4ad63.js","b76c4576c4703556e7ee50a63c81626e"],["/awesome/vue-demo/static/js/9.7d16161038fd23a4ad63.js.map","a4fd573f07edc4472730ab85f1802989"],["/awesome/vue-demo/static/js/app.49d462789a6f3ac26c0e.js","3b7138ffc6ed6e1a46c797b9b08268fb"],["/awesome/vue-demo/static/js/app.49d462789a6f3ac26c0e.js.map","e94b4fa8201d8a42dd242ff7d76524cf"],["/awesome/vue-demo/static/js/manifest.f796905a4ddcc9ed0c1d.js","c3722458e94203c6db6f033b8b71d1f3"],["/awesome/vue-demo/static/js/manifest.f796905a4ddcc9ed0c1d.js.map","60441164f45941a3af0c32d0c58d7d66"],["/awesome/vue-demo/static/js/vendor.bb51abf666cbc9b5658a.js","10761ca75a83d014e5be45070b756089"],["/awesome/vue-demo/static/js/vendor.bb51abf666cbc9b5658a.js.map","2b914c44112c7bcb6fc7ffbc5b779446"],["/awesome/vue-demo/static/manifest.json","8909f693ac67dd5ca192fca0e0a1569e"]];
+var precacheConfig = [["/awesome/vue-demo/index.html","f4061263ec216e644595c52507c2a865"],["/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css","68c7a03d5ca7a82e1aecd41fcc2c485e"],["/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css.map","5467d0d7baf8690095a32a140536f894"],["/awesome/vue-demo/static/favicon.ico","4efaa5f78730c1c3443dd8b5251cc982"],["/awesome/vue-demo/static/icon.png","819d332c24a42704439ca7bed0649ddf"],["/awesome/vue-demo/static/js/0.4f0ef4c4fe8aa1f674b4.js","77319e792ad47144d340c423392b6a63"],["/awesome/vue-demo/static/js/0.4f0ef4c4fe8aa1f674b4.js.map","170d7c7d57cac08c69a7ff36554c7f2d"],["/awesome/vue-demo/static/js/1.13d73277184ca07d1983.js","f6b11fd0d755c3834a9aac9a443afd80"],["/awesome/vue-demo/static/js/1.13d73277184ca07d1983.js.map","054fac737b6fcd363368a86f28705117"],["/awesome/vue-demo/static/js/2.fa3eab8edc99f6749955.js","97bf90fc68cc7341e555e027545d8d2d"],["/awesome/vue-demo/static/js/2.fa3eab8edc99f6749955.js.map","0570e1f049829a2fb97141eddf7566fa"],["/awesome/vue-demo/static/js/3.5451a77617a882193b15.js","b0ce7878cc53cb86212f2444bcf3bdea"],["/awesome/vue-demo/static/js/3.5451a77617a882193b15.js.map","de5dca0599e956503bddbc582a58bfb9"],["/awesome/vue-demo/static/js/4.af3018fab7b5d723f173.js","bd6719f704f76fe078ee0e30ae92c7a9"],["/awesome/vue-demo/static/js/4.af3018fab7b5d723f173.js.map","182a86f50be7d1b4edac115bd56dcf9a"],["/awesome/vue-demo/static/js/5.f7e1652b52ab4db9a360.js","b7c4aea2c44ec455b31a6c46705ed09b"],["/awesome/vue-demo/static/js/5.f7e1652b52ab4db9a360.js.map","56376a0b2ceb14cddd66d128233b3b8f"],["/awesome/vue-demo/static/js/6.6db90c58983cf2593600.js","1fa6ddc270ee673b1059476b91f45314"],["/awesome/vue-demo/static/js/6.6db90c58983cf2593600.js.map","f4a13485339c7925653e384268d65ba9"],["/awesome/vue-demo/static/js/7.36f16eb1a2d56b73092b.js","dd7839db7edd13e000ed4bc5d9ac6736"],["/awesome/vue-demo/static/js/7.36f16eb1a2d56b73092b.js.map","2da68e20908930d7170d58041331cbc7"],["/awesome/vue-demo/static/js/8.2aef1c88f96aad458e15.js","3d2a72238f9fab18451cc25a23ee87d5"],["/awesome/vue-demo/static/js/8.2aef1c88f96aad458e15.js.map","9cb3c53d3d1354a787692a35f74137bb"],["/awesome/vue-demo/static/js/9.7d16161038fd23a4ad63.js","b76c4576c4703556e7ee50a63c81626e"],["/awesome/vue-demo/static/js/9.7d16161038fd23a4ad63.js.map","a4fd573f07edc4472730ab85f1802989"],["/awesome/vue-demo/static/js/app.49d462789a6f3ac26c0e.js","3b7138ffc6ed6e1a46c797b9b08268fb"],["/awesome/vue-demo/static/js/app.49d462789a6f3ac26c0e.js.map","e94b4fa8201d8a42dd242ff7d76524cf"],["/awesome/vue-demo/static/js/manifest.246fb0150d65cb531842.js","58ce65be52b49ac9754e4b7a54540380"],["/awesome/vue-demo/static/js/manifest.246fb0150d65cb531842.js.map","800bc26021403a181de0edd072a02400"],["/awesome/vue-demo/static/js/vendor.b3f7db91878e5ce4a9ea.js","b09572fdacb508021b93f2c50ad0d33d"],["/awesome/vue-demo/static/js/vendor.b3f7db91878e5ce4a9ea.js.map","84259925970dc068485cd7be840be7c9"],["/awesome/vue-demo/static/manifest.json","8909f693ac67dd5ca192fca0e0a1569e"]];
 var cacheName = 'sw-precache-v3-vue-demo-' + (self.registration ? self.registration.scope : '');
 
 
@@ -45,7 +45,7 @@ var ignoreUrlParametersMatching = [/^utm_/];
 
 
 
-var addDirectoryIndex = function (originalUrl, index) {
+var addDirectoryIndex = function(originalUrl, index) {
     var url = new URL(originalUrl);
     if (url.pathname.slice(-1) === '/') {
       url.pathname += index;
@@ -53,7 +53,7 @@ var addDirectoryIndex = function (originalUrl, index) {
     return url.toString();
   };
 
-var cleanResponse = function (originalResponse) {
+var cleanResponse = function(originalResponse) {
     // If this is not a redirected response, then we don't have to do anything.
     if (!originalResponse.redirected) {
       return Promise.resolve(originalResponse);
@@ -75,7 +75,7 @@ var cleanResponse = function (originalResponse) {
     });
   };
 
-var createCacheKey = function (originalUrl, paramName, paramValue,
+var createCacheKey = function(originalUrl, paramName, paramValue,
                            dontCacheBustUrlsMatching) {
     // Create a new URL object to avoid modifying originalUrl.
     var url = new URL(originalUrl);
@@ -91,7 +91,7 @@ var createCacheKey = function (originalUrl, paramName, paramValue,
     return url.toString();
   };
 
-var isPathWhitelisted = function (whitelist, absoluteUrlString) {
+var isPathWhitelisted = function(whitelist, absoluteUrlString) {
     // If the whitelist is empty, then consider all URLs to be whitelisted.
     if (whitelist.length === 0) {
       return true;
@@ -104,7 +104,7 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
     });
   };
 
-var stripIgnoredUrlParameters = function (originalUrl,
+var stripIgnoredUrlParameters = function(originalUrl,
     ignoreUrlParametersMatching) {
     var url = new URL(originalUrl);
     // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290
