@@ -1,50 +1,65 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=renderer content=webkit><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=vue,csr,vue-demo><meta name=description content="A Vue.js project [client-side rendering]"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=vue-demo><title>vue-demo</title><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/vue-demo/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/vue-demo/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/vue-demo/static/manifest.json><link href=/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css rel=stylesheet></head><body><div id=app></div><script>(function () {
-      // Set fontSize for rem
-      function rem () {
-        var html = document.documentElement
-        var width = Math.min(html.getBoundingClientRect().width, 800)
-        var fontSize = width * 100 / 750 + 'px'
-        html.style.fontSize = fontSize
-      }
-      rem()
-      window.onresize = function () { rem() }
-
-      // Use ServiceWorker
-      var openServiceWorker = true
-      if (openServiceWorker) {
-        if ('serviceWorker' in navigator) {
-          /// The scope of ServiceWorker
-          var dev = false
-          var sw = dev ? '/service-worker.js?v=' : '//zhouyu1993.github.io/awesome/vue-demo/service-worker.js?v='
-          var _scope = dev ? '/' : '/awesome/vue-demo/'
-
-          // ServiceWorker version
-          var version = '2019081601'
-
-          window.addEventListener('load', function () {
-            navigator.serviceWorker.register(sw + version, {
-              scope: _scope
-            }).then(function (registration) {
-              // Register success
-              console.log('ServiceWorker registration successful with scope:', registration.scope)
-
-              // Update ServiceWorker
-              if (localStorage && localStorage.getItem('vue-demo-sw-v') !== version) {
-                registration.update().then(function () {
-                  localStorage.setItem('vue-demo-sw-v', version)
-                })
-              }
-            }).catch(function (err) {
-              // Register failure
-              console.log('ServiceWorker registration failed:', err)
-            })
-          })
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=pragma content=no-cache><meta http-equiv=cache-control content=no-cache><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=renderer content=webkit><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><meta name=keywords content=vue,csr,vue-demo><meta name=description content="A Vue.js project [client-side rendering]"><meta name=format-detection content="telephone=no,email=no,address=no"><meta name=apple-itunes-app content="app-id=?"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=vue-demo><title>vue-demo</title><link rel=apple-touch-icon href=https://zhouyu1993.github.io/awesome/vue-demo/static/icon.png type=image/png><link rel=icon href=https://zhouyu1993.github.io/awesome/vue-demo/static/favicon.ico type=image/x-icon><link rel=manifest href=https://zhouyu1993.github.io/awesome/vue-demo/static/manifest.json><link href=/awesome/vue-demo/static/css/app.49f101f02800f488bcaa1fc470cdccbb.css rel=stylesheet></head><body><div id=app></div><script>;(function() {
+        // Set fontSize for rem
+        function rem() {
+          var html = document.documentElement
+          var width = Math.min(html.getBoundingClientRect().width, 1300)
+          var fontSize = (width * 100) / 750 + 'px'
+          html.style.fontSize = fontSize
         }
-      }
+        rem()
+        window.onresize = function() {
+          rem()
+        }
 
-      // Add eruda
-      if (/rj_debug=on/.test(window.location)) {
-        document.write('<scr' + 'ipt src="//cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>')
-        document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
-      }
-    })()</script><script src=//statres.quickapp.cn/quickapp/js/routerinline.min.js></script><script type=text/javascript src=/awesome/vue-demo/static/js/manifest.8c415969e4468818f6bc.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=/awesome/vue-demo/static/js/vendor.55a0f1c2fe07a04b7d33.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=/awesome/vue-demo/static/js/app.5c61e7289fe69cce4470.js defer=defer crossorigin=anonymous></script></body></html>
+        // Use ServiceWorker
+        var openServiceWorker = true
+        if (openServiceWorker) {
+          if ('serviceWorker' in navigator) {
+            /// The scope of ServiceWorker
+            var dev = false
+            var sw = dev
+              ? '/service-worker.js?v='
+              : '//zhouyu1993.github.io/awesome/vue-demo/service-worker.js?v='
+            var _scope = dev ? '/' : '/awesome/vue-demo/'
+
+            // ServiceWorker version
+            var version = '20220413'
+
+            window.addEventListener('load', function() {
+              navigator.serviceWorker
+                .register(sw + version, {
+                  scope: _scope,
+                })
+                .then(function(registration) {
+                  // Register success
+                  console.log(
+                    'ServiceWorker registration successful with scope:',
+                    registration.scope
+                  )
+
+                  // Update ServiceWorker
+                  if (
+                    localStorage &&
+                    localStorage.getItem('vue-demo-sw-v') !== version
+                  ) {
+                    registration.update().then(function() {
+                      localStorage.setItem('vue-demo-sw-v', version)
+                    })
+                  }
+                })
+                .catch(function(err) {
+                  // Register failure
+                  console.log('ServiceWorker registration failed:', err)
+                })
+            })
+          }
+        }
+
+        // Add eruda
+        if (/rj_debug=on/.test(window.location)) {
+          document.write(
+            '<scr' + 'ipt src="//cdn.jsdelivr.net/npm/eruda"></scr' + 'ipt>'
+          )
+          document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>')
+        }
+      })()</script><script src=//statres.quickapp.cn/quickapp/js/routerinline.min.js></script><script type=text/javascript src=/awesome/vue-demo/static/js/manifest.0e07408a744c677668d6.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=/awesome/vue-demo/static/js/vendor.2c2278ad4732e871fbf7.js defer=defer crossorigin=anonymous></script><script type=text/javascript src=/awesome/vue-demo/static/js/app.acc6a5f5a2f9c3971d85.js defer=defer crossorigin=anonymous></script></body></html>
