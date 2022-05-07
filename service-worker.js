@@ -1,5 +1,5 @@
 // sw version，
-var version = '2021031701'
+var version = '20220507'
 var CACHE_NAME = 'zhouyu1993.github.io-sw-v' + version
 
 var urlsToCache = [
@@ -68,7 +68,7 @@ self.addEventListener('activate', function (event) {
           if (cacheWhitelist.indexOf(cache) === -1) {
             return caches.delete(cache)
           }
-        })
+        }),
       ])
     })
   )
